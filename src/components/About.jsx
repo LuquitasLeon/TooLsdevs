@@ -11,7 +11,7 @@ export default function About() {
         <SectionHeading eyebrow="Quiénes somos" title="Tres amigos, una misma idea" />
 
         <div className="grid gap-12 lg:grid-cols-5 lg:gap-16">
-          <Reveal delay={0.1} className="lg:col-span-3 flex flex-col gap-5">
+          <Reveal delay={0.1} className="lg:col-span-3 flex flex-col justify-center gap-5">
             {about.paragraphs.map((p) => (
               <p key={p} className="text-base sm:text-lg leading-relaxed text-slate-300/90 text-pretty">
                 {p}
