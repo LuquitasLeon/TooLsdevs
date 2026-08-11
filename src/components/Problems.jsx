@@ -6,8 +6,10 @@ import { problems } from "../data/content";
 
 export default function Problems() {
   return (
-    <section className="py-24 sm:py-32 border-t border-white/5">
-      <Container className="flex flex-col gap-12">
+    <section className="relative overflow-hidden py-24 sm:py-32 border-t border-white/5">
+      <div className="pointer-events-none absolute -top-24 left-0 h-96 w-96 rounded-full bg-brand-green/10 blur-[110px]" />
+
+      <Container className="relative flex flex-col gap-12">
         <SectionHeading eyebrow="Desafíos" title={problems.title} description={problems.intro} />
 
         <div className="grid gap-3 sm:grid-cols-2">
@@ -15,7 +17,7 @@ export default function Problems() {
             <Reveal key={item} delay={(i % 4) * 0.06}>
               <div className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.02] px-5 py-4">
                 <AlertCircle size={18} className="mt-0.5 shrink-0 text-brand-teal" />
-                <span className="text-sm sm:text-base text-slate-300/90">{item}</span>
+                <span className="text-sm sm:text-base text-slate-200/90">{item}</span>
               </div>
             </Reveal>
           ))}

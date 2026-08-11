@@ -24,7 +24,7 @@ export default function Services() {
                   <h3 className="font-display text-xl font-semibold text-white">{group.title}</h3>
                   <ul className="mt-5 flex flex-col gap-3">
                     {group.items.map((item) => (
-                      <li key={item} className="flex items-start gap-2.5 text-sm sm:text-base text-slate-300/90">
+                      <li key={item} className="flex items-start gap-2.5 text-sm sm:text-base text-slate-200/90">
                         <Check size={18} className="mt-0.5 shrink-0 text-brand-green" />
                         <span>{item}</span>
                       </li>

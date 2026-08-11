@@ -19,7 +19,7 @@ export default function Process() {
                 </div>
                 <div className="pt-1 sm:pt-2">
                   <h3 className="font-display text-lg font-semibold text-white">{step.title}</h3>
-                  <p className="mt-1.5 text-sm sm:text-base leading-relaxed text-slate-300/90 max-w-xl">
+                  <p className="mt-1.5 text-sm sm:text-base leading-relaxed text-slate-200/90 max-w-xl">
                     {step.text}
                   </p>
                 </div>

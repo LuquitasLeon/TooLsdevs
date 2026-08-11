@@ -8,8 +8,10 @@ const icons = [Workflow, Globe, Boxes, Building2, Network, ShieldCheck];
 
 export default function Projects() {
   return (
-    <section id="proyectos" className="py-24 sm:py-32 border-t border-white/5">
-      <Container className="flex flex-col gap-14">
+    <section id="proyectos" className="relative overflow-hidden py-24 sm:py-32 border-t border-white/5">
+      <div className="pointer-events-none absolute -top-24 right-0 h-96 w-96 rounded-full bg-brand-teal/10 blur-[110px]" />
+
+      <Container className="relative flex flex-col gap-14">
         <SectionHeading eyebrow="Trabajos realizados" title={projects.title} description={projects.intro} />
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -22,7 +24,7 @@ export default function Projects() {
                     <Icon size={20} />
                   </div>
                   <h3 className="mt-5 font-display text-lg font-semibold text-white">{project.title}</h3>
-                  <p className="mt-2 text-sm sm:text-base leading-relaxed text-slate-300/90">{project.text}</p>
+                  <p className="mt-2 text-sm sm:text-base leading-relaxed text-slate-200/90">{project.text}</p>
                 </div>
               </Reveal>
             );

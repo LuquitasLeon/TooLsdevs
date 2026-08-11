@@ -12,7 +12,7 @@ export default function About() {
 
         <Reveal delay={0.1} className="flex flex-col gap-5 max-w-3xl">
           {about.paragraphs.map((p) => (
-            <p key={p} className="text-base sm:text-lg leading-relaxed text-slate-300/90 text-pretty">
+            <p key={p} className="text-base sm:text-lg leading-relaxed text-slate-200/90 text-pretty">
               {p}
             </p>
           ))}
@@ -25,7 +25,7 @@ export default function About() {
                 <Target size={20} />
               </div>
               <h3 className="font-display text-lg font-semibold text-white">{about.mission.title}</h3>
-              <p className="mt-2 text-sm sm:text-base leading-relaxed text-slate-300/90">
+              <p className="mt-2 text-sm sm:text-base leading-relaxed text-slate-200/90">
                 {about.mission.text}
               </p>
             </div>
@@ -36,7 +36,7 @@ export default function About() {
                 <Compass size={20} />
               </div>
               <h3 className="font-display text-lg font-semibold text-white">{about.vision.title}</h3>
-              <p className="mt-2 text-sm sm:text-base leading-relaxed text-slate-300/90">
+              <p className="mt-2 text-sm sm:text-base leading-relaxed text-slate-200/90">
                 {about.vision.text}
               </p>
             </div>

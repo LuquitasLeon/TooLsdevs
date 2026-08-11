@@ -10,8 +10,10 @@ function initials(name) {
 
 export default function Team() {
   return (
-    <section className="py-24 sm:py-32 border-t border-white/5">
-      <Container className="flex flex-col gap-12">
+    <section className="relative overflow-hidden py-24 sm:py-32 border-t border-white/5">
+      <div className="pointer-events-none absolute -top-24 right-0 h-96 w-96 rounded-full bg-brand-teal/10 blur-[110px]" />
+
+      <Container className="relative flex flex-col gap-12">
         <Reveal className="max-w-2xl">
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-teal/90">
             Nuestro equipo
@@ -19,7 +21,7 @@ export default function Team() {
           <h2 className="mt-4 font-display text-3xl sm:text-4xl font-bold text-white text-balance">
             Técnicos programadores, graduados de la UTN FRT
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-slate-300/90">
+          <p className="mt-4 text-base sm:text-lg text-slate-200/90">
             Trabajamos de manera integral en todas las áreas de la empresa.
           </p>
         </Reveal>
@@ -33,12 +35,12 @@ export default function Team() {
                 </div>
                 <h3 className="mt-5 font-display text-lg font-semibold text-white">{member.name}</h3>
                 <p className="mt-1 text-sm font-medium text-brand-teal">{member.role}</p>
-                <div className="mt-4 flex items-start gap-2 text-sm text-slate-300/90">
+                <div className="mt-4 flex items-start gap-2 text-sm text-slate-200/90">
                   <User size={16} className="mt-0.5 shrink-0 text-slate-500" />
                   <span>{member.detail}</span>
                 </div>
                 {member.extra && (
-                  <div className="mt-2 flex items-start gap-2 text-sm text-slate-300/90">
+                  <div className="mt-2 flex items-start gap-2 text-sm text-slate-200/90">
                     <ShieldCheck size={16} className="mt-0.5 shrink-0 text-brand-green" />
                     <span>{member.extra}</span>
                   </div>

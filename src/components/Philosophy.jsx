@@ -16,7 +16,7 @@ export default function Philosophy() {
 
         <Reveal delay={0.1} className="max-w-2xl flex flex-col gap-4">
           {philosophy.paragraphs.map((p) => (
-            <p key={p} className="text-sm sm:text-base leading-relaxed text-slate-300/90">
+            <p key={p} className="text-sm sm:text-base leading-relaxed text-slate-200/90">
               {p}
             </p>
           ))}

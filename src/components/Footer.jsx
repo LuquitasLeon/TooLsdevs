@@ -18,7 +18,7 @@ export default function Footer() {
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-white text-balance">
             Convertimos el problema de tu empresa en una herramienta
           </h2>
-          <p className="text-base sm:text-lg text-slate-300/90">
+          <p className="text-base sm:text-lg text-slate-200/90">
             Contanos qué necesitás y te respondemos a la brevedad.
           </p>
         </Reveal>
