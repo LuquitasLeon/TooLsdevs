@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "sourceMap": true,
+    "outDir": "dist",
+    "rootDir": "src",
+    // En el build se resuelve el paquete publicado (shared/dist), no el fuente:
+    // así el JavaScript emitido es válido para Node tal cual sale.
+    "paths": {}
+  },
+  "include": ["src"]
+}

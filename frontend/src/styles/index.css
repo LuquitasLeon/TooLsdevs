@@ -1,0 +1,96 @@
+@import "./fonts.css";
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Space Grotesk", "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
+
+  /* Azules de fondo, del más profundo al más claro. */
+  --color-navy-950: #060e22;
+  --color-navy-900: #0a1730;
+  --color-navy-800: #0f2050;
+  --color-navy-700: #16306e;
+  --color-navy-600: #1e3f8f;
+
+  /* Los dos extremos del gradiente del logo. */
+  --color-brand-green: #4ade80;
+  --color-brand-teal: #22d3ee;
+  /* Tomados del logo original: son más luminosos que los tokens de arriba y se
+     usan cuando algo tiene que leerse como "la marca" y no como "un acento". */
+  --color-logo-green: #84f866;
+  --color-logo-teal: #57d1d2;
+
+  /* Escala tipográfica con más contraste entre extremos: la landing anterior
+     vivía casi entera entre text-3xl y text-4xl y todo pesaba igual. */
+  --text-display: 4.5rem;
+  --text-display--line-height: 1.02;
+  --text-display--letter-spacing: -0.03em;
+  --text-display-sm: 3rem;
+  --text-display-sm--line-height: 1.06;
+  --text-display-sm--letter-spacing: -0.025em;
+
+  /* Ritmo vertical de las secciones, para no repetir py-24 sm:py-32 nueve veces. */
+  --spacing-section: 7rem;
+  --spacing-section-lg: 10rem;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 106.25%;
+  /* Deja aire bajo la barra fija al saltar a un ancla. */
+  scroll-padding-top: 6rem;
+}
+
+body {
+  background: var(--color-navy-950);
+  color: #e6ebf5;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-brand-teal) 35%, transparent);
+  color: #fff;
+}
+
+/* Foco visible y consistente en todo lo interactivo. Sin esto, quien navega con
+   teclado no sabe dónde está parado. */
+:focus-visible {
+  outline: 2px solid var(--color-brand-teal);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.text-gradient {
+  background-image: linear-gradient(90deg, var(--color-brand-green), var(--color-brand-teal));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(color-mix(in srgb, #ffffff 5%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, #ffffff 5%, transparent) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+/* Respetar la preferencia del sistema de reducir movimiento no es un detalle:
+   para algunas personas las animaciones producen mareo real. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

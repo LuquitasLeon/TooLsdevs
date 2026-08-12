@@ -1,0 +1,22 @@
+/*
+ * Fuentes self-hosted (woff2, subset latino) en vez de Google Fonts.
+ *
+ * Google Fonts obliga a una conexión extra a otro dominio antes de poder pintar
+ * texto, y eso bloquea el render. Sirviéndolas desde el propio origen, Vite las
+ * empaqueta, les pone hash y las cachea como cualquier otro asset.
+ *
+ * Cada import trae `font-display: swap`: el texto se ve enseguida con la fuente
+ * del sistema y cambia a la definitiva al cargar, sin pantalla en blanco.
+ */
+
+/* Inter — cuerpo de texto */
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/inter/700.css";
+@import "@fontsource/inter/800.css";
+
+/* Space Grotesk — títulos y display */
+@import "@fontsource/space-grotesk/500.css";
+@import "@fontsource/space-grotesk/600.css";
+@import "@fontsource/space-grotesk/700.css";
