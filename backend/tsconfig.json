@@ -6,7 +6,6 @@
     "lib": ["ES2023"],
     "types": ["node"],
     "noEmit": true,
-    "baseUrl": ".",
     // Durante el chequeo de tipos apuntamos al código fuente de `shared`, así no
     // hace falta compilarlo para ver un error. En runtime se resuelve a dist/.
     "paths": {
