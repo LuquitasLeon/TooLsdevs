@@ -64,7 +64,7 @@ export default function Hero() {
               className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2 w-full sm:w-auto"
             >
               <Magnetic>
-                <Button href={hero.ctaPrimary.href} className="w-full sm:w-auto">
+                <Button to={hero.ctaPrimary.href} className="w-full sm:w-auto">
                   {hero.ctaPrimary.label}
                   <ArrowRight
                     size={16}
@@ -75,7 +75,7 @@ export default function Hero() {
               </Magnetic>
               <Magnetic strength={8}>
                 <Button
-                  href={hero.ctaSecondary.href}
+                  to={hero.ctaSecondary.href}
                   variant="secondary"
                   className="w-full sm:w-auto"
                 >
