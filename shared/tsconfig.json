@@ -1,0 +1,14 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    // NodeNext porque el backend consume este paquete ya compilado, desde Node.
+    // Obliga a escribir las importaciones relativas con extensión .js, que es lo
+    // que Node ESM necesita en runtime (Vite lo resuelve igual hacia el .ts).
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "lib": ["ES2022"],
+    "noEmit": true,
+    "types": []
+  },
+  "include": ["src"]
+}

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="12 1 667 593" role="img" aria-label="ToolsDevs">
+  <defs>
+    <linearGradient id="td" x1="20" y1="0" x2="671" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#84f866"/>
+      <stop offset=".5" stop-color="#69e09c"/>
+      <stop offset="1" stop-color="#57d1d2"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" stroke="url(#td)" stroke-width="22" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M140.5 94.5A73.5 73.5 0 0 1 214 21h278A74 74 0 0 1 566 95v190.5"/>
+    <path d="M566 353.5V491a84 84 0 0 1-84 84H283a43 43 0 0 1-43-43v-62"/>
+    <path d="M192.5 158.5h44a52 52 0 0 1 52 52v24a52 52 0 0 1-52 52h-44a52 52 0 0 1-52-52v-24a52 52 0 0 1 52-52Z"/>
+    <path d="M435 158.5h41a52 52 0 0 1 52 52v24a52 52 0 0 1-52 52h-41a52 52 0 0 1-52-52v-24a52 52 0 0 1 52-52Z"/>
+    <path d="M335.5 264.5v117a12 12 0 0 0 12 12h67"/>
+    <path d="M170 460h245"/>
+    <path d="M77 243C60 243 50 251 50 258v28c0 8-10 21.5-19 21.5 9 0 19 13.5 19 21.5v28c0 7 10 15 27 15"/>
+    <g transform="translate(691,0) scale(-1,1)">
+      <path d="M77 243C60 243 50 251 50 258v28c0 8-10 21.5-19 21.5 9 0 19 13.5 19 21.5v28c0 7 10 15 27 15"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,26 @@
+{
+  "$schema": "../node_modules/oxlint/configuration_schema.json",
+  "plugins": ["react", "typescript", "oxc", "jsx-a11y", "import"],
+  "env": {
+    "browser": true,
+    "es2024": true
+  },
+  "rules": {
+    "react/rules-of-hooks": "error",
+    "react/exhaustive-deps": "warn",
+    "react/only-export-components": ["warn", { "allowConstantExport": true }],
+    "typescript/no-explicit-any": "error",
+    "typescript/consistent-type-imports": "warn",
+    "jsx-a11y/alt-text": "error",
+    "jsx-a11y/anchor-has-content": "error",
+    "jsx-a11y/aria-props": "error",
+    "jsx-a11y/role-has-required-aria-props": "error",
+    // Desactivada a propósito: sugiere reemplazar role="group" y role="status"
+    // por <fieldset>, <details> u <output>, que son elementos de formulario.
+    // Para un grupo de botones o una región viva de carga, el rol ARIA es la
+    // forma correcta y el reemplazo que propone sería peor.
+    "jsx-a11y/prefer-tag-over-role": "off",
+    "no-console": ["warn", { "allow": ["warn", "error"] }]
+  },
+  "ignorePatterns": ["dist"]
+}
