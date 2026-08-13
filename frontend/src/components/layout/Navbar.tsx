@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Link, NavLink } from "react-router";
 import Logo from "@/components/brand/Logo";
@@ -94,43 +94,45 @@ export default function Navbar() {
         </div>
       </Container>
 
-      {/* Montado siempre: si el panel entrara y saliera del DOM en cada toggle
-          habría que volver a armar su capa de composición cada vez. Solo
-          animamos su alto/opacidad, nunca su montaje. `inert` lo saca del tab
-          order y de lectores de pantalla mientras está cerrado.
-          Fondo sólido, sin blur: ver el comentario del header — Safari/WebKit
-          en iOS renderiza mal el backdrop-filter en un panel que se anima. */}
-      <motion.nav
-        id="menu-movil"
-        aria-label={ui.mainNav}
-        initial={false}
-        animate={{ opacity: open ? 1 : 0, height: open ? "auto" : 0 }}
-        transition={{ duration: 0.25 }}
-        style={{ willChange: "height, opacity" }}
-        className="md:hidden overflow-hidden border-t border-white/10 bg-navy-950"
-        inert={!open}
-      >
-        <Container className="flex flex-col gap-1 py-4">
-          {nav.map((item) => (
-            <NavLink
-              key={item.href}
-              to={item.href}
-              onClick={() => setOpen(false)}
-              className={({ isActive }) =>
-                cn(
-                  "rounded-lg px-3 py-3 text-sm font-medium hover:bg-white/5",
-                  isActive ? "text-white bg-white/5" : "text-slate-200",
-                )
-              }
-            >
-              {item.label}
-            </NavLink>
-          ))}
-          <Button to={routes.contact} onClick={() => setOpen(false)} className="mt-2">
-            {ui.contactCta}
-          </Button>
-        </Container>
-      </motion.nav>
+      {/* Se monta y desmonta normal — no hace falta mantenerlo siempre en el
+          DOM: eso era para no recrear la capa del backdrop-blur, que ya no
+          existe. Solo se anima la opacidad, nada de `height`: animar el alto
+          obliga al navegador a recalcular el layout en cada cuadro, que es
+          caro y en Safari/iOS se nota como parpadeos. */}
+      <AnimatePresence>
+        {open && (
+          <motion.nav
+            id="menu-movil"
+            aria-label={ui.mainNav}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="md:hidden border-t border-white/10 bg-navy-950"
+          >
+            <Container className="flex flex-col gap-1 py-4">
+              {nav.map((item) => (
+                <NavLink
+                  key={item.href}
+                  to={item.href}
+                  onClick={() => setOpen(false)}
+                  className={({ isActive }) =>
+                    cn(
+                      "rounded-lg px-3 py-3 text-sm font-medium hover:bg-white/5",
+                      isActive ? "text-white bg-white/5" : "text-slate-200",
+                    )
+                  }
+                >
+                  {item.label}
+                </NavLink>
+              ))}
+              <Button to={routes.contact} onClick={() => setOpen(false)} className="mt-2">
+                {ui.contactCta}
+              </Button>
+            </Container>
+          </motion.nav>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

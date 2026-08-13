@@ -4,8 +4,6 @@ import type { ReactNode } from "react";
 interface RevealProps {
   children: ReactNode;
   delay?: number;
-  /** Distancia en píxeles desde la que entra el contenido. */
-  y?: number;
   className?: string;
   /**
    * Si la animación corre una sola vez. Por defecto sí: re-animar cada vez que
@@ -14,24 +12,21 @@ interface RevealProps {
   once?: boolean;
 }
 
-export default function Reveal({
-  children,
-  delay = 0,
-  y = 24,
-  className = "",
-  once = true,
-}: RevealProps) {
+/**
+ * Fundido de opacidad al entrar en pantalla, sin desplazamiento.
+ *
+ * A propósito, sin `y`/transform: animar solo `opacity` es lo más liviano que
+ * existe en CSS — no exige armar una capa de composición aparte, así que no
+ * hay riesgo de parpadeos por renders a medio hacer en ningún navegador.
+ */
+export default function Reveal({ children, delay = 0, className = "", once = true }: RevealProps) {
   return (
     <motion.div
       className={className}
-      // Sin esto, Chrome arma la capa GPU para el transform recién cuando
-      // arranca la animación — y el texto adentro tiembla ese primer frame,
-      // sobre todo en Chrome de Android. Avisarle de antemano lo evita.
-      style={{ willChange: "transform, opacity" }}
-      initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
       viewport={{ once, amount: 0.2 }}
-      transition={{ duration: 0.6, delay, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.5, delay, ease: "easeOut" }}
     >
       {children}
     </motion.div>
