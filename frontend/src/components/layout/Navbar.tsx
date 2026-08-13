@@ -50,9 +50,15 @@ export default function Navbar() {
           contenido de atrás a los tirones en vez de un blur estable.
           Totalmente opaco (no /95): así no queda ni un resto de transparencia
           por el que se cuele el texto que pasa por detrás. */}
+      {/* Alto fijo (h-16/h-20, igual que la barra de arriba), no `inset-0`:
+          así este fondo nunca depende de cuánto mida el header en un momento
+          dado — si se estirara con el header, tendría que cambiar de tamaño
+          cada vez que el menú mobile abre o cierra, y esa combinación (fondo
+          que cambia de tamaño + texto al lado) es lo que veníamos sospechando
+          que rompía el repintado del texto en Safari/iOS. */}
       <div
         aria-hidden="true"
-        className={`absolute inset-0 bg-navy-950 border-b border-white/10 transition-opacity duration-300 ${
+        className={`absolute inset-x-0 top-0 h-16 sm:h-20 bg-navy-950 border-b border-white/10 ${
           scrolled ? "opacity-100" : "opacity-0"
         }`}
       />
