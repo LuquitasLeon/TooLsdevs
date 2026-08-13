@@ -36,20 +36,6 @@ export default function Navbar() {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [open]);
 
-  // Bloquea el scroll de la página de fondo mientras el menú está abierto.
-  // Antes se podía scrollear la página con el menú abierto — esa combinación
-  // (el header cambiando de alto + la página moviéndose debajo) es lo que
-  // rompía el repintado del texto del menú en Safari/iOS. Bloqueando el
-  // scroll, esa combinación ya no se puede dar.
-  useEffect(() => {
-    if (!open) return;
-    const { overflow } = document.body.style;
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = overflow;
-    };
-  }, [open]);
-
   const linkClass = ({ isActive }: { isActive: boolean }) =>
     cn(
       "text-sm font-medium transition-colors",
