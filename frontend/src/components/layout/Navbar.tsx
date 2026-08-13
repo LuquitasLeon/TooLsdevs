@@ -57,7 +57,8 @@ function MobileMenuIOS({ onNavigate }: { onNavigate: () => void }) {
     <nav
       id="menu-movil"
       aria-label={ui.mainNav}
-      className={`${menuPanelClass} transition-opacity duration-200 ease-out ${mounted ? "opacity-100" : "opacity-0"}`}
+      className={`${menuPanelClass} transition-opacity ${mounted ? "opacity-100" : "opacity-0"}`}
+      style={{ transitionDuration: "320ms", transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)" }}
     >
       <MenuLinks onNavigate={onNavigate} />
     </nav>

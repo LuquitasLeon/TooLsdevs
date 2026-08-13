@@ -29,8 +29,12 @@ export default function Reveal({ children, delay = 0, className = "", once = tru
     return (
       <div
         ref={ref}
-        className={`${className} transition-opacity ease-out ${visible ? "opacity-100" : "opacity-0"}`}
-        style={{ transitionDuration: "500ms", transitionDelay: `${delay}s` }}
+        className={`${className} transition-opacity ${visible ? "opacity-100" : "opacity-0"}`}
+        style={{
+          transitionDuration: "600ms",
+          transitionDelay: `${delay}s`,
+          transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
+        }}
       >
         {children}
       </div>

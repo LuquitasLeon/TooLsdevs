@@ -21,8 +21,12 @@ const rise = (delay: number) => ({
  */
 function riseClass(mounted: boolean, delayMs: number, extra: string) {
   return {
-    className: `transition-[opacity,transform] ease-out ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"} ${extra}`,
-    style: { transitionDuration: "700ms", transitionDelay: `${delayMs}ms` },
+    className: `transition-[opacity,transform] ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"} ${extra}`,
+    style: {
+      transitionDuration: "800ms",
+      transitionDelay: `${delayMs}ms`,
+      transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
+    },
   };
 }
 
@@ -108,8 +112,12 @@ export default function Hero() {
             </div>
 
             <div
-              className={`relative mx-auto w-full max-w-[17rem] sm:max-w-xs lg:max-w-[min(24rem,40vh)] transition-opacity duration-700 ease-out ${mounted ? "opacity-100" : "opacity-0"}`}
-              style={{ transitionDelay: "150ms" }}
+              className={`relative mx-auto w-full max-w-[17rem] sm:max-w-xs lg:max-w-[min(24rem,40vh)] transition-opacity ${mounted ? "opacity-100" : "opacity-0"}`}
+              style={{
+                transitionDuration: "900ms",
+                transitionDelay: "150ms",
+                transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
+              }}
             >
               <div className="pointer-events-none absolute inset-0 -z-10 rounded-full bg-brand-teal/10 blur-3xl" />
               <LogoMark

@@ -20,9 +20,10 @@ export default function PageTransition({ children }: { children: ReactNode }) {
   if (isIOS) {
     return (
       <div
-        className={`transition-[opacity,transform] duration-[350ms] ease-out ${
+        className={`transition-[opacity,transform] ${
           mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
         }`}
+        style={{ transitionDuration: "450ms", transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)" }}
       >
         {children}
       </div>

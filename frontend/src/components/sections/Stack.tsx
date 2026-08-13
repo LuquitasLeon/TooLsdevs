@@ -21,9 +21,10 @@ function StackPillIOS({ name, className }: { name: string; className: string }) 
   return (
     <li
       ref={ref}
-      className={`${className} transition-[opacity,transform] duration-[450ms] ease-out ${
+      className={`${className} transition-[opacity,transform] ${
         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3.5"
       }`}
+      style={{ transitionDuration: "550ms", transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)" }}
     >
       {name}
     </li>

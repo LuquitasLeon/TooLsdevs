@@ -44,9 +44,10 @@ export default function PageHeader({ eyebrow, title, description }: PageHeaderPr
         {isIOS ? (
           // Transición CSS nativa en vez de Framer Motion — ver useIsIOS.
           <div
-            className={`flex max-w-3xl flex-col gap-4 transition-[opacity,transform] duration-700 ease-out ${
+            className={`flex max-w-3xl flex-col gap-4 transition-[opacity,transform] ${
               mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
+            style={{ transitionDuration: "750ms", transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)" }}
           >
             {content}
           </div>
