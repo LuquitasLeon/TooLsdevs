@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Link, NavLink } from "react-router";
 import Logo from "@/components/brand/Logo";
@@ -88,40 +88,41 @@ export default function Navbar() {
         </div>
       </Container>
 
-      <AnimatePresence>
-        {open && (
-          <motion.nav
-            id="menu-movil"
-            aria-label={ui.mainNav}
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.25 }}
-            className="md:hidden overflow-hidden border-t border-white/10 bg-navy-950/95 backdrop-blur-md"
-          >
-            <Container className="flex flex-col gap-1 py-4">
-              {nav.map((item) => (
-                <NavLink
-                  key={item.href}
-                  to={item.href}
-                  onClick={() => setOpen(false)}
-                  className={({ isActive }) =>
-                    cn(
-                      "rounded-lg px-3 py-3 text-sm font-medium hover:bg-white/5",
-                      isActive ? "text-white bg-white/5" : "text-slate-200",
-                    )
-                  }
-                >
-                  {item.label}
-                </NavLink>
-              ))}
-              <Button to={routes.contact} onClick={() => setOpen(false)} className="mt-2">
-                {ui.contactCta}
-              </Button>
-            </Container>
-          </motion.nav>
-        )}
-      </AnimatePresence>
+      {/* Montado siempre: si el panel entrara y saliera del DOM en cada toggle,
+          Chrome tendría que crear la capa de composición del backdrop-blur de
+          cero cada vez, y eso se ve como un flash blanco. Solo animamos su
+          alto/opacidad, nunca su montaje. `inert` lo saca del tab order y de
+          lectores de pantalla mientras está cerrado. */}
+      <motion.nav
+        id="menu-movil"
+        aria-label={ui.mainNav}
+        initial={false}
+        animate={{ opacity: open ? 1 : 0, height: open ? "auto" : 0 }}
+        transition={{ duration: 0.25 }}
+        className="md:hidden overflow-hidden border-t border-white/10 bg-navy-950/95 backdrop-blur-md"
+        inert={!open}
+      >
+        <Container className="flex flex-col gap-1 py-4">
+          {nav.map((item) => (
+            <NavLink
+              key={item.href}
+              to={item.href}
+              onClick={() => setOpen(false)}
+              className={({ isActive }) =>
+                cn(
+                  "rounded-lg px-3 py-3 text-sm font-medium hover:bg-white/5",
+                  isActive ? "text-white bg-white/5" : "text-slate-200",
+                )
+              }
+            >
+              {item.label}
+            </NavLink>
+          ))}
+          <Button to={routes.contact} onClick={() => setOpen(false)} className="mt-2">
+            {ui.contactCta}
+          </Button>
+        </Container>
+      </motion.nav>
     </header>
   );
 }
