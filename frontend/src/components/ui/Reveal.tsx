@@ -1,34 +1,20 @@
-import { motion } from "framer-motion";
 import type { ReactNode } from "react";
 
 interface RevealProps {
   children: ReactNode;
   delay?: number;
   className?: string;
-  /**
-   * Si la animación corre una sola vez. Por defecto sí: re-animar cada vez que
-   * se pasa por encima marea al volver a subir y no aporta nada.
-   */
   once?: boolean;
 }
 
 /**
- * Fundido de opacidad al entrar en pantalla, sin desplazamiento.
+ * Sin animación, a propósito.
  *
- * A propósito, sin `y`/transform: animar solo `opacity` es lo más liviano que
- * existe en CSS — no exige armar una capa de composición aparte, así que no
- * hay riesgo de parpadeos por renders a medio hacer en ningún navegador.
+ * Hubo un parpadeo de texto persistente en Safari/iOS que sobrevivió a sacar
+ * el blur, el desplazamiento en Y y hasta reducir todo a un fundido de solo
+ * opacidad — así que se saca la animación del todo acá. El nombre y la firma
+ * del componente quedan igual para no tocar los ~20 lugares que lo usan.
  */
-export default function Reveal({ children, delay = 0, className = "", once = true }: RevealProps) {
-  return (
-    <motion.div
-      className={className}
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once, amount: 0.2 }}
-      transition={{ duration: 0.5, delay, ease: "easeOut" }}
-    >
-      {children}
-    </motion.div>
-  );
+export default function Reveal({ children, className = "" }: RevealProps) {
+  return <div className={className}>{children}</div>;
 }
