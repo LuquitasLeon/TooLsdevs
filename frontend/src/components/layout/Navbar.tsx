@@ -36,6 +36,20 @@ export default function Navbar() {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [open]);
 
+  // Bloquea el scroll de la página de fondo mientras el menú está abierto.
+  // Antes se podía scrollear la página con el menú abierto — esa combinación
+  // (el header cambiando de alto + la página moviéndose debajo) es lo que
+  // rompía el repintado del texto del menú en Safari/iOS. Bloqueando el
+  // scroll, esa combinación ya no se puede dar.
+  useEffect(() => {
+    if (!open) return;
+    const { overflow } = document.body.style;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = overflow;
+    };
+  }, [open]);
+
   const linkClass = ({ isActive }: { isActive: boolean }) =>
     cn(
       "text-sm font-medium transition-colors",
@@ -43,70 +57,67 @@ export default function Navbar() {
     );
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50">
-      {/* Sin blur a propósito: un fondo con backdrop-filter fijo en la parte
-          de arriba y animado durante el scroll es un combo que Safari/WebKit
-          (el motor real de "Chrome" en iOS) renderiza mal — deja ver el
-          contenido de atrás a los tirones en vez de un blur estable.
-          Totalmente opaco (no /95): así no queda ni un resto de transparencia
-          por el que se cuele el texto que pasa por detrás. */}
-      {/* Alto fijo (h-16/h-20, igual que la barra de arriba), no `inset-0`:
-          así este fondo nunca depende de cuánto mida el header en un momento
-          dado — si se estirara con el header, tendría que cambiar de tamaño
-          cada vez que el menú mobile abre o cierra, y esa combinación (fondo
-          que cambia de tamaño + texto al lado) es lo que veníamos sospechando
-          que rompía el repintado del texto en Safari/iOS. */}
-      <div
-        aria-hidden="true"
-        className={`absolute inset-x-0 top-0 h-16 sm:h-20 bg-navy-950 border-b border-white/10 ${
-          scrolled ? "opacity-100" : "opacity-0"
-        }`}
-      />
+    <>
+      <header className="fixed inset-x-0 top-0 z-50">
+        {/* Sin blur a propósito: un fondo con backdrop-filter fijo en la parte
+            de arriba y animado durante el scroll es un combo que Safari/WebKit
+            (el motor real de "Chrome" en iOS) renderiza mal — deja ver el
+            contenido de atrás a los tirones en vez de un blur estable.
+            Totalmente opaco (no /95): así no queda ni un resto de transparencia
+            por el que se cuele el texto que pasa por detrás. */}
+        <div
+          aria-hidden="true"
+          className={`absolute inset-0 bg-navy-950 border-b border-white/10 ${
+            scrolled ? "opacity-100" : "opacity-0"
+          }`}
+        />
 
-      <Container className="relative flex h-16 sm:h-20 items-center justify-between gap-4">
-        <Link to={routes.home} className="shrink-0" onClick={() => setOpen(false)}>
-          <Logo className="h-8 w-8 sm:h-9 sm:w-9" wordmarkClassName="text-base sm:text-lg" />
-        </Link>
+        <Container className="relative flex h-16 sm:h-20 items-center justify-between gap-4">
+          <Link to={routes.home} className="shrink-0" onClick={() => setOpen(false)}>
+            <Logo className="h-8 w-8 sm:h-9 sm:w-9" wordmarkClassName="text-base sm:text-lg" />
+          </Link>
 
-        <nav aria-label={ui.mainNav} className="hidden md:flex items-center gap-7">
-          {nav.map((item) => (
-            <NavLink key={item.href} to={item.href} className={linkClass}>
-              {item.label}
-            </NavLink>
-          ))}
-        </nav>
+          <nav aria-label={ui.mainNav} className="hidden md:flex items-center gap-7">
+            {nav.map((item) => (
+              <NavLink key={item.href} to={item.href} className={linkClass}>
+                {item.label}
+              </NavLink>
+            ))}
+          </nav>
 
-        <div className="hidden md:flex items-center gap-3">
-          <LocaleToggle />
-          <Button to={routes.contact} size="md">
-            {ui.contactCta}
-          </Button>
-        </div>
+          <div className="hidden md:flex items-center gap-3">
+            <LocaleToggle />
+            <Button to={routes.contact} size="md">
+              {ui.contactCta}
+            </Button>
+          </div>
 
-        <div className="flex items-center gap-2 md:hidden">
-          <LocaleToggle />
-          <button
-            ref={toggleRef}
-            type="button"
-            className="text-white p-2 -mr-2"
-            aria-label={open ? ui.closeMenu : ui.openMenu}
-            aria-expanded={open}
-            aria-controls="menu-movil"
-            onClick={() => setOpen((v) => !v)}
-          >
-            {open ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
-      </Container>
+          <div className="flex items-center gap-2 md:hidden">
+            <LocaleToggle />
+            <button
+              ref={toggleRef}
+              type="button"
+              className="text-white p-2 -mr-2"
+              aria-label={open ? ui.closeMenu : ui.openMenu}
+              aria-expanded={open}
+              aria-controls="menu-movil"
+              onClick={() => setOpen((v) => !v)}
+            >
+              {open ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+        </Container>
+      </header>
 
-      {/* Sin animación, a propósito: el parpadeo en Safari/iOS sobrevivió a
-          sacar el blur, el alto y reducir todo a un fundido de opacidad — así
-          que el panel aparece y desaparece directo, sin transición. */}
+      {/* Pantalla completa aparte del header, no un panel que se despliega
+          debajo de él: así el header nunca cambia de alto al abrir/cerrar el
+          menú, y de paso no hace falta animación — aparece y desaparece
+          directo. `top` deja libre el alto de la barra de arriba. */}
       {open && (
         <nav
           id="menu-movil"
           aria-label={ui.mainNav}
-          className="md:hidden border-t border-white/10 bg-navy-950"
+          className="fixed inset-x-0 top-16 sm:top-20 bottom-0 z-40 md:hidden overflow-y-auto border-t border-white/10 bg-navy-950"
         >
           <Container className="flex flex-col gap-1 py-4">
             {nav.map((item) => (
@@ -130,6 +141,6 @@ export default function Navbar() {
           </Container>
         </nav>
       )}
-    </header>
+    </>
   );
 }
