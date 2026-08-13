@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import type { ReactNode } from "react";
 import { useIsIOS } from "@/hooks/useMediaQuery";
+import { useInView } from "@/hooks/useInView";
 
 interface RevealProps {
   children: ReactNode;
@@ -16,15 +17,24 @@ interface RevealProps {
 /**
  * Fundido de opacidad al entrar en pantalla.
  *
- * Desactivado en iOS (ver `useIsIOS`): ahí este mismo fundido producía un
- * parpadeo de texto persistente que sobrevivió a todos los ajustes de CSS
- * probados. En el resto de los navegadores anima normal.
+ * En iOS usa una transición CSS nativa con `IntersectionObserver` en vez de
+ * Framer Motion (ver `useInView`): es la prueba de si el parpadeo venía
+ * específicamente de cómo Framer Motion anima ahí.
  */
 export default function Reveal({ children, delay = 0, className = "", once = true }: RevealProps) {
   const isIOS = useIsIOS();
+  const { ref, visible } = useInView<HTMLDivElement>(once);
 
   if (isIOS) {
-    return <div className={className}>{children}</div>;
+    return (
+      <div
+        ref={ref}
+        className={`${className} transition-opacity ease-out ${visible ? "opacity-100" : "opacity-0"}`}
+        style={{ transitionDuration: "500ms", transitionDelay: `${delay}s` }}
+      >
+        {children}
+      </div>
+    );
   }
 
   return (

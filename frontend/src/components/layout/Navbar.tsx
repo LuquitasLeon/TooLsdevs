@@ -9,7 +9,60 @@ import { useContent } from "@/features/i18n/useI18n";
 import { routes } from "@/app/routes";
 import { cn } from "@/lib/cn";
 import { useIsIOS } from "@/hooks/useMediaQuery";
+import { useMountedIn } from "@/hooks/useInView";
 import Container from "./Container";
+
+/** Contenido del menú mobile, compartido entre la versión con Framer Motion
+ * y la que usa transición CSS nativa. */
+function MenuLinks({
+  onNavigate,
+}: {
+  onNavigate: () => void;
+}) {
+  const { nav, ui } = useContent();
+  return (
+    <Container className="flex flex-col gap-1 py-4">
+      {nav.map((item) => (
+        <NavLink
+          key={item.href}
+          to={item.href}
+          onClick={onNavigate}
+          className={({ isActive }) =>
+            cn(
+              "rounded-lg px-3 py-3 text-sm font-medium hover:bg-white/5",
+              isActive ? "text-white bg-white/5" : "text-slate-200",
+            )
+          }
+        >
+          {item.label}
+        </NavLink>
+      ))}
+      <Button to={routes.contact} onClick={onNavigate} className="mt-2">
+        {ui.contactCta}
+      </Button>
+    </Container>
+  );
+}
+
+const menuPanelClass =
+  "fixed inset-x-0 top-16 sm:top-20 z-40 md:hidden max-h-[calc(100vh-4rem)] sm:max-h-[calc(100vh-5rem)] overflow-y-auto border-t border-white/10 bg-navy-950";
+
+/** Menú mobile con transición CSS nativa en vez de Framer Motion — para la
+ * rama de iOS. Ver `useIsIOS`. */
+function MobileMenuIOS({ onNavigate }: { onNavigate: () => void }) {
+  const { ui } = useContent();
+  const mounted = useMountedIn();
+
+  return (
+    <nav
+      id="menu-movil"
+      aria-label={ui.mainNav}
+      className={`${menuPanelClass} transition-opacity duration-200 ease-out ${mounted ? "opacity-100" : "opacity-0"}`}
+    >
+      <MenuLinks onNavigate={onNavigate} />
+    </nav>
+  );
+}
 
 export default function Navbar() {
   const { nav, ui } = useContent();
@@ -103,42 +156,27 @@ export default function Navbar() {
           alto de su propio contenido nomás (no `bottom-0`): se ve el resto de
           la página debajo, como un desplegable normal, no una pantalla
           completa. `top` deja libre el alto de la barra de arriba.
-          El fundido de opacidad se desactiva en iOS (ver `useIsIOS`): ahí
-          producía el mismo parpadeo de texto que en el resto del sitio. */}
-      <AnimatePresence>
-        {open && (
-          <motion.nav
-            id="menu-movil"
-            aria-label={ui.mainNav}
-            initial={isIOS ? false : { opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={isIOS ? undefined : { opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 top-16 sm:top-20 z-40 md:hidden max-h-[calc(100vh-4rem)] sm:max-h-[calc(100vh-5rem)] overflow-y-auto border-t border-white/10 bg-navy-950"
-          >
-            <Container className="flex flex-col gap-1 py-4">
-              {nav.map((item) => (
-                <NavLink
-                  key={item.href}
-                  to={item.href}
-                  onClick={() => setOpen(false)}
-                  className={({ isActive }) =>
-                    cn(
-                      "rounded-lg px-3 py-3 text-sm font-medium hover:bg-white/5",
-                      isActive ? "text-white bg-white/5" : "text-slate-200",
-                    )
-                  }
-                >
-                  {item.label}
-                </NavLink>
-              ))}
-              <Button to={routes.contact} onClick={() => setOpen(false)} className="mt-2">
-                {ui.contactCta}
-              </Button>
-            </Container>
-          </motion.nav>
-        )}
-      </AnimatePresence>
+          En iOS usa transición CSS nativa en vez de Framer Motion — ver
+          `useIsIOS` y `MobileMenuIOS`. */}
+      {isIOS ? (
+        open && <MobileMenuIOS onNavigate={() => setOpen(false)} />
+      ) : (
+        <AnimatePresence>
+          {open && (
+            <motion.nav
+              id="menu-movil"
+              aria-label={ui.mainNav}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className={menuPanelClass}
+            >
+              <MenuLinks onNavigate={() => setOpen(false)} />
+            </motion.nav>
+          )}
+        </AnimatePresence>
+      )}
     </>
   );
 }

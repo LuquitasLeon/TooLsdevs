@@ -1,19 +1,33 @@
 import type { ReactNode } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { useIsIOS } from "@/hooks/useMediaQuery";
+import { useMountedIn } from "@/hooks/useInView";
 
 /**
  * Envuelve el contenido de cada página con una entrada suave.
  *
  * Es breve a propósito: una transición larga entre páginas se siente lenta,
- * no elegante. Desactivada en iOS (ver `useIsIOS`): ahí producía un parpadeo
- * de texto que no se resolvió con ningún ajuste de CSS.
+ * no elegante. En iOS usa una transición CSS nativa en vez de Framer Motion
+ * — ver `useIsIOS`.
  */
 export default function PageTransition({ children }: { children: ReactNode }) {
   const isIOS = useIsIOS();
   const prefersReducedMotion = useReducedMotion();
+  const mounted = useMountedIn();
 
-  if (isIOS || prefersReducedMotion) return <>{children}</>;
+  if (prefersReducedMotion) return <>{children}</>;
+
+  if (isIOS) {
+    return (
+      <div
+        className={`transition-[opacity,transform] duration-[350ms] ease-out ${
+          mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
+        }`}
+      >
+        {children}
+      </div>
+    );
+  }
 
   return (
     <motion.div
