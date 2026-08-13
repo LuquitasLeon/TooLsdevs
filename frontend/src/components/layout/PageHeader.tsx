@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import Container from "./Container";
 
 interface PageHeaderProps {
@@ -20,12 +19,7 @@ export default function PageHeader({ eyebrow, title, description }: PageHeaderPr
       <div className="pointer-events-none absolute -top-40 left-1/4 h-96 w-96 -translate-x-1/2 rounded-full bg-brand-teal/15 blur-[120px]" />
 
       <Container className="relative">
-        <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="flex max-w-3xl flex-col gap-4"
-        >
+        <div className="flex max-w-3xl flex-col gap-4">
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-teal/90">
             {eyebrow}
           </span>
@@ -37,7 +31,7 @@ export default function PageHeader({ eyebrow, title, description }: PageHeaderPr
               {description}
             </p>
           )}
-        </motion.div>
+        </div>
       </Container>
     </section>
   );
