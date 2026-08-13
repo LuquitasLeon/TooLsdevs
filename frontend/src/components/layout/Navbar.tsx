@@ -92,13 +92,17 @@ export default function Navbar() {
           Chrome tendría que crear la capa de composición del backdrop-blur de
           cero cada vez, y eso se ve como un flash blanco. Solo animamos su
           alto/opacidad, nunca su montaje. `inert` lo saca del tab order y de
-          lectores de pantalla mientras está cerrado. */}
+          lectores de pantalla mientras está cerrado.
+          El `will-change` de acá abajo evita que esa capa se siga armando
+          recién al tocar el botón (con alto 0 el navegador la puede estar
+          descartando igual): le avisamos de antemano. */}
       <motion.nav
         id="menu-movil"
         aria-label={ui.mainNav}
         initial={false}
         animate={{ opacity: open ? 1 : 0, height: open ? "auto" : 0 }}
         transition={{ duration: 0.25 }}
+        style={{ willChange: "height, opacity, backdrop-filter" }}
         className="md:hidden overflow-hidden border-t border-white/10 bg-navy-950/95 backdrop-blur-md"
         inert={!open}
       >
