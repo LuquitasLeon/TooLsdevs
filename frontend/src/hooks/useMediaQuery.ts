@@ -30,3 +30,30 @@ export function useMediaQuery(query: string): boolean {
 export function useFinePointer(): boolean {
   return useMediaQuery("(hover: hover) and (pointer: fine)");
 }
+
+/**
+ * `true` en iOS (Safari, y también Chrome/Firefox ahí — todos corren sobre
+ * WebKit por regla de Apple).
+ *
+ * Se detecta por soporte de `-webkit-touch-callout`, una propiedad que solo
+ * existe en WebKit-en-iOS — ni en Android, ni en Safari de escritorio. Es más
+ * confiable que leer el user-agent, que cualquiera puede falsear.
+ *
+ * Existe puntualmente porque las animaciones de opacity+transform en
+ * elementos que cambian de tamaño (una página al entrar, el menú al abrir)
+ * producían ahí un parpadeo de texto que no se resolvió con ningún ajuste de
+ * CSS — se prefiere desactivarlas del todo en iOS antes que arriesgarse a
+ * que vuelva.
+ *
+ * A diferencia de `useMediaQuery`, esto se calcula ya en el primer render
+ * (no en un `useEffect` posterior): esta app no tiene SSR, así que no hay
+ * riesgo de desajuste servidor/cliente, y esperar un render de más significa
+ * que una animación en la Hero llega a arrancar antes de que se detecte
+ * iOS — y se congela a mitad de camino cuando el valor cambia debajo.
+ */
+export function useIsIOS(): boolean {
+  const [isIOS] = useState(
+    () => typeof CSS !== "undefined" && CSS.supports("-webkit-touch-callout", "none"),
+  );
+  return isIOS;
+}

@@ -1,12 +1,29 @@
+import { motion } from "framer-motion";
 import { ArrowRight, ShieldCheck } from "lucide-react";
 import Container from "@/components/layout/Container";
 import LogoMark from "@/components/brand/LogoMark";
 import Button from "@/components/ui/Button";
 import Magnetic from "@/components/ui/Magnetic";
 import { useContent } from "@/features/i18n/useI18n";
+import { useIsIOS } from "@/hooks/useMediaQuery";
+
+/** Entrada escalonada: cada elemento aparece un poco después del anterior. */
+const rise = (delay: number) => ({
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.7, delay, ease: [0.16, 1, 0.3, 1] as const },
+});
+
+/** Sin animación: mismas props que devuelve `rise`, pero ya resueltas. */
+const still = { initial: false as const, animate: { opacity: 1, y: 0 } };
 
 export default function Hero() {
   const { hero } = useContent();
+  const isIOS = useIsIOS();
+  // En iOS esto mismo (opacity+y al entrar en elementos que se acomodan
+  // arriba de la página) producía el parpadeo de texto que no se pudo
+  // resolver con CSS — ver `useIsIOS`. Se desactiva puntualmente ahí.
+  const enter = (delay: number) => (isIOS ? still : rise(delay));
 
   return (
     <section id="inicio" className="relative overflow-hidden pt-28 pb-16 sm:pt-32 sm:pb-24">
@@ -19,26 +36,41 @@ export default function Hero() {
             queda a la derecha como remate en vez de centrado sobre el título. */}
         <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-16">
           <div className="flex flex-col items-start gap-6 text-left">
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs sm:text-sm font-medium text-slate-300">
+            <motion.span
+              {...enter(0)}
+              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs sm:text-sm font-medium text-slate-300"
+            >
               <ShieldCheck size={16} className="text-brand-teal" aria-hidden="true" />
               {hero.eyebrow}
-            </span>
+            </motion.span>
 
             {/* Un solo titular domina. El eslogan va debajo, a la mitad de
                 tamaño: si los dos gritan igual, no se lee ninguno. */}
-            <h1 className="font-display font-bold text-5xl sm:text-6xl lg:text-display-sm xl:text-display leading-[1.02] tracking-tight text-balance text-gradient">
+            <motion.h1
+              {...enter(0.1)}
+              className="font-display font-bold text-5xl sm:text-6xl lg:text-display-sm xl:text-display leading-[1.02] tracking-tight text-balance text-gradient"
+            >
               {hero.title}
-            </h1>
+            </motion.h1>
 
-            <p className="-mt-3 font-display text-2xl sm:text-3xl font-semibold leading-snug text-white text-balance">
+            <motion.p
+              {...enter(0.18)}
+              className="-mt-3 font-display text-2xl sm:text-3xl font-semibold leading-snug text-white text-balance"
+            >
               {hero.subtitle}
-            </p>
+            </motion.p>
 
-            <p className="max-w-xl text-base sm:text-lg leading-relaxed text-slate-200/90 text-pretty">
+            <motion.p
+              {...enter(0.26)}
+              className="max-w-xl text-base sm:text-lg leading-relaxed text-slate-200/90 text-pretty"
+            >
               {hero.description}
-            </p>
+            </motion.p>
 
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2 w-full sm:w-auto">
+            <motion.div
+              {...enter(0.3)}
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2 w-full sm:w-auto"
+            >
               <Magnetic>
                 <Button to={hero.ctaPrimary.href} className="w-full sm:w-auto">
                   {hero.ctaPrimary.label}
@@ -58,10 +90,13 @@ export default function Hero() {
                   {hero.ctaSecondary.label}
                 </Button>
               </Magnetic>
-            </div>
+            </motion.div>
           </div>
 
-          <div
+          <motion.div
+            initial={isIOS ? false : { opacity: 0, scale: 0.94 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
             // Se limita también por altura para que en una laptop de pantalla
             // baja el logo y los botones sigan entrando sin scrollear.
             className="relative mx-auto w-full max-w-[17rem] sm:max-w-xs lg:max-w-[min(24rem,40vh)]"
@@ -69,10 +104,10 @@ export default function Hero() {
             <div className="pointer-events-none absolute inset-0 -z-10 rounded-full bg-brand-teal/10 blur-3xl" />
             <LogoMark
               className="w-full drop-shadow-[0_0_45px_rgba(34,211,238,0.25)]"
-              animate={false}
+              animate={!isIOS}
               interactive
             />
-          </div>
+          </motion.div>
         </div>
       </Container>
     </section>

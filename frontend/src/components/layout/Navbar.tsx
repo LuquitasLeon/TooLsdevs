@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Link, NavLink } from "react-router";
 import Logo from "@/components/brand/Logo";
@@ -7,6 +8,7 @@ import LocaleToggle from "@/features/i18n/LocaleToggle";
 import { useContent } from "@/features/i18n/useI18n";
 import { routes } from "@/app/routes";
 import { cn } from "@/lib/cn";
+import { useIsIOS } from "@/hooks/useMediaQuery";
 import Container from "./Container";
 
 export default function Navbar() {
@@ -14,6 +16,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const toggleRef = useRef<HTMLButtonElement>(null);
+  const isIOS = useIsIOS();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -96,39 +99,46 @@ export default function Navbar() {
       </header>
 
       {/* Hermano del header aparte, no un panel que se despliega adentro de
-          él: así el header nunca cambia de alto al abrir/cerrar el menú, y de
-          paso no hace falta animación — aparece y desaparece directo. Del
+          él: así el header nunca cambia de alto al abrir/cerrar el menú. Del
           alto de su propio contenido nomás (no `bottom-0`): se ve el resto de
           la página debajo, como un desplegable normal, no una pantalla
-          completa. `top` deja libre el alto de la barra de arriba. */}
-      {open && (
-        <nav
-          id="menu-movil"
-          aria-label={ui.mainNav}
-          className="fixed inset-x-0 top-16 sm:top-20 z-40 md:hidden max-h-[calc(100vh-4rem)] sm:max-h-[calc(100vh-5rem)] overflow-y-auto border-t border-white/10 bg-navy-950"
-        >
-          <Container className="flex flex-col gap-1 py-4">
-            {nav.map((item) => (
-              <NavLink
-                key={item.href}
-                to={item.href}
-                onClick={() => setOpen(false)}
-                className={({ isActive }) =>
-                  cn(
-                    "rounded-lg px-3 py-3 text-sm font-medium hover:bg-white/5",
-                    isActive ? "text-white bg-white/5" : "text-slate-200",
-                  )
-                }
-              >
-                {item.label}
-              </NavLink>
-            ))}
-            <Button to={routes.contact} onClick={() => setOpen(false)} className="mt-2">
-              {ui.contactCta}
-            </Button>
-          </Container>
-        </nav>
-      )}
+          completa. `top` deja libre el alto de la barra de arriba.
+          El fundido de opacidad se desactiva en iOS (ver `useIsIOS`): ahí
+          producía el mismo parpadeo de texto que en el resto del sitio. */}
+      <AnimatePresence>
+        {open && (
+          <motion.nav
+            id="menu-movil"
+            aria-label={ui.mainNav}
+            initial={isIOS ? false : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={isIOS ? undefined : { opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-x-0 top-16 sm:top-20 z-40 md:hidden max-h-[calc(100vh-4rem)] sm:max-h-[calc(100vh-5rem)] overflow-y-auto border-t border-white/10 bg-navy-950"
+          >
+            <Container className="flex flex-col gap-1 py-4">
+              {nav.map((item) => (
+                <NavLink
+                  key={item.href}
+                  to={item.href}
+                  onClick={() => setOpen(false)}
+                  className={({ isActive }) =>
+                    cn(
+                      "rounded-lg px-3 py-3 text-sm font-medium hover:bg-white/5",
+                      isActive ? "text-white bg-white/5" : "text-slate-200",
+                    )
+                  }
+                >
+                  {item.label}
+                </NavLink>
+              ))}
+              <Button to={routes.contact} onClick={() => setOpen(false)} className="mt-2">
+                {ui.contactCta}
+              </Button>
+            </Container>
+          </motion.nav>
+        )}
+      </AnimatePresence>
     </>
   );
 }
