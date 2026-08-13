@@ -45,9 +45,15 @@ export default function Navbar() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
+      {/* Sin blur a propósito: un fondo con backdrop-filter fijo en la parte
+          de arriba y animado durante el scroll es un combo que Safari/WebKit
+          (el motor real de "Chrome" en iOS) renderiza mal — deja ver el
+          contenido de atrás a los tirones en vez de un blur estable.
+          Totalmente opaco (no /95): así no queda ni un resto de transparencia
+          por el que se cuele el texto que pasa por detrás. */}
       <div
         aria-hidden="true"
-        className={`absolute inset-0 bg-navy-950/85 backdrop-blur-md border-b border-white/10 transition-opacity duration-300 ${
+        className={`absolute inset-0 bg-navy-950 border-b border-white/10 transition-opacity duration-300 ${
           scrolled ? "opacity-100" : "opacity-0"
         }`}
       />
@@ -88,22 +94,20 @@ export default function Navbar() {
         </div>
       </Container>
 
-      {/* Montado siempre: si el panel entrara y saliera del DOM en cada toggle,
-          Chrome tendría que crear la capa de composición del backdrop-blur de
-          cero cada vez, y eso se ve como un flash blanco. Solo animamos su
-          alto/opacidad, nunca su montaje. `inert` lo saca del tab order y de
-          lectores de pantalla mientras está cerrado.
-          El `will-change` de acá abajo evita que esa capa se siga armando
-          recién al tocar el botón (con alto 0 el navegador la puede estar
-          descartando igual): le avisamos de antemano. */}
+      {/* Montado siempre: si el panel entrara y saliera del DOM en cada toggle
+          habría que volver a armar su capa de composición cada vez. Solo
+          animamos su alto/opacidad, nunca su montaje. `inert` lo saca del tab
+          order y de lectores de pantalla mientras está cerrado.
+          Fondo sólido, sin blur: ver el comentario del header — Safari/WebKit
+          en iOS renderiza mal el backdrop-filter en un panel que se anima. */}
       <motion.nav
         id="menu-movil"
         aria-label={ui.mainNav}
         initial={false}
         animate={{ opacity: open ? 1 : 0, height: open ? "auto" : 0 }}
         transition={{ duration: 0.25 }}
-        style={{ willChange: "height, opacity, backdrop-filter" }}
-        className="md:hidden overflow-hidden border-t border-white/10 bg-navy-950/95 backdrop-blur-md"
+        style={{ willChange: "height, opacity" }}
+        className="md:hidden overflow-hidden border-t border-white/10 bg-navy-950"
         inert={!open}
       >
         <Container className="flex flex-col gap-1 py-4">
