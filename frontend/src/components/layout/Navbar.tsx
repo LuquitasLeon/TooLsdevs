@@ -44,7 +44,11 @@ export default function Navbar() {
     );
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50">
+    // `translateZ(0)` fuerza al header a tener su propia capa de composición
+    // estable. Sin esto, Safari/iOS puede repintar toda la página en cada
+    // frame de scroll en vez de solo el elemento fijo — se ve como si el
+    // texto de toda la página titilara al bajar.
+    <header className="fixed inset-x-0 top-0 z-50" style={{ transform: "translateZ(0)" }}>
       {/* Sin blur a propósito: un fondo con backdrop-filter fijo en la parte
           de arriba y animado durante el scroll es un combo que Safari/WebKit
           (el motor real de "Chrome" en iOS) renderiza mal — deja ver el
