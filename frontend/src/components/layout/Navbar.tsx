@@ -95,15 +95,17 @@ export default function Navbar() {
         </Container>
       </header>
 
-      {/* Pantalla completa aparte del header, no un panel que se despliega
-          debajo de él: así el header nunca cambia de alto al abrir/cerrar el
-          menú, y de paso no hace falta animación — aparece y desaparece
-          directo. `top` deja libre el alto de la barra de arriba. */}
+      {/* Hermano del header aparte, no un panel que se despliega adentro de
+          él: así el header nunca cambia de alto al abrir/cerrar el menú, y de
+          paso no hace falta animación — aparece y desaparece directo. Del
+          alto de su propio contenido nomás (no `bottom-0`): se ve el resto de
+          la página debajo, como un desplegable normal, no una pantalla
+          completa. `top` deja libre el alto de la barra de arriba. */}
       {open && (
         <nav
           id="menu-movil"
           aria-label={ui.mainNav}
-          className="fixed inset-x-0 top-16 sm:top-20 bottom-0 z-40 md:hidden overflow-y-auto border-t border-white/10 bg-navy-950"
+          className="fixed inset-x-0 top-16 sm:top-20 z-40 md:hidden max-h-[calc(100vh-4rem)] sm:max-h-[calc(100vh-5rem)] overflow-y-auto border-t border-white/10 bg-navy-950"
         >
           <Container className="flex flex-col gap-1 py-4">
             {nav.map((item) => (
