@@ -10,10 +10,8 @@ export default function WhyUsSummary() {
   const { whyUs } = useContent();
 
   return (
-    <section className="relative overflow-hidden py-section sm:py-section-lg border-t border-white/5">
-      <div className="pointer-events-none absolute -bottom-24 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-accent-amber/8 blur-[120px]" />
-
-      <Container className="relative flex flex-col items-center gap-12">
+    <section className="py-section sm:py-section-lg border-t border-white/5">
+      <Container className="flex flex-col items-center gap-12">
         <SectionHeading
           eyebrow={whyUs.eyebrow}
           title={whyUs.title}

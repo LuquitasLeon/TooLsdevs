@@ -15,12 +15,12 @@ interface CardProps {
 }
 
 const accents: Record<Accent, string> = {
-  none: "border-white/10 bg-white/[0.04]",
-  teal: "border-brand-teal/15 bg-brand-teal/[0.05]",
-  green: "border-brand-green/15 bg-brand-green/[0.05]",
-  sky: "border-accent-sky/15 bg-accent-sky/[0.05]",
-  violet: "border-accent-violet/15 bg-accent-violet/[0.05]",
-  amber: "border-accent-amber/15 bg-accent-amber/[0.05]",
+  none: "border-white/10 bg-navy-900",
+  teal: "border-brand-teal/20 bg-navy-900",
+  green: "border-brand-green/20 bg-navy-900",
+  sky: "border-accent-sky/20 bg-navy-900",
+  violet: "border-accent-violet/20 bg-navy-900",
+  amber: "border-accent-amber/20 bg-navy-900",
 };
 
 const paddings: Record<Padding, string> = {

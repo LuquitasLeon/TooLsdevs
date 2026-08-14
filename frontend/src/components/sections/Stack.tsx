@@ -38,10 +38,8 @@ export default function Stack() {
   const isIOS = useIsIOS();
 
   return (
-    <section className="relative overflow-hidden py-section sm:py-section-lg border-t border-white/5">
-      <div className="pointer-events-none absolute inset-0 bg-grid opacity-50 [mask-image:radial-gradient(ellipse_60%_70%_at_70%_50%,#000_30%,transparent_100%)]" />
-
-      <Container className="relative flex flex-col gap-12">
+    <section className="py-section sm:py-section-lg border-t border-white/5">
+      <Container className="flex flex-col gap-12">
         <SectionHeading eyebrow={stack.eyebrow} title={stack.title} description={stack.intro} />
 
         {/* Los `li` se animan directamente en vez de envolverse en `Reveal`:

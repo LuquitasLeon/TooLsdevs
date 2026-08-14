@@ -12,15 +12,6 @@ interface Props {
   accent?: Accent;
 }
 
-const blobColors: Record<Accent, string> = {
-  none: "bg-white/8",
-  teal: "bg-brand-teal/8",
-  green: "bg-brand-green/8",
-  sky: "bg-accent-sky/8",
-  violet: "bg-accent-violet/8",
-  amber: "bg-accent-amber/8",
-};
-
 const iconColors: Record<Accent, string> = {
   none: "text-slate-300",
   teal: "text-brand-teal",
@@ -32,10 +23,8 @@ const iconColors: Record<Accent, string> = {
 
 export default function HomeTeaser({ teaser, accent = "teal" }: Props) {
   return (
-    <section className="relative overflow-hidden py-section sm:py-section-lg border-t border-white/5">
-      <div className={`pointer-events-none absolute -top-24 right-0 h-80 w-80 rounded-full blur-[110px] ${blobColors[accent]}`} />
-
-      <Container className="relative flex flex-col gap-10">
+    <section className="py-section sm:py-section-lg border-t border-white/5">
+      <Container className="flex flex-col gap-10">
         <SectionHeading eyebrow={teaser.eyebrow} title={teaser.title} />
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

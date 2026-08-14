@@ -32,7 +32,7 @@ export default function Projects() {
 
   return (
     <PageTransition>
-      <PageHeader eyebrow={projects.eyebrow} title={projects.title} description={projects.intro} accent="green" />
+      <PageHeader eyebrow={projects.eyebrow} title={projects.title} description={projects.intro} />
 
       <section className="pb-section sm:pb-section-lg">
         <Container className="flex flex-col gap-10">

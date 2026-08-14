@@ -14,7 +14,7 @@ export default function Process() {
 
   return (
     <PageTransition>
-      <PageHeader eyebrow={process.eyebrow} title={process.title} description={process.intro} accent="violet" />
+      <PageHeader eyebrow={process.eyebrow} title={process.title} description={process.intro} />
       <ProcessSection hideHeading />
       <Team />
       <WhyUs />

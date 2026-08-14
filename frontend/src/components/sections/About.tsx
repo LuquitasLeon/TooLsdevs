@@ -8,10 +8,8 @@ import { useContent } from "@/features/i18n/useI18n";
 export default function About() {
   const { about } = useContent();
   return (
-    <section id="nosotros" className="relative overflow-hidden py-section sm:py-section-lg">
-      <div className="pointer-events-none absolute -bottom-24 right-0 h-96 w-96 rounded-full bg-accent-violet/8 blur-[120px]" />
-
-      <Container className="relative flex flex-col gap-14">
+    <section id="nosotros" className="py-section sm:py-section-lg">
+      <Container className="flex flex-col gap-14">
         <SectionHeading eyebrow={about.eyebrow} title={about.title} />
 
         <Reveal delay={0.1} className="flex flex-col gap-5 max-w-3xl">

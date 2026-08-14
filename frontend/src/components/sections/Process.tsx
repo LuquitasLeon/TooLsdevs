@@ -11,11 +11,8 @@ interface ProcessProps {
 export default function Process({ hideHeading = false }: ProcessProps) {
   const { process } = useContent();
   return (
-    <section id="proceso" className="relative overflow-hidden py-section sm:py-section-lg border-t border-white/5">
-      <div className="pointer-events-none absolute inset-0 bg-grid opacity-40 [mask-image:radial-gradient(ellipse_55%_65%_at_85%_40%,#000_30%,transparent_100%)]" />
-      <div className="pointer-events-none absolute -right-32 top-1/3 h-80 w-80 rounded-full bg-accent-violet/8 blur-[120px]" />
-
-      <Container className="relative flex flex-col gap-14">
+    <section id="proceso" className="py-section sm:py-section-lg border-t border-white/5">
+      <Container className="flex flex-col gap-14">
         {!hideHeading && (
           <SectionHeading
             eyebrow={process.eyebrow}

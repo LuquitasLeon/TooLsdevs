@@ -41,7 +41,6 @@ export default function Contact() {
         eyebrow={ui.contactEyebrow}
         title={ui.contactHeading}
         description={ui.contactText}
-        accent="amber"
       />
 
       <section className="pb-section sm:pb-section-lg">
