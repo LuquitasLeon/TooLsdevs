@@ -49,7 +49,7 @@ export const es: SiteContent = {
       photo: "/team/santiago.jpg",
     },
     {
-      name: "Ismael Lucas León",
+      name: "Lucas Ismael León",
       role: "Cofundador",
       detail: "Técnico Programador (UTN FRT)",
       photo: "/team/ismael.jpg",
