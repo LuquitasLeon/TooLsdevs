@@ -10,11 +10,11 @@ import { useInView } from "@/hooks/useInView";
  * El fondo vive acá adentro (no en el string base de la pill): agregar un
  * `bg-*` en los dos lugares generaría un choque de utilidades de Tailwind. */
 const categoryStyles: Record<StackCategory, string> = {
-  frontend: "border-brand-teal/30 text-brand-teal bg-brand-teal/[0.07]",
-  backend: "border-brand-green/30 text-brand-green bg-brand-green/[0.07]",
-  datos: "border-accent-sky/30 text-sky-300 bg-accent-sky/[0.07]",
-  infraestructura: "border-accent-violet/30 text-violet-300 bg-accent-violet/[0.07]",
-  seguridad: "border-accent-amber/30 text-amber-300 bg-accent-amber/[0.07]",
+  frontend: "border-brand-teal/20 text-brand-teal bg-brand-teal/[0.04]",
+  backend: "border-brand-green/20 text-brand-green bg-brand-green/[0.04]",
+  datos: "border-accent-sky/20 text-sky-300 bg-accent-sky/[0.04]",
+  infraestructura: "border-accent-violet/20 text-violet-300 bg-accent-violet/[0.04]",
+  seguridad: "border-accent-amber/20 text-amber-300 bg-accent-amber/[0.04]",
 };
 
 /** Pill de una tecnología, con transición CSS nativa — para la rama de iOS. */
@@ -53,7 +53,7 @@ export default function Stack() {
               <StackPillIOS
                 key={item.id}
                 name={item.name}
-                className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors hover:brightness-125 ${categoryStyles[item.category]}`}
+                className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${categoryStyles[item.category]}`}
               />
             ) : (
               <motion.li
@@ -62,7 +62,7 @@ export default function Stack() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.4 }}
                 transition={{ duration: 0.45, delay: (i % 8) * 0.04, ease: [0.16, 1, 0.3, 1] }}
-                className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors hover:brightness-125 ${categoryStyles[item.category]}`}
+                className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${categoryStyles[item.category]}`}
               >
                 {item.name}
               </motion.li>

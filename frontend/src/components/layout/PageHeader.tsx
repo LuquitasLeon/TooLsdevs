@@ -12,12 +12,12 @@ interface PageHeaderProps {
 }
 
 const blobColors: Record<Accent, string> = {
-  none: "bg-white/10",
-  teal: "bg-brand-teal/20",
-  green: "bg-brand-green/20",
-  sky: "bg-accent-sky/20",
-  violet: "bg-accent-violet/20",
-  amber: "bg-accent-amber/20",
+  none: "bg-white/8",
+  teal: "bg-brand-teal/10",
+  green: "bg-brand-green/10",
+  sky: "bg-accent-sky/10",
+  violet: "bg-accent-violet/10",
+  amber: "bg-accent-amber/10",
 };
 
 /**

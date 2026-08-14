@@ -38,7 +38,7 @@ export default function Home() {
       <About />
 
       <section className="relative overflow-hidden py-section sm:py-section-lg border-t border-white/5">
-        <div className="pointer-events-none absolute -top-24 left-0 h-96 w-96 rounded-full bg-brand-green/15 blur-[110px]" />
+        <div className="pointer-events-none absolute -top-24 left-0 h-96 w-96 rounded-full bg-brand-green/8 blur-[110px]" />
 
         <Container className="relative flex flex-col gap-12">
           <SectionHeading

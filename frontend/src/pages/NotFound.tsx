@@ -15,7 +15,7 @@ export default function NotFound() {
     <PageTransition>
       <section className="relative flex min-h-[70vh] items-center overflow-hidden pt-32 pb-20">
         <div className="pointer-events-none absolute inset-0 bg-grid [mask-image:radial-gradient(ellipse_60%_60%_at_50%_40%,#000_30%,transparent_100%)]" />
-        <div className="pointer-events-none absolute left-1/2 top-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent-sky/20 blur-[120px]" />
+        <div className="pointer-events-none absolute left-1/2 top-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent-sky/10 blur-[120px]" />
 
         <Container className="relative flex flex-col items-center gap-7 text-center">
           <LogoMark className="h-20 w-20 opacity-60" animate={false} />

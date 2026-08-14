@@ -13,12 +13,12 @@ interface Props {
 }
 
 const blobColors: Record<Accent, string> = {
-  none: "bg-white/10",
-  teal: "bg-brand-teal/15",
-  green: "bg-brand-green/15",
-  sky: "bg-accent-sky/15",
-  violet: "bg-accent-violet/15",
-  amber: "bg-accent-amber/15",
+  none: "bg-white/8",
+  teal: "bg-brand-teal/8",
+  green: "bg-brand-green/8",
+  sky: "bg-accent-sky/8",
+  violet: "bg-accent-violet/8",
+  amber: "bg-accent-amber/8",
 };
 
 const iconColors: Record<Accent, string> = {

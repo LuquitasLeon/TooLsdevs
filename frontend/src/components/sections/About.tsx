@@ -9,7 +9,7 @@ export default function About() {
   const { about } = useContent();
   return (
     <section id="nosotros" className="relative overflow-hidden py-section sm:py-section-lg">
-      <div className="pointer-events-none absolute -bottom-24 right-0 h-96 w-96 rounded-full bg-accent-violet/15 blur-[120px]" />
+      <div className="pointer-events-none absolute -bottom-24 right-0 h-96 w-96 rounded-full bg-accent-violet/8 blur-[120px]" />
 
       <Container className="relative flex flex-col gap-14">
         <SectionHeading eyebrow={about.eyebrow} title={about.title} />

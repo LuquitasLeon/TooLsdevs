@@ -11,7 +11,7 @@ export default function WhyUsSummary() {
 
   return (
     <section className="relative overflow-hidden py-section sm:py-section-lg border-t border-white/5">
-      <div className="pointer-events-none absolute -bottom-24 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-accent-amber/15 blur-[120px]" />
+      <div className="pointer-events-none absolute -bottom-24 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-accent-amber/8 blur-[120px]" />
 
       <Container className="relative flex flex-col items-center gap-12">
         <SectionHeading

@@ -83,7 +83,7 @@ export default function Diagnostico({ onComplete }: { onComplete: (prefill: Cont
             <button
               type="button"
               onClick={() => setStepIndex(0)}
-              className="group inline-flex w-fit items-center gap-2 rounded-full bg-gradient-to-r from-accent-violet to-accent-amber px-6 py-3 text-sm font-semibold text-navy-950 transition-transform hover:scale-[1.03] motion-reduce:transform-none"
+              className="group inline-flex w-fit items-center gap-2 rounded-full bg-gradient-to-r from-accent-violet to-brand-teal px-6 py-3 text-sm font-semibold text-navy-950 transition-transform hover:scale-[1.03] motion-reduce:transform-none"
             >
               {diagnosis.start}
               <ArrowRight size={16} aria-hidden="true" className="transition-transform group-hover:translate-x-0.5" />
@@ -152,7 +152,7 @@ export default function Diagnostico({ onComplete }: { onComplete: (prefill: Cont
               <button
                 type="button"
                 onClick={() => onComplete(buildPrefill())}
-                className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-accent-violet to-accent-amber px-6 py-3 text-sm font-semibold text-navy-950 transition-transform hover:scale-[1.03] motion-reduce:transform-none"
+                className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-accent-violet to-brand-teal px-6 py-3 text-sm font-semibold text-navy-950 transition-transform hover:scale-[1.03] motion-reduce:transform-none"
               >
                 {diagnosis.toForm}
                 <ArrowRight size={16} aria-hidden="true" className="transition-transform group-hover:translate-x-0.5" />
