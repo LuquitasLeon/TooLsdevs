@@ -425,6 +425,7 @@ export const en: SiteContent = {
     contactText: "Tell us what you need and we'll get back to you shortly.",
     contactEyebrow: "Contact",
     loading: "Loading…",
+    backToTop: "Back to top",
     form: {
       title: "Write to us",
       nameLabel: "Name",

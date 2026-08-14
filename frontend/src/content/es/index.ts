@@ -419,6 +419,7 @@ export const es: SiteContent = {
     contactText: "Contanos qué necesitás y te respondemos a la brevedad.",
     contactEyebrow: "Contacto",
     loading: "Cargando…",
+    backToTop: "Volver arriba",
     form: {
       title: "Escribinos",
       nameLabel: "Nombre",

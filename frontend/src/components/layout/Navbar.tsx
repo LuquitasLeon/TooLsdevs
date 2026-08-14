@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { Link, NavLink } from "react-router";
+import { Link, NavLink, useLocation } from "react-router";
 import Logo from "@/components/brand/Logo";
 import Button from "@/components/ui/Button";
 import LocaleToggle from "@/features/i18n/LocaleToggle";
@@ -71,6 +71,8 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const toggleRef = useRef<HTMLButtonElement>(null);
   const isIOS = useIsIOS();
+  const { pathname } = useLocation();
+  const isHome = pathname === routes.home;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -116,7 +118,19 @@ export default function Navbar() {
         />
 
         <Container className="relative flex h-16 sm:h-20 items-center justify-between gap-4">
-          <Link to={routes.home} className="shrink-0" onClick={() => setOpen(false)}>
+          <Link
+            to={routes.home}
+            className="shrink-0"
+            onClick={(event) => {
+              setOpen(false);
+              // Si ya estamos en el inicio, el Link no navega a ningún lado
+              // — en vez de no hacer nada, lleva suavemente arriba.
+              if (isHome) {
+                event.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }
+            }}
+          >
             <Logo className="h-8 w-8 sm:h-9 sm:w-9" wordmarkClassName="text-base sm:text-lg" />
           </Link>
 

@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ScrollProgress from "@/components/layout/ScrollProgress";
+import BackToTopButton from "@/components/layout/BackToTopButton";
 import { I18nProvider } from "@/features/i18n/I18nProvider";
 import { useContent, useI18n } from "@/features/i18n/useI18n";
 import ScrollToTop from "./ScrollToTop";
@@ -76,6 +77,7 @@ function Layout() {
         </Suspense>
       </main>
       <Footer />
+      <BackToTopButton />
     </div>
   );
 }

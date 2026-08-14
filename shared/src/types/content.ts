@@ -233,6 +233,7 @@ export interface UiContent {
   contactText: string;
   contactEyebrow: string;
   loading: string;
+  backToTop: string;
   form: ContactFormContent;
   diagnosis: DiagnosisContent;
 }
