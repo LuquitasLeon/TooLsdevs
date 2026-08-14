@@ -2,12 +2,23 @@ import { motion } from "framer-motion";
 import Container from "./Container";
 import { useIsIOS } from "@/hooks/useMediaQuery";
 import { useMountedIn } from "@/hooks/useInView";
+import type { Accent } from "@/components/ui/Card";
 
 interface PageHeaderProps {
   eyebrow: string;
   title: string;
   description?: string;
+  accent?: Accent;
 }
+
+const blobColors: Record<Accent, string> = {
+  none: "bg-white/10",
+  teal: "bg-brand-teal/20",
+  green: "bg-brand-green/20",
+  sky: "bg-accent-sky/20",
+  violet: "bg-accent-violet/20",
+  amber: "bg-accent-amber/20",
+};
 
 /**
  * Encabezado de las páginas internas.
@@ -15,7 +26,7 @@ interface PageHeaderProps {
  * Deja aire bajo la barra fija y da un punto de entrada claro: al llegar desde
  * el menú, lo primero que se lee es dónde estás parado.
  */
-export default function PageHeader({ eyebrow, title, description }: PageHeaderProps) {
+export default function PageHeader({ eyebrow, title, description, accent = "teal" }: PageHeaderProps) {
   const isIOS = useIsIOS();
   const mounted = useMountedIn();
 
@@ -38,7 +49,9 @@ export default function PageHeader({ eyebrow, title, description }: PageHeaderPr
   return (
     <section className="relative overflow-hidden pt-32 pb-12 sm:pt-40 sm:pb-16">
       <div className="pointer-events-none absolute inset-0 bg-grid [mask-image:radial-gradient(ellipse_60%_70%_at_30%_0%,#000_30%,transparent_100%)]" />
-      <div className="pointer-events-none absolute -top-40 left-1/4 h-96 w-96 -translate-x-1/2 rounded-full bg-brand-teal/15 blur-[120px]" />
+      <div
+        className={`pointer-events-none absolute -top-40 left-1/4 h-[26rem] w-[26rem] -translate-x-1/2 rounded-full blur-[120px] ${blobColors[accent]}`}
+      />
 
       <Container className="relative">
         {isIOS ? (

@@ -18,7 +18,7 @@ export default function Team() {
   const { team } = useContent();
   return (
     <section className="relative overflow-hidden py-section sm:py-section-lg border-t border-white/5">
-      <div className="pointer-events-none absolute -top-24 right-0 h-96 w-96 rounded-full bg-brand-teal/10 blur-[110px]" />
+      <div className="pointer-events-none absolute -top-24 right-0 h-96 w-96 rounded-full bg-accent-violet/15 blur-[110px]" />
 
       <Container className="relative flex flex-col gap-12">
         <SectionHeading eyebrow={team.eyebrow} title={team.title} description={team.intro} />
@@ -36,7 +36,7 @@ export default function Team() {
                       className="h-full w-full object-cover object-top"
                     />
                   ) : (
-                    <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-brand-green to-brand-teal font-display text-2xl font-bold text-navy-950">
+                    <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-accent-violet to-brand-teal font-display text-2xl font-bold text-navy-950">
                       {initials(member.name)}
                     </div>
                   )}

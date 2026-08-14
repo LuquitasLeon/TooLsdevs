@@ -11,8 +11,11 @@ interface ProcessProps {
 export default function Process({ hideHeading = false }: ProcessProps) {
   const { process } = useContent();
   return (
-    <section id="proceso" className="py-section sm:py-section-lg border-t border-white/5">
-      <Container className="flex flex-col gap-14">
+    <section id="proceso" className="relative overflow-hidden py-section sm:py-section-lg border-t border-white/5">
+      <div className="pointer-events-none absolute inset-0 bg-grid opacity-40 [mask-image:radial-gradient(ellipse_55%_65%_at_85%_40%,#000_30%,transparent_100%)]" />
+      <div className="pointer-events-none absolute -right-32 top-1/3 h-80 w-80 rounded-full bg-accent-violet/15 blur-[120px]" />
+
+      <Container className="relative flex flex-col gap-14">
         {!hideHeading && (
           <SectionHeading
             eyebrow={process.eyebrow}
@@ -22,11 +25,11 @@ export default function Process({ hideHeading = false }: ProcessProps) {
         )}
 
         <div className="relative">
-          <div className="absolute left-5 top-2 bottom-2 w-px bg-gradient-to-b from-brand-green via-brand-teal to-transparent sm:left-6" />
+          <div className="absolute left-5 top-2 bottom-2 w-px bg-gradient-to-b from-accent-violet via-brand-teal to-transparent sm:left-6" />
           <div className="flex flex-col gap-8">
             {process.steps.map((step, i) => (
               <Reveal key={step.title} delay={i * 0.07} className="relative flex gap-5 sm:gap-6 pl-0">
-                <div className="relative z-10 flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-full border border-white/10 bg-navy-900 font-display text-sm sm:text-base font-bold text-brand-teal">
+                <div className="relative z-10 flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-full border border-white/10 bg-navy-900 font-display text-sm sm:text-base font-bold text-accent-violet">
                   {i + 1}
                 </div>
                 <div className="pt-1 sm:pt-2">

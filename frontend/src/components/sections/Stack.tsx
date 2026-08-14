@@ -6,13 +6,15 @@ import { useContent } from "@/features/i18n/useI18n";
 import { useIsIOS } from "@/hooks/useMediaQuery";
 import { useInView } from "@/hooks/useInView";
 
-/** Un color por familia de tecnología, para que el bloque se lea de un vistazo. */
+/** Un color por familia de tecnología, para que el bloque se lea de un vistazo.
+ * El fondo vive acá adentro (no en el string base de la pill): agregar un
+ * `bg-*` en los dos lugares generaría un choque de utilidades de Tailwind. */
 const categoryStyles: Record<StackCategory, string> = {
-  frontend: "border-brand-teal/25 text-brand-teal",
-  backend: "border-brand-green/25 text-brand-green",
-  datos: "border-sky-400/25 text-sky-300",
-  infraestructura: "border-violet-400/25 text-violet-300",
-  seguridad: "border-amber-400/25 text-amber-300",
+  frontend: "border-brand-teal/30 text-brand-teal bg-brand-teal/[0.07]",
+  backend: "border-brand-green/30 text-brand-green bg-brand-green/[0.07]",
+  datos: "border-accent-sky/30 text-sky-300 bg-accent-sky/[0.07]",
+  infraestructura: "border-accent-violet/30 text-violet-300 bg-accent-violet/[0.07]",
+  seguridad: "border-accent-amber/30 text-amber-300 bg-accent-amber/[0.07]",
 };
 
 /** Pill de una tecnología, con transición CSS nativa — para la rama de iOS. */
@@ -36,8 +38,10 @@ export default function Stack() {
   const isIOS = useIsIOS();
 
   return (
-    <section className="py-section sm:py-section-lg border-t border-white/5">
-      <Container className="flex flex-col gap-12">
+    <section className="relative overflow-hidden py-section sm:py-section-lg border-t border-white/5">
+      <div className="pointer-events-none absolute inset-0 bg-grid opacity-50 [mask-image:radial-gradient(ellipse_60%_70%_at_70%_50%,#000_30%,transparent_100%)]" />
+
+      <Container className="relative flex flex-col gap-12">
         <SectionHeading eyebrow={stack.eyebrow} title={stack.title} description={stack.intro} />
 
         {/* Los `li` se animan directamente en vez de envolverse en `Reveal`:
@@ -49,7 +53,7 @@ export default function Stack() {
               <StackPillIOS
                 key={item.id}
                 name={item.name}
-                className={`rounded-full border bg-white/[0.03] px-4 py-2 text-sm font-medium transition-colors hover:bg-white/[0.07] ${categoryStyles[item.category]}`}
+                className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors hover:brightness-125 ${categoryStyles[item.category]}`}
               />
             ) : (
               <motion.li
@@ -58,7 +62,7 @@ export default function Stack() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.4 }}
                 transition={{ duration: 0.45, delay: (i % 8) * 0.04, ease: [0.16, 1, 0.3, 1] }}
-                className={`rounded-full border bg-white/[0.03] px-4 py-2 text-sm font-medium transition-colors hover:bg-white/[0.07] ${categoryStyles[item.category]}`}
+                className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors hover:brightness-125 ${categoryStyles[item.category]}`}
               >
                 {item.name}
               </motion.li>

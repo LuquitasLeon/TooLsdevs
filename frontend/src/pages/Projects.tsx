@@ -12,6 +12,7 @@ import { useContent } from "@/features/i18n/useI18n";
 import { routes } from "@/app/routes";
 import { usePageMeta } from "@/lib/usePageMeta";
 import { cn } from "@/lib/cn";
+import { projectCategoryText } from "@/lib/projectAccent";
 
 type Filter = ProjectCategory | "todos";
 
@@ -31,7 +32,7 @@ export default function Projects() {
 
   return (
     <PageTransition>
-      <PageHeader eyebrow={projects.eyebrow} title={projects.title} description={projects.intro} />
+      <PageHeader eyebrow={projects.eyebrow} title={projects.title} description={projects.intro} accent="green" />
 
       <section className="pb-section sm:pb-section-lg">
         <Container className="flex flex-col gap-10">
@@ -47,7 +48,7 @@ export default function Projects() {
                   className={cn(
                     "rounded-full border px-4 py-2 text-sm font-medium transition-colors",
                     active
-                      ? "border-brand-teal bg-brand-teal text-navy-950"
+                      ? "border-brand-green bg-brand-green text-navy-950"
                       : "border-white/10 bg-white/[0.03] text-slate-300 hover:text-white",
                   )}
                 >
@@ -68,7 +69,9 @@ export default function Projects() {
               <Reveal key={project.slug} delay={(i % 3) * 0.07}>
                 <Card interactive className="group flex flex-col">
                   <div className="flex items-center justify-between gap-2">
-                    <span className="text-xs font-semibold uppercase tracking-[0.15em] text-brand-teal/90">
+                    <span
+                      className={`text-xs font-semibold uppercase tracking-[0.15em] ${projectCategoryText[project.category]}`}
+                    >
                       {ui.categories[project.category]}
                     </span>
                     {project.draft && (

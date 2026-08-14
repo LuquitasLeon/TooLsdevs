@@ -8,8 +8,10 @@ import { useContent } from "@/features/i18n/useI18n";
 export default function About() {
   const { about } = useContent();
   return (
-    <section id="nosotros" className="py-section sm:py-section-lg">
-      <Container className="flex flex-col gap-14">
+    <section id="nosotros" className="relative overflow-hidden py-section sm:py-section-lg">
+      <div className="pointer-events-none absolute -bottom-24 right-0 h-96 w-96 rounded-full bg-accent-violet/15 blur-[120px]" />
+
+      <Container className="relative flex flex-col gap-14">
         <SectionHeading eyebrow={about.eyebrow} title={about.title} />
 
         <Reveal delay={0.1} className="flex flex-col gap-5 max-w-3xl">
@@ -22,7 +24,7 @@ export default function About() {
 
         <div className="grid gap-6 sm:grid-cols-2">
           <Reveal delay={0.15}>
-            <Card>
+            <Card accent="teal">
               <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand-teal/10 text-brand-teal">
                 <Target size={20} />
               </div>
@@ -33,7 +35,7 @@ export default function About() {
             </Card>
           </Reveal>
           <Reveal delay={0.2}>
-            <Card>
+            <Card accent="green">
               <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand-green/10 text-brand-green">
                 <Compass size={20} />
               </div>

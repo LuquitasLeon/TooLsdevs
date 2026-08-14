@@ -13,6 +13,7 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import { useContent } from "@/features/i18n/useI18n";
 import { routes } from "@/app/routes";
 import { usePageMeta } from "@/lib/usePageMeta";
+import { projectCategoryText } from "@/lib/projectAccent";
 
 /**
  * Portada: un recorrido corto y contundente.
@@ -36,8 +37,10 @@ export default function Home() {
       <Hero />
       <About />
 
-      <section className="py-section sm:py-section-lg border-t border-white/5">
-        <Container className="flex flex-col gap-12">
+      <section className="relative overflow-hidden py-section sm:py-section-lg border-t border-white/5">
+        <div className="pointer-events-none absolute -top-24 left-0 h-96 w-96 rounded-full bg-brand-green/15 blur-[110px]" />
+
+        <Container className="relative flex flex-col gap-12">
           <SectionHeading
             eyebrow={projects.eyebrow}
             title={projects.title}
@@ -49,7 +52,9 @@ export default function Home() {
               <Reveal key={project.slug} delay={(i % 3) * 0.08}>
                 <Card interactive className="group flex flex-col">
                   <div className="flex items-center justify-between gap-2">
-                    <span className="text-xs font-semibold uppercase tracking-[0.15em] text-brand-teal/90">
+                    <span
+                      className={`text-xs font-semibold uppercase tracking-[0.15em] ${projectCategoryText[project.category]}`}
+                    >
                       {ui.categories[project.category]}
                     </span>
                     {project.draft && (
@@ -92,8 +97,8 @@ export default function Home() {
         </Container>
       </section>
 
-      <HomeTeaser teaser={homeTeasers.services} />
-      <HomeTeaser teaser={homeTeasers.process} />
+      <HomeTeaser teaser={homeTeasers.services} accent="teal" />
+      <HomeTeaser teaser={homeTeasers.process} accent="violet" />
       <WhyUsSummary />
       <Philosophy />
     </PageTransition>

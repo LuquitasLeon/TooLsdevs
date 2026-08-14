@@ -6,6 +6,11 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import { useContent } from "@/features/i18n/useI18n";
 
 const icons = [Code2, ShieldHalf];
+const cardAccents = ["teal", "amber"] as const;
+const badgeColors = [
+  "bg-brand-teal/15 text-brand-teal",
+  "bg-accent-amber/15 text-accent-amber",
+] as const;
 
 interface ServicesProps {
   /**
@@ -33,8 +38,10 @@ export default function Services({ hideHeading = false }: ServicesProps) {
             const Icon = icons[i] ?? Code2;
             return (
               <Reveal key={group.title} delay={i * 0.1}>
-                <Card padding="roomy">
-                  <div className="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-brand-green/20 to-brand-teal/20 text-brand-teal">
+                <Card padding="roomy" accent={cardAccents[i] ?? "teal"}>
+                  <div
+                    className={`mb-5 inline-flex h-11 w-11 items-center justify-center rounded-xl ${badgeColors[i] ?? badgeColors[0]}`}
+                  >
                     <Icon size={22} />
                   </div>
                   <h3 className="font-display text-xl font-semibold text-white">{group.title}</h3>

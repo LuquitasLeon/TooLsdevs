@@ -39,8 +39,8 @@ export default function Hero() {
     return (
       <section id="inicio" className="relative overflow-hidden pt-28 pb-16 sm:pt-32 sm:pb-24">
         <div className="pointer-events-none absolute inset-0 bg-grid [mask-image:radial-gradient(ellipse_70%_60%_at_30%_0%,#000_35%,transparent_100%)]" />
-        <div className="pointer-events-none absolute -top-40 left-1/4 h-[34rem] w-[34rem] -translate-x-1/2 rounded-full bg-brand-teal/20 blur-[130px]" />
-        <div className="pointer-events-none absolute top-32 right-0 h-80 w-80 rounded-full bg-brand-green/10 blur-[110px]" />
+        <div className="pointer-events-none absolute -top-40 left-1/4 h-[34rem] w-[34rem] -translate-x-1/2 rounded-full bg-brand-teal/25 blur-[130px]" />
+        <div className="pointer-events-none absolute top-32 right-0 h-80 w-80 rounded-full bg-brand-green/15 blur-[110px]" />
 
         <Container className="relative">
           <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-16">
@@ -135,8 +135,8 @@ export default function Hero() {
   return (
     <section id="inicio" className="relative overflow-hidden pt-28 pb-16 sm:pt-32 sm:pb-24">
       <div className="pointer-events-none absolute inset-0 bg-grid [mask-image:radial-gradient(ellipse_70%_60%_at_30%_0%,#000_35%,transparent_100%)]" />
-      <div className="pointer-events-none absolute -top-40 left-1/4 h-[34rem] w-[34rem] -translate-x-1/2 rounded-full bg-brand-teal/20 blur-[130px]" />
-      <div className="pointer-events-none absolute top-32 right-0 h-80 w-80 rounded-full bg-brand-green/10 blur-[110px]" />
+      <div className="pointer-events-none absolute -top-40 left-1/4 h-[34rem] w-[34rem] -translate-x-1/2 rounded-full bg-brand-teal/25 blur-[130px]" />
+      <div className="pointer-events-none absolute top-32 right-0 h-80 w-80 rounded-full bg-brand-green/15 blur-[110px]" />
 
       <Container className="relative">
         {/* Asimétrico a propósito: el texto pesa más que la imagen, y el logo

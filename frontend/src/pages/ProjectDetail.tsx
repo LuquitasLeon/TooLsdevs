@@ -9,6 +9,7 @@ import Reveal from "@/components/ui/Reveal";
 import { useContent } from "@/features/i18n/useI18n";
 import { routes } from "@/app/routes";
 import { usePageMeta } from "@/lib/usePageMeta";
+import { projectCategoryAccent } from "@/lib/projectAccent";
 import NotFound from "./NotFound";
 
 export default function ProjectDetail() {
@@ -34,6 +35,7 @@ export default function ProjectDetail() {
         eyebrow={ui.categories[project.category]}
         title={project.title}
         description={project.summary}
+        accent={projectCategoryAccent[project.category]}
       />
 
       <section className="pb-section sm:pb-section-lg">

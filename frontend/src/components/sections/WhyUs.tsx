@@ -20,7 +20,7 @@ export default function WhyUs() {
         <div className="mx-auto grid max-w-4xl gap-4 sm:grid-cols-2">
           {whyUs.reasons.map((reason, i) => (
             <Reveal key={reason} delay={(i % 4) * 0.06}>
-              <Card padding="compact" className="flex items-start gap-3 text-left">
+              <Card padding="compact" accent="violet" className="flex items-start gap-3 text-left">
                 <CheckCircle2 size={20} className="mt-0.5 shrink-0 text-brand-green" />
                 <span className="text-sm sm:text-base text-slate-200">{reason}</span>
               </Card>

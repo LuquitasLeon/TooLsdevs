@@ -21,6 +21,13 @@
   --color-logo-green: #84f866;
   --color-logo-teal: #57d1d2;
 
+  /* Acentos de apoyo, para dar variedad sin perder la identidad teal/green.
+     Ya estaban probados como pills de tecnología en Stack.tsx; se promueven acá
+     a tokens con el mismo patrón que --color-brand-*. */
+  --color-accent-sky: #38bdf8;
+  --color-accent-violet: #a78bfa;
+  --color-accent-amber: #fbbf24;
+
   /* Escala tipográfica con más contraste entre extremos: la landing anterior
      vivía casi entera entre text-3xl y text-4xl y todo pesaba igual. */
   --text-display: 4.5rem;
