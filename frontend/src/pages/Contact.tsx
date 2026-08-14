@@ -3,7 +3,6 @@ import { Mail, MapPin, MessageCircle } from "lucide-react";
 import Container from "@/components/layout/Container";
 import PageHeader from "@/components/layout/PageHeader";
 import PageTransition from "@/components/layout/PageTransition";
-import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
 import Reveal from "@/components/ui/Reveal";
 import ContactForm from "@/features/contact-form/ContactForm";
@@ -105,9 +104,6 @@ export default function Contact() {
                 <h2 className="font-display text-lg font-semibold text-white">
                   {contact.location}
                 </h2>
-                <Button href={contact.instagram} target="_blank" rel="noreferrer" variant="secondary" size="md" className="w-fit">
-                  Instagram
-                </Button>
               </Card>
             </Reveal>
           </div>

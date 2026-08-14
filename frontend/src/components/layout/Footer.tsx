@@ -16,18 +16,24 @@ export default function Footer() {
       href: `mailto:${contact.email}`,
       Icon: Mail,
       external: false,
+      colorClass:
+        "bg-brand-teal/10 text-brand-teal border-brand-teal/20 hover:bg-brand-teal/20 hover:border-brand-teal/40",
     },
     {
       label: "WhatsApp",
       href: `https://wa.me/${contact.whatsapp[0]?.number ?? ""}`,
       Icon: MessageCircle,
       external: true,
+      colorClass:
+        "bg-brand-green/10 text-brand-green border-brand-green/20 hover:bg-brand-green/20 hover:border-brand-green/40",
     },
     {
       label: "Instagram",
       href: contact.instagram,
       Icon: InstagramIcon,
       external: true,
+      colorClass:
+        "bg-violet-400/10 text-violet-300 border-violet-400/20 hover:bg-violet-400/20 hover:border-violet-400/40",
     },
   ];
 
@@ -40,16 +46,16 @@ export default function Footer() {
             <Logo className="h-7 w-7" wordmarkClassName="text-sm" />
           </Link>
 
-          <div className="flex items-center gap-2">
-            {socialLinks.map(({ label, href, Icon, external }) => (
+          <div className="flex items-center gap-3">
+            {socialLinks.map(({ label, href, Icon, external, colorClass }) => (
               <a
                 key={label}
                 href={href}
                 {...(external ? { target: "_blank", rel: "noreferrer" } : {})}
                 aria-label={label}
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-slate-300 transition-colors hover:border-brand-teal/40 hover:text-brand-teal hover:bg-brand-teal/5"
+                className={`flex h-12 w-12 items-center justify-center rounded-full border transition-colors ${colorClass}`}
               >
-                <Icon size={18} />
+                <Icon size={20} />
               </a>
             ))}
           </div>
