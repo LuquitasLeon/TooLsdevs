@@ -19,10 +19,10 @@ export default function NotFound() {
         <Container className="relative flex flex-col items-center gap-7 text-center">
           <LogoMark className="h-20 w-20 opacity-60" animate={false} />
           <p className="font-display text-6xl font-bold text-gradient">404</p>
-          <h1 className="font-display text-3xl sm:text-4xl font-bold text-white text-balance">
+          <h1 className="font-display text-3xl sm:text-4xl font-bold text-fg text-balance">
             {ui.notFoundTitle}
           </h1>
-          <p className="max-w-md text-base sm:text-lg text-slate-200/90 text-pretty">
+          <p className="max-w-md text-base sm:text-lg text-muted/90 text-pretty">
             {ui.notFoundText}
           </p>
           <Button to={routes.home}>{ui.notFoundCta}</Button>

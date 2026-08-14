@@ -37,7 +37,7 @@ export default function Home() {
       <Hero />
       <About />
 
-      <section className="py-section sm:py-section-lg border-t border-white/5">
+      <section className="py-section sm:py-section-lg border-t border-line/5">
         <Container className="flex flex-col gap-12">
           <SectionHeading
             eyebrow={projects.eyebrow}
@@ -56,20 +56,20 @@ export default function Home() {
                       {ui.categories[project.category]}
                     </span>
                     {project.draft && (
-                      <span className="rounded-full border border-amber-400/30 bg-amber-400/10 px-2 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wider text-amber-300">
+                      <span className="rounded-full border border-amber-400/30 bg-amber-400/10 px-2 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wider text-accent-amber-text">
                         {ui.draftBadge}
                       </span>
                     )}
                   </div>
-                  <h3 className="mt-3 font-display text-lg font-semibold text-white">
+                  <h3 className="mt-3 font-display text-lg font-semibold text-fg">
                     {project.title}
                   </h3>
-                  <p className="mt-2 flex-1 text-sm sm:text-base leading-relaxed text-slate-200/90">
+                  <p className="mt-2 flex-1 text-sm sm:text-base leading-relaxed text-muted/90">
                     {project.summary}
                   </p>
                   <Link
                     to={routes.project(project.slug)}
-                    className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-teal"
+                    className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-teal-text"
                   >
                     {ui.viewProject}
                     <ArrowRight
@@ -86,7 +86,7 @@ export default function Home() {
           <Reveal delay={0.1}>
             <Link
               to={routes.projects}
-              className="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-brand-teal transition-colors"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-fg hover:text-brand-teal-text transition-colors"
             >
               {ui.allProjects}
               <ArrowRight size={16} aria-hidden="true" />

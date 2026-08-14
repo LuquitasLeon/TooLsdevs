@@ -15,12 +15,12 @@ interface CardProps {
 }
 
 const accents: Record<Accent, string> = {
-  none: "border-white/10 bg-navy-900",
-  teal: "border-brand-teal/20 bg-navy-900",
-  green: "border-brand-green/20 bg-navy-900",
-  sky: "border-accent-sky/20 bg-navy-900",
-  violet: "border-accent-violet/20 bg-navy-900",
-  amber: "border-accent-amber/20 bg-navy-900",
+  none: "border-line/10 bg-surface",
+  teal: "border-brand-teal/20 bg-surface",
+  green: "border-brand-green/20 bg-surface",
+  sky: "border-accent-sky/20 bg-surface",
+  violet: "border-accent-violet/20 bg-surface",
+  amber: "border-accent-amber/20 bg-surface",
 };
 
 const paddings: Record<Padding, string> = {
@@ -43,7 +43,7 @@ export default function Card({
         paddings[padding],
         accents[accent],
         interactive &&
-          "transition-colors duration-300 hover:border-brand-teal/30 hover:bg-white/[0.05]",
+          "transition-colors duration-300 hover:border-brand-teal/30 hover:bg-line/[0.05]",
         className,
       )}
     >

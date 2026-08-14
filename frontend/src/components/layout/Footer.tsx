@@ -38,7 +38,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="border-t border-white/5 py-10">
+    <footer className="border-t border-line/5 py-10">
       <Container className="flex flex-col gap-8">
         {/* Logo + social icons */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
@@ -62,7 +62,7 @@ export default function Footer() {
         </div>
 
         {/* Location */}
-        <div className="flex items-center justify-center gap-1.5 text-sm text-slate-400">
+        <div className="flex items-center justify-center gap-1.5 text-sm text-faint">
           <MapPin size={14} aria-hidden="true" />
           {contact.location}
         </div>
@@ -70,13 +70,13 @@ export default function Footer() {
         {/* Nav links */}
         <nav
           aria-label={ui.mainNav}
-          className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 border-t border-white/5 pt-6"
+          className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 border-t border-line/5 pt-6"
         >
           {nav.map((item) => (
             <NavLink
               key={item.href}
               to={item.href}
-              className="text-xs text-slate-400 hover:text-white transition-colors"
+              className="text-xs text-faint hover:text-fg transition-colors"
             >
               {item.label}
             </NavLink>
@@ -84,7 +84,7 @@ export default function Footer() {
         </nav>
 
         {/* Copyright */}
-        <p className="text-center text-xs text-slate-500">
+        <p className="text-center text-xs text-faint">
           © {new Date().getFullYear()} ToolsDevs. Desarrollamos ideas, construimos soluciones.
         </p>
       </Container>

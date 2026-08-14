@@ -8,7 +8,7 @@ import { useContent } from "@/features/i18n/useI18n";
 export default function WhyUs() {
   const { whyUs } = useContent();
   return (
-    <section className="py-section sm:py-section-lg border-t border-white/5">
+    <section className="py-section sm:py-section-lg border-t border-line/5">
       <Container className="flex flex-col gap-14">
         <SectionHeading
           eyebrow={whyUs.eyebrow}
@@ -22,7 +22,7 @@ export default function WhyUs() {
             <Reveal key={reason} delay={(i % 4) * 0.06}>
               <Card padding="compact" accent="violet" className="flex items-start gap-3 text-left">
                 <CheckCircle2 size={20} className="mt-0.5 shrink-0 text-brand-green" />
-                <span className="text-sm sm:text-base text-slate-200">{reason}</span>
+                <span className="text-sm sm:text-base text-muted">{reason}</span>
               </Card>
             </Reveal>
           ))}

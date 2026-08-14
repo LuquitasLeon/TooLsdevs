@@ -13,7 +13,7 @@ interface Props {
 }
 
 const iconColors: Record<Accent, string> = {
-  none: "text-slate-300",
+  none: "text-faint",
   teal: "text-brand-teal",
   green: "text-brand-green",
   sky: "text-accent-sky",
@@ -23,7 +23,7 @@ const iconColors: Record<Accent, string> = {
 
 export default function HomeTeaser({ teaser, accent = "teal" }: Props) {
   return (
-    <section className="py-section sm:py-section-lg border-t border-white/5">
+    <section className="py-section sm:py-section-lg border-t border-line/5">
       <Container className="flex flex-col gap-10">
         <SectionHeading eyebrow={teaser.eyebrow} title={teaser.title} />
 
@@ -32,7 +32,7 @@ export default function HomeTeaser({ teaser, accent = "teal" }: Props) {
             <Reveal key={highlight} delay={i * 0.07}>
               <Card padding="compact" accent={accent} className="flex items-start gap-3 text-left h-full">
                 <CheckCircle2 size={20} className={`mt-0.5 shrink-0 ${iconColors[accent]}`} />
-                <span className="text-sm sm:text-base text-slate-200">{highlight}</span>
+                <span className="text-sm sm:text-base text-muted">{highlight}</span>
               </Card>
             </Reveal>
           ))}

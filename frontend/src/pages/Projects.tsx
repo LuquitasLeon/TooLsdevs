@@ -49,7 +49,7 @@ export default function Projects() {
                     "rounded-full border px-4 py-2 text-sm font-medium transition-colors",
                     active
                       ? "border-brand-green bg-brand-green text-navy-950"
-                      : "border-white/10 bg-white/[0.03] text-slate-300 hover:text-white",
+                      : "border-line/10 bg-line/[0.03] text-muted hover:text-fg",
                   )}
                 >
                   {value === "todos" ? ui.filterAll : ui.categories[value]}
@@ -75,21 +75,21 @@ export default function Projects() {
                       {ui.categories[project.category]}
                     </span>
                     {project.draft && (
-                      <span className="rounded-full border border-amber-400/30 bg-amber-400/10 px-2 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wider text-amber-300">
+                      <span className="rounded-full border border-amber-400/30 bg-amber-400/10 px-2 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wider text-accent-amber-text">
                         {ui.draftBadge}
                       </span>
                     )}
                   </div>
-                  <h2 className="mt-3 font-display text-lg font-semibold text-white">
+                  <h2 className="mt-3 font-display text-lg font-semibold text-fg">
                     {project.title}
                   </h2>
-                  <p className="mt-1.5 text-sm text-slate-400">{project.client}</p>
-                  <p className="mt-3 flex-1 text-sm sm:text-base leading-relaxed text-slate-200/90">
+                  <p className="mt-1.5 text-sm text-faint">{project.client}</p>
+                  <p className="mt-3 flex-1 text-sm sm:text-base leading-relaxed text-muted/90">
                     {project.summary}
                   </p>
                   <Link
                     to={routes.project(project.slug)}
-                    className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-teal"
+                    className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-teal-text"
                   >
                     {ui.viewProject}
                     <ArrowRight

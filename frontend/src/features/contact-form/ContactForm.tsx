@@ -82,8 +82,8 @@ export default function ContactForm({ prefill }: { prefill?: ContactPrefill }) {
           role="status"
         >
           <CheckCircle2 size={44} className="text-brand-green" aria-hidden="true" />
-          <h3 className="font-display text-xl font-semibold text-white">{form.successTitle}</h3>
-          <p className="max-w-sm text-slate-200/90">{form.successText}</p>
+          <h3 className="font-display text-xl font-semibold text-fg">{form.successTitle}</h3>
+          <p className="max-w-sm text-muted/90">{form.successText}</p>
         </motion.div>
       </Card>
     );
@@ -93,7 +93,7 @@ export default function ContactForm({ prefill }: { prefill?: ContactPrefill }) {
 
   return (
     <Card padding="roomy">
-      <h2 className="font-display text-xl font-semibold text-white">{form.title}</h2>
+      <h2 className="font-display text-xl font-semibold text-fg">{form.title}</h2>
 
       <form onSubmit={handleSubmit} className="mt-6 flex flex-col gap-5" noValidate>
         <Field
@@ -132,8 +132,8 @@ export default function ContactForm({ prefill }: { prefill?: ContactPrefill }) {
         </div>
 
         {prefill?.service && (
-          <p className="rounded-lg border border-brand-teal/20 bg-brand-teal/[0.06] px-4 py-2.5 text-sm text-slate-200">
-            <span className="text-slate-400">{form.serviceLabel}: </span>
+          <p className="rounded-lg border border-brand-teal/20 bg-brand-teal/[0.06] px-4 py-2.5 text-sm text-muted">
+            <span className="text-faint">{form.serviceLabel}: </span>
             {prefill.service}
           </p>
         )}
@@ -165,7 +165,7 @@ export default function ContactForm({ prefill }: { prefill?: ContactPrefill }) {
         </div>
 
         {generalError && (
-          <p className="rounded-lg border border-red-400/30 bg-red-400/[0.08] px-4 py-3 text-sm text-red-200" role="alert">
+          <p className="rounded-lg border border-red-400/30 bg-red-400/[0.08] px-4 py-3 text-sm text-danger-text" role="alert">
             {generalError}
           </p>
         )}
@@ -214,13 +214,13 @@ function Field({
 }: FieldProps) {
   const errorId = `${id}-error`;
   const base =
-    "w-full rounded-lg border bg-white/[0.03] px-4 py-3 text-sm text-white placeholder:text-slate-500 " +
+    "w-full rounded-lg border bg-line/[0.03] px-4 py-3 text-sm text-fg placeholder:text-faint " +
     "transition-colors focus:outline-none focus-visible:border-brand-teal " +
-    (error ? "border-red-400/50" : "border-white/10");
+    (error ? "border-red-400/50" : "border-line/10");
 
   return (
     <div className="flex flex-col gap-1.5">
-      <label htmlFor={id} className="text-sm font-medium text-slate-200">
+      <label htmlFor={id} className="text-sm font-medium text-muted">
         {label}
       </label>
       {textarea ? (
@@ -248,7 +248,7 @@ function Field({
         />
       )}
       {error && (
-        <p id={errorId} className="text-sm text-red-300">
+        <p id={errorId} className="text-sm text-danger-text">
           {error}
         </p>
       )}

@@ -6,6 +6,7 @@ import Logo from "@/components/brand/Logo";
 import Button from "@/components/ui/Button";
 import LocaleToggle from "@/features/i18n/LocaleToggle";
 import { useContent } from "@/features/i18n/useI18n";
+import ThemeToggle from "@/features/theme/ThemeToggle";
 import { routes } from "@/app/routes";
 import { cn } from "@/lib/cn";
 import { useIsIOS } from "@/hooks/useMediaQuery";
@@ -29,8 +30,8 @@ function MenuLinks({
           onClick={onNavigate}
           className={({ isActive }) =>
             cn(
-              "rounded-lg px-3 py-3 text-sm font-medium hover:bg-white/5",
-              isActive ? "text-white bg-white/5" : "text-slate-200",
+              "rounded-lg px-3 py-3 text-sm font-medium hover:bg-line/5",
+              isActive ? "text-fg bg-line/5" : "text-muted",
             )
           }
         >
@@ -45,7 +46,7 @@ function MenuLinks({
 }
 
 const menuPanelClass =
-  "fixed inset-x-0 top-16 sm:top-20 z-40 md:hidden max-h-[calc(100vh-4rem)] sm:max-h-[calc(100vh-5rem)] overflow-y-auto border-t border-white/10 bg-navy-950";
+  "fixed inset-x-0 top-16 sm:top-20 z-40 md:hidden max-h-[calc(100vh-4rem)] sm:max-h-[calc(100vh-5rem)] overflow-y-auto border-t border-line/10 bg-page";
 
 /** Menú mobile con transición CSS nativa en vez de Framer Motion — para la
  * rama de iOS. Ver `useIsIOS`. */
@@ -98,7 +99,7 @@ export default function Navbar() {
   const linkClass = ({ isActive }: { isActive: boolean }) =>
     cn(
       "text-sm font-medium transition-colors",
-      isActive ? "text-white" : "text-slate-300 hover:text-white",
+      isActive ? "text-fg" : "text-muted hover:text-fg",
     );
 
   return (
@@ -112,7 +113,7 @@ export default function Navbar() {
             por el que se cuele el texto que pasa por detrás. */}
         <div
           aria-hidden="true"
-          className={`absolute inset-0 bg-navy-950 border-b border-white/10 ${
+          className={`absolute inset-0 bg-page border-b border-line/10 ${
             scrolled ? "opacity-100" : "opacity-0"
           }`}
         />
@@ -143,6 +144,7 @@ export default function Navbar() {
           </nav>
 
           <div className="hidden md:flex items-center gap-3">
+            <ThemeToggle />
             <LocaleToggle />
             <Button to={routes.contact} size="md">
               {ui.contactCta}
@@ -150,11 +152,12 @@ export default function Navbar() {
           </div>
 
           <div className="flex items-center gap-2 md:hidden">
+            <ThemeToggle />
             <LocaleToggle />
             <button
               ref={toggleRef}
               type="button"
-              className="text-white p-2 -mr-2"
+              className="text-fg p-2 -mr-2"
               aria-label={open ? ui.closeMenu : ui.openMenu}
               aria-expanded={open}
               aria-controls="menu-movil"

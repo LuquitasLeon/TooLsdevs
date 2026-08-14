@@ -394,6 +394,8 @@ export const es: SiteContent = {
     mainNav: "Principal",
     contactCta: "Contactanos",
     languageLabel: "Cambiar idioma",
+    switchToLight: "Cambiar a tema claro",
+    switchToDark: "Cambiar a tema oscuro",
     backToProjects: "Volver a proyectos",
     viewProject: "Ver el proyecto",
     allProjects: "Ver todos los proyectos",

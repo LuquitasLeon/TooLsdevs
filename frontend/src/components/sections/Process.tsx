@@ -11,7 +11,7 @@ interface ProcessProps {
 export default function Process({ hideHeading = false }: ProcessProps) {
   const { process } = useContent();
   return (
-    <section id="proceso" className="py-section sm:py-section-lg border-t border-white/5">
+    <section id="proceso" className="py-section sm:py-section-lg border-t border-line/5">
       <Container className="flex flex-col gap-14">
         {!hideHeading && (
           <SectionHeading
@@ -26,12 +26,12 @@ export default function Process({ hideHeading = false }: ProcessProps) {
           <div className="flex flex-col gap-8">
             {process.steps.map((step, i) => (
               <Reveal key={step.title} delay={i * 0.07} className="relative flex gap-5 sm:gap-6 pl-0">
-                <div className="relative z-10 flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-full border border-white/10 bg-navy-900 font-display text-sm sm:text-base font-bold text-accent-violet">
+                <div className="relative z-10 flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-full border border-line/10 bg-surface font-display text-sm sm:text-base font-bold text-accent-violet-text">
                   {i + 1}
                 </div>
                 <div className="pt-1 sm:pt-2">
-                  <h3 className="font-display text-lg font-semibold text-white">{step.title}</h3>
-                  <p className="mt-1.5 text-sm sm:text-base leading-relaxed text-slate-200/90 max-w-xl">
+                  <h3 className="font-display text-lg font-semibold text-fg">{step.title}</h3>
+                  <p className="mt-1.5 text-sm sm:text-base leading-relaxed text-muted/90 max-w-xl">
                     {step.text}
                   </p>
                 </div>

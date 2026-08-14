@@ -19,13 +19,13 @@ export default function SectionHeading({
   return (
     <Reveal className={`flex flex-col gap-4 max-w-2xl ${alignClass}`}>
       {eyebrow && (
-        <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-teal/90">
+        <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-teal-text/90">
           {eyebrow}
         </span>
       )}
-      <h2 className="font-display text-3xl sm:text-4xl font-bold text-white text-balance">{title}</h2>
+      <h2 className="font-display text-3xl sm:text-4xl font-bold text-fg text-balance">{title}</h2>
       {description && (
-        <p className="text-base sm:text-lg text-slate-200/90 text-pretty">{description}</p>
+        <p className="text-base sm:text-lg text-muted/90 text-pretty">{description}</p>
       )}
     </Reveal>
   );

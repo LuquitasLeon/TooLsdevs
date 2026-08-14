@@ -41,7 +41,7 @@ export default function ProjectDetail() {
           <Reveal>
             <Link
               to={routes.projects}
-              className="inline-flex items-center gap-2 text-sm font-medium text-slate-300 hover:text-white transition-colors"
+              className="inline-flex items-center gap-2 text-sm font-medium text-muted hover:text-fg transition-colors"
             >
               <ArrowLeft size={16} aria-hidden="true" />
               {ui.backToProjects}
@@ -54,7 +54,7 @@ export default function ProjectDetail() {
             <Reveal delay={0.03}>
               <div
                 role="note"
-                className="flex items-start gap-3 rounded-xl border border-amber-400/30 bg-amber-400/[0.08] px-5 py-4 text-sm text-amber-200/90"
+                className="flex items-start gap-3 rounded-xl border border-amber-400/30 bg-amber-400/[0.08] px-5 py-4 text-sm text-accent-amber-text/90"
               >
                 <Info size={18} aria-hidden="true" className="mt-0.5 shrink-0 text-amber-300" />
                 <span>{ui.draftNotice}</span>
@@ -65,14 +65,14 @@ export default function ProjectDetail() {
           <Reveal delay={0.05}>
             <Card padding="roomy" className="flex flex-col gap-2 sm:flex-row sm:gap-10">
               <div>
-                <dt className="text-xs font-semibold uppercase tracking-[0.15em] text-brand-teal/90">
+                <dt className="text-xs font-semibold uppercase tracking-[0.15em] text-brand-teal-text/90">
                   {ui.projectClient}
                 </dt>
-                <dd className="mt-1 text-base text-slate-200">{project.client}</dd>
+                <dd className="mt-1 text-base text-muted">{project.client}</dd>
               </div>
               {project.year && (
                 <div>
-                  <dt className="text-xs font-semibold uppercase tracking-[0.15em] text-brand-teal/90">
+                  <dt className="text-xs font-semibold uppercase tracking-[0.15em] text-brand-teal-text/90">
                     {project.year}
                   </dt>
                 </div>
@@ -85,10 +85,10 @@ export default function ProjectDetail() {
               material, sin quedar con títulos vacíos colgando. */}
           {project.problem && (
             <Reveal delay={0.1} className="max-w-3xl">
-              <h2 className="font-display text-2xl font-semibold text-white">
+              <h2 className="font-display text-2xl font-semibold text-fg">
                 {ui.projectProblem}
               </h2>
-              <p className="mt-3 text-base sm:text-lg leading-relaxed text-slate-200/90">
+              <p className="mt-3 text-base sm:text-lg leading-relaxed text-muted/90">
                 {project.problem}
               </p>
             </Reveal>
@@ -96,10 +96,10 @@ export default function ProjectDetail() {
 
           {project.solution && (
             <Reveal delay={0.12} className="max-w-3xl">
-              <h2 className="font-display text-2xl font-semibold text-white">
+              <h2 className="font-display text-2xl font-semibold text-fg">
                 {ui.projectSolution}
               </h2>
-              <p className="mt-3 text-base sm:text-lg leading-relaxed text-slate-200/90">
+              <p className="mt-3 text-base sm:text-lg leading-relaxed text-muted/90">
                 {project.solution}
               </p>
             </Reveal>
@@ -107,12 +107,12 @@ export default function ProjectDetail() {
 
           {project.results && project.results.length > 0 && (
             <Reveal delay={0.14} className="max-w-3xl">
-              <h2 className="font-display text-2xl font-semibold text-white">
+              <h2 className="font-display text-2xl font-semibold text-fg">
                 {ui.projectResults}
               </h2>
               <ul className="mt-4 flex flex-col gap-3">
                 {project.results.map((result) => (
-                  <li key={result} className="flex items-start gap-3 text-base text-slate-200/90">
+                  <li key={result} className="flex items-start gap-3 text-base text-muted/90">
                     <CheckCircle2
                       size={20}
                       aria-hidden="true"
@@ -127,12 +127,12 @@ export default function ProjectDetail() {
 
           {stackNames.length > 0 && (
             <Reveal delay={0.16} className="max-w-3xl">
-              <h2 className="font-display text-2xl font-semibold text-white">{ui.projectStack}</h2>
+              <h2 className="font-display text-2xl font-semibold text-fg">{ui.projectStack}</h2>
               <ul className="mt-4 flex flex-wrap gap-2">
                 {stackNames.map((name) => (
                   <li
                     key={name}
-                    className="rounded-full border border-white/10 bg-white/[0.03] px-3.5 py-1.5 text-sm text-slate-200"
+                    className="rounded-full border border-line/10 bg-line/[0.03] px-3.5 py-1.5 text-sm text-muted"
                   >
                     {name}
                   </li>
@@ -151,7 +151,7 @@ export default function ProjectDetail() {
                     width={image.width}
                     height={image.height}
                     loading="lazy"
-                    className="w-full rounded-2xl border border-white/10"
+                    className="w-full rounded-2xl border border-line/10"
                   />
                 </Reveal>
               ))}

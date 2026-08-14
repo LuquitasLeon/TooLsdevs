@@ -10,11 +10,11 @@ import { useInView } from "@/hooks/useInView";
  * El fondo vive acá adentro (no en el string base de la pill): agregar un
  * `bg-*` en los dos lugares generaría un choque de utilidades de Tailwind. */
 const categoryStyles: Record<StackCategory, string> = {
-  frontend: "border-brand-teal/20 text-brand-teal bg-brand-teal/[0.04]",
-  backend: "border-brand-green/20 text-brand-green bg-brand-green/[0.04]",
-  datos: "border-accent-sky/20 text-sky-300 bg-accent-sky/[0.04]",
-  infraestructura: "border-accent-violet/20 text-violet-300 bg-accent-violet/[0.04]",
-  seguridad: "border-accent-amber/20 text-amber-300 bg-accent-amber/[0.04]",
+  frontend: "border-brand-teal/20 text-brand-teal-text bg-brand-teal/[0.04]",
+  backend: "border-brand-green/20 text-brand-green-text bg-brand-green/[0.04]",
+  datos: "border-accent-sky/20 text-accent-sky-text bg-accent-sky/[0.04]",
+  infraestructura: "border-accent-violet/20 text-accent-violet-text bg-accent-violet/[0.04]",
+  seguridad: "border-accent-amber/20 text-accent-amber-text bg-accent-amber/[0.04]",
 };
 
 /** Pill de una tecnología, con transición CSS nativa — para la rama de iOS. */
@@ -38,7 +38,7 @@ export default function Stack() {
   const isIOS = useIsIOS();
 
   return (
-    <section className="py-section sm:py-section-lg border-t border-white/5">
+    <section className="py-section sm:py-section-lg border-t border-line/5">
       <Container className="flex flex-col gap-12">
         <SectionHeading eyebrow={stack.eyebrow} title={stack.title} description={stack.intro} />
 

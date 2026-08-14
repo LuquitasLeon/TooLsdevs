@@ -213,6 +213,8 @@ export interface UiContent {
   mainNav: string;
   contactCta: string;
   languageLabel: string;
+  switchToLight: string;
+  switchToDark: string;
   backToProjects: string;
   viewProject: string;
   allProjects: string;

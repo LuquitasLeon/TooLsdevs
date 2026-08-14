@@ -10,7 +10,7 @@ export default function WhyUsSummary() {
   const { whyUs } = useContent();
 
   return (
-    <section className="py-section sm:py-section-lg border-t border-white/5">
+    <section className="py-section sm:py-section-lg border-t border-line/5">
       <Container className="flex flex-col items-center gap-12">
         <SectionHeading
           eyebrow={whyUs.eyebrow}
@@ -24,7 +24,7 @@ export default function WhyUsSummary() {
             <Reveal key={reason} delay={i * 0.07}>
               <Card padding="compact" accent="green" className="flex items-start gap-3 text-left h-full">
                 <CheckCircle2 size={20} className="mt-0.5 shrink-0 text-brand-green" />
-                <span className="text-sm sm:text-base text-slate-200">{reason}</span>
+                <span className="text-sm sm:text-base text-muted">{reason}</span>
               </Card>
             </Reveal>
           ))}

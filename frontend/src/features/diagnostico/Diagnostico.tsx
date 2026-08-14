@@ -68,7 +68,7 @@ export default function Diagnostico({ onComplete }: { onComplete: (prefill: Cont
 
   return (
     <Card padding="roomy" className="overflow-hidden">
-      <div className="flex items-center gap-2 text-brand-teal">
+      <div className="flex items-center gap-2 text-brand-teal-text">
         <Sparkles size={18} aria-hidden="true" />
         <span className="text-xs font-semibold uppercase tracking-[0.2em]">{diagnosis.eyebrow}</span>
       </div>
@@ -76,10 +76,10 @@ export default function Diagnostico({ onComplete }: { onComplete: (prefill: Cont
       <AnimatePresence mode="wait">
         {stepIndex === -1 && (
           <motion.div key="start" {...transition} className="mt-4 flex flex-col gap-5">
-            <h2 className="font-display text-2xl font-semibold text-white text-balance">
+            <h2 className="font-display text-2xl font-semibold text-fg text-balance">
               {diagnosis.title}
             </h2>
-            <p className="text-slate-200/90">{diagnosis.intro}</p>
+            <p className="text-muted/90">{diagnosis.intro}</p>
             <button
               type="button"
               onClick={() => setStepIndex(0)}
@@ -94,20 +94,20 @@ export default function Diagnostico({ onComplete }: { onComplete: (prefill: Cont
         {stepIndex >= 0 && !atResult && (
           <motion.div key={`step-${stepIndex}`} {...transition} className="mt-4 flex flex-col gap-5">
             <div className="flex items-center gap-3">
-              <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-white/10">
+              <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-line/10">
                 <div
                   className="h-full rounded-full bg-gradient-to-r from-brand-green to-brand-teal transition-[width] duration-300"
                   style={{ width: `${((stepIndex + 1) / total) * 100}%` }}
                 />
               </div>
-              <span className="text-xs text-slate-400">
+              <span className="text-xs text-faint">
                 {diagnosis.progress
                   .replace("{current}", String(stepIndex + 1))
                   .replace("{total}", String(total))}
               </span>
             </div>
 
-            <h2 className="font-display text-xl font-semibold text-white text-balance">
+            <h2 className="font-display text-xl font-semibold text-fg text-balance">
               {diagnosis.steps[stepIndex]!.question}
             </h2>
 
@@ -117,13 +117,13 @@ export default function Diagnostico({ onComplete }: { onComplete: (prefill: Cont
                   key={option.id}
                   type="button"
                   onClick={() => choose(diagnosis.steps[stepIndex]!.id, option.id)}
-                  className="group flex items-center justify-between gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-5 py-3.5 text-left text-sm text-slate-200 transition-colors hover:border-brand-teal/40 hover:bg-white/[0.06]"
+                  className="group flex items-center justify-between gap-3 rounded-xl border border-line/10 bg-line/[0.03] px-5 py-3.5 text-left text-sm text-muted transition-colors hover:border-brand-teal/40 hover:bg-line/[0.06]"
                 >
                   {option.label}
                   <ArrowRight
                     size={16}
                     aria-hidden="true"
-                    className="shrink-0 text-slate-500 transition-all group-hover:translate-x-0.5 group-hover:text-brand-teal"
+                    className="shrink-0 text-faint transition-all group-hover:translate-x-0.5 group-hover:text-brand-teal"
                   />
                 </button>
               ))}
@@ -133,7 +133,7 @@ export default function Diagnostico({ onComplete }: { onComplete: (prefill: Cont
               <button
                 type="button"
                 onClick={() => setStepIndex((i) => i - 1)}
-                className="inline-flex w-fit items-center gap-1.5 text-sm text-slate-400 hover:text-white transition-colors"
+                className="inline-flex w-fit items-center gap-1.5 text-sm text-faint hover:text-fg transition-colors"
               >
                 <ArrowLeft size={15} aria-hidden="true" />
                 {diagnosis.back}
@@ -144,8 +144,8 @@ export default function Diagnostico({ onComplete }: { onComplete: (prefill: Cont
 
         {atResult && (
           <motion.div key="result" {...transition} className="mt-4 flex flex-col gap-5">
-            <h2 className="font-display text-xl font-semibold text-white">{diagnosis.resultTitle}</h2>
-            <p className="rounded-xl border border-brand-teal/20 bg-gradient-to-br from-brand-teal/10 to-brand-green/5 px-5 py-4 text-slate-100">
+            <h2 className="font-display text-xl font-semibold text-fg">{diagnosis.resultTitle}</h2>
+            <p className="rounded-xl border border-brand-teal/20 bg-gradient-to-br from-brand-teal/10 to-brand-green/5 px-5 py-4 text-fg">
               {answers["problema"] ? diagnosis.recommendations[answers["problema"]] : hero.description}
             </p>
             <div className="flex flex-wrap gap-3">
@@ -160,7 +160,7 @@ export default function Diagnostico({ onComplete }: { onComplete: (prefill: Cont
               <button
                 type="button"
                 onClick={restart}
-                className="inline-flex items-center gap-2 rounded-full border border-white/15 px-5 py-3 text-sm font-semibold text-white hover:bg-white/5 transition-colors"
+                className="inline-flex items-center gap-2 rounded-full border border-line/15 px-5 py-3 text-sm font-semibold text-fg hover:bg-line/5 transition-colors"
               >
                 <RotateCcw size={15} aria-hidden="true" />
                 {diagnosis.restart}

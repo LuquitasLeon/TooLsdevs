@@ -21,14 +21,14 @@ export default function PageHeader({ eyebrow, title, description }: PageHeaderPr
 
   const content = (
     <>
-      <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-teal/90">
+      <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-teal-text/90">
         {eyebrow}
       </span>
-      <h1 className="font-display text-4xl sm:text-5xl lg:text-display-sm font-bold leading-[1.05] tracking-tight text-white text-balance">
+      <h1 className="font-display text-4xl sm:text-5xl lg:text-display-sm font-bold leading-[1.05] tracking-tight text-fg text-balance">
         {title}
       </h1>
       {description && (
-        <p className="text-base sm:text-lg leading-relaxed text-slate-200/90 text-pretty">
+        <p className="text-base sm:text-lg leading-relaxed text-muted/90 text-pretty">
           {description}
         </p>
       )}

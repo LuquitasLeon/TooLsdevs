@@ -11,17 +11,17 @@ export default function ContactCta() {
   const { ui } = useContent();
 
   return (
-    <section className="relative overflow-hidden py-section border-t border-white/5">
+    <section className="relative overflow-hidden py-section border-t border-line/5">
       <div className="pointer-events-none absolute left-1/2 top-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-teal/10 blur-[120px]" />
 
       <Container className="relative flex flex-col items-center gap-6 text-center">
         <Reveal>
-          <h2 className="font-display text-3xl sm:text-4xl font-bold text-white text-balance max-w-2xl">
+          <h2 className="font-display text-3xl sm:text-4xl font-bold text-fg text-balance max-w-2xl">
             {ui.contactHeading}
           </h2>
         </Reveal>
         <Reveal delay={0.08}>
-          <p className="max-w-xl text-base sm:text-lg text-slate-200/90">{ui.contactText}</p>
+          <p className="max-w-xl text-base sm:text-lg text-muted/90">{ui.contactText}</p>
         </Reveal>
         <Reveal delay={0.16}>
           <Magnetic>

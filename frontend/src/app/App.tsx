@@ -6,6 +6,7 @@ import ScrollProgress from "@/components/layout/ScrollProgress";
 import BackToTopButton from "@/components/layout/BackToTopButton";
 import { I18nProvider } from "@/features/i18n/I18nProvider";
 import { useContent, useI18n } from "@/features/i18n/useI18n";
+import { ThemeProvider } from "@/features/theme/ThemeProvider";
 import ScrollToTop from "./ScrollToTop";
 import { PROJECT_ROUTE_PATTERN, routes } from "./routes";
 
@@ -27,7 +28,7 @@ function PageFallback() {
   const { ui } = useContent();
   return (
     <div className="flex min-h-screen items-center justify-center" role="status" aria-live="polite">
-      <span className="text-sm text-slate-400">{ui.loading}</span>
+      <span className="text-sm text-faint">{ui.loading}</span>
     </div>
   );
 }
@@ -52,7 +53,7 @@ function Layout() {
   }, [locale]);
 
   return (
-    <div ref={wrapperRef} className="min-h-screen overflow-x-hidden bg-navy-950">
+    <div ref={wrapperRef} className="min-h-screen overflow-x-hidden bg-page">
       {/* Primer elemento enfocable de la página: permite saltar la navegación
           sin tener que tabular por todos los enlaces del menú. */}
       <a
@@ -84,11 +85,13 @@ function Layout() {
 
 export default function App() {
   return (
-    <I18nProvider>
-      <BrowserRouter>
-        <ScrollToTop />
-        <Layout />
-      </BrowserRouter>
-    </I18nProvider>
+    <ThemeProvider>
+      <I18nProvider>
+        <BrowserRouter>
+          <ScrollToTop />
+          <Layout />
+        </BrowserRouter>
+      </I18nProvider>
+    </ThemeProvider>
   );
 }

@@ -63,7 +63,7 @@ export default function Contact() {
                 <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-brand-green/10 text-brand-green">
                   <MessageCircle size={22} aria-hidden="true" />
                 </div>
-                <h2 className="font-display text-lg font-semibold text-white">WhatsApp</h2>
+                <h2 className="font-display text-lg font-semibold text-fg">WhatsApp</h2>
                 <div className="flex flex-col gap-2">
                   {contact.whatsapp.map((person) => (
                     <a
@@ -71,7 +71,7 @@ export default function Contact() {
                       href={`https://wa.me/${person.number}`}
                       target="_blank"
                       rel="noreferrer"
-                      className="text-sm text-slate-300 hover:text-brand-teal transition-colors"
+                      className="text-sm text-muted hover:text-brand-teal-text transition-colors"
                       aria-label={`Escribir por WhatsApp a ${person.name}, ${person.label}`}
                     >
                       {person.name}
@@ -86,10 +86,10 @@ export default function Contact() {
                 <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-brand-teal/10 text-brand-teal">
                   <Mail size={22} aria-hidden="true" />
                 </div>
-                <h2 className="font-display text-lg font-semibold text-white">Email</h2>
+                <h2 className="font-display text-lg font-semibold text-fg">Email</h2>
                 <a
                   href={`mailto:${contact.email}`}
-                  className="text-sm text-slate-300 hover:text-brand-teal transition-colors break-all"
+                  className="text-sm text-muted hover:text-brand-teal-text transition-colors break-all"
                 >
                   {contact.email}
                 </a>
@@ -98,10 +98,10 @@ export default function Contact() {
 
             <Reveal delay={0.12}>
               <Card className="flex flex-col gap-4">
-                <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-white/[0.06] text-slate-300">
+                <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-line/[0.06] text-faint">
                   <MapPin size={22} aria-hidden="true" />
                 </div>
-                <h2 className="font-display text-lg font-semibold text-white">
+                <h2 className="font-display text-lg font-semibold text-fg">
                   {contact.location}
                 </h2>
               </Card>

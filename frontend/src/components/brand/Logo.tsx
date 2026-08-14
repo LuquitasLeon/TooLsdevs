@@ -26,7 +26,7 @@ export default function Logo({
         {...(withWordmark ? {} : { title: "ToolsDevs" })}
       />
       {withWordmark && (
-        <span className={cn("font-display font-bold tracking-tight text-white", wordmarkClassName)}>
+        <span className={cn("font-display font-bold tracking-tight text-fg", wordmarkClassName)}>
           TOOLS<span className="text-gradient">DEVS</span>
         </span>
       )}

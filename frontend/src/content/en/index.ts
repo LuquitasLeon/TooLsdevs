@@ -400,6 +400,8 @@ export const en: SiteContent = {
     mainNav: "Main",
     contactCta: "Get in touch",
     languageLabel: "Change language",
+    switchToLight: "Switch to light theme",
+    switchToDark: "Switch to dark theme",
     backToProjects: "Back to projects",
     viewProject: "View project",
     allProjects: "See all projects",

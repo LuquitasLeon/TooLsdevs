@@ -17,7 +17,7 @@ export default function LocaleToggle({ className }: { className?: string }) {
       aria-label={content.ui.languageLabel}
       className={cn(
         "relative inline-flex items-center rounded-full p-1",
-        "bg-navy-900 border-2 border-brand-teal/60",
+        "bg-surface border-2 border-brand-teal/60",
         "shadow-[0_0_12px_rgba(45,212,191,0.25)]",
         className,
       )}
@@ -46,7 +46,7 @@ export default function LocaleToggle({ className }: { className?: string }) {
             onClick={() => setLocale(option.value)}
             className={cn(
               "relative z-10 w-[42px] rounded-full py-1.5 text-xs font-bold tracking-wide transition-colors duration-200",
-              active ? "text-navy-950" : "text-white hover:text-brand-teal",
+              active ? "text-navy-950" : "text-fg hover:text-brand-teal-text",
             )}
           >
             {option.label}

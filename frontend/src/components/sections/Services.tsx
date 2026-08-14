@@ -23,7 +23,7 @@ interface ServicesProps {
 export default function Services({ hideHeading = false }: ServicesProps) {
   const { services } = useContent();
   return (
-    <section id="servicios" className="py-section sm:py-section-lg border-t border-white/5">
+    <section id="servicios" className="py-section sm:py-section-lg border-t border-line/5">
       <Container className="flex flex-col gap-14">
         {!hideHeading && (
           <SectionHeading
@@ -44,10 +44,10 @@ export default function Services({ hideHeading = false }: ServicesProps) {
                   >
                     <Icon size={22} />
                   </div>
-                  <h3 className="font-display text-xl font-semibold text-white">{group.title}</h3>
+                  <h3 className="font-display text-xl font-semibold text-fg">{group.title}</h3>
                   <ul className="mt-5 flex flex-col gap-3">
                     {group.items.map((item) => (
-                      <li key={item} className="flex items-start gap-2.5 text-sm sm:text-base text-slate-200/90">
+                      <li key={item} className="flex items-start gap-2.5 text-sm sm:text-base text-muted/90">
                         <Check size={18} className="mt-0.5 shrink-0 text-brand-green" />
                         <span>{item}</span>
                       </li>
@@ -62,7 +62,7 @@ export default function Services({ hideHeading = false }: ServicesProps) {
         <Reveal delay={0.15}>
           <Card accent="teal" padding="roomy" className="flex items-start gap-4">
             <Sparkles size={22} className="mt-0.5 shrink-0 text-brand-teal" />
-            <p className="text-sm sm:text-base leading-relaxed text-slate-200">{services.callout}</p>
+            <p className="text-sm sm:text-base leading-relaxed text-muted">{services.callout}</p>
           </Card>
         </Reveal>
       </Container>

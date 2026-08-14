@@ -49,7 +49,7 @@ export default function Hero() {
                 {...riseClass(
                   mounted,
                   0,
-                  "inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs sm:text-sm font-medium text-slate-300",
+                  "inline-flex items-center gap-2 rounded-full border border-line/10 bg-line/5 px-4 py-1.5 text-xs sm:text-sm font-medium text-muted",
                 )}
               >
                 <ShieldCheck size={16} className="text-brand-teal" aria-hidden="true" />
@@ -70,7 +70,7 @@ export default function Hero() {
                 {...riseClass(
                   mounted,
                   180,
-                  "-mt-3 font-display text-2xl sm:text-3xl font-semibold leading-snug text-white text-balance",
+                  "-mt-3 font-display text-2xl sm:text-3xl font-semibold leading-snug text-fg text-balance",
                 )}
               >
                 {hero.subtitle}
@@ -80,7 +80,7 @@ export default function Hero() {
                 {...riseClass(
                   mounted,
                   260,
-                  "max-w-xl text-base sm:text-lg leading-relaxed text-slate-200/90 text-pretty",
+                  "max-w-xl text-base sm:text-lg leading-relaxed text-muted/90 text-pretty",
                 )}
               >
                 {hero.description}
@@ -145,7 +145,7 @@ export default function Hero() {
           <div className="flex flex-col items-start gap-6 text-left">
             <motion.span
               {...rise(0)}
-              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs sm:text-sm font-medium text-slate-300"
+              className="inline-flex items-center gap-2 rounded-full border border-line/10 bg-line/5 px-4 py-1.5 text-xs sm:text-sm font-medium text-muted"
             >
               <ShieldCheck size={16} className="text-brand-teal" aria-hidden="true" />
               {hero.eyebrow}
@@ -162,14 +162,14 @@ export default function Hero() {
 
             <motion.p
               {...rise(0.18)}
-              className="-mt-3 font-display text-2xl sm:text-3xl font-semibold leading-snug text-white text-balance"
+              className="-mt-3 font-display text-2xl sm:text-3xl font-semibold leading-snug text-fg text-balance"
             >
               {hero.subtitle}
             </motion.p>
 
             <motion.p
               {...rise(0.26)}
-              className="max-w-xl text-base sm:text-lg leading-relaxed text-slate-200/90 text-pretty"
+              className="max-w-xl text-base sm:text-lg leading-relaxed text-muted/90 text-pretty"
             >
               {hero.description}
             </motion.p>
