@@ -7,11 +7,11 @@
   --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
 
   /* Azules de fondo, del más profundo al más claro. */
-  --color-navy-950: #060e22;
-  --color-navy-900: #0a1730;
-  --color-navy-800: #0f2050;
-  --color-navy-700: #16306e;
-  --color-navy-600: #1e3f8f;
+  --color-navy-950: #0b0d12;
+  --color-navy-900: #12151c;
+  --color-navy-800: #1c212c;
+  --color-navy-700: #2a3142;
+  --color-navy-600: #3a4257;
 
   /* Los dos extremos del gradiente del logo. */
   --color-brand-green: #4ade80;
