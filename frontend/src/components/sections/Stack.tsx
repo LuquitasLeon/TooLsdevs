@@ -10,11 +10,11 @@ import { useInView } from "@/hooks/useInView";
  * El fondo vive acá adentro (no en el string base de la pill): agregar un
  * `bg-*` en los dos lugares generaría un choque de utilidades de Tailwind. */
 const categoryStyles: Record<StackCategory, string> = {
-  frontend: "border-brand-teal/20 text-brand-teal-text bg-brand-teal/[0.04]",
-  backend: "border-brand-green/20 text-brand-green-text bg-brand-green/[0.04]",
-  datos: "border-accent-sky/20 text-accent-sky-text bg-accent-sky/[0.04]",
-  infraestructura: "border-accent-violet/20 text-accent-violet-text bg-accent-violet/[0.04]",
-  seguridad: "border-accent-amber/20 text-accent-amber-text bg-accent-amber/[0.04]",
+  frontend: "border-brand-teal/12 text-brand-teal-text bg-brand-teal/[0.04]",
+  backend: "border-brand-green/12 text-brand-green-text bg-brand-green/[0.04]",
+  datos: "border-accent-sky/12 text-accent-sky-text bg-accent-sky/[0.04]",
+  infraestructura: "border-accent-violet/12 text-accent-violet-text bg-accent-violet/[0.04]",
+  seguridad: "border-accent-amber/12 text-accent-amber-text bg-accent-amber/[0.04]",
 };
 
 /** Pill de una tecnología, con transición CSS nativa — para la rama de iOS. */

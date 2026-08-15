@@ -17,7 +17,7 @@ export default function LocaleToggle({ className }: { className?: string }) {
       aria-label={content.ui.languageLabel}
       className={cn(
         "relative inline-flex items-center rounded-full p-1",
-        "bg-surface border-2 border-brand-teal/60",
+        "bg-surface border-2 border-brand-teal/35",
         className,
       )}
     >

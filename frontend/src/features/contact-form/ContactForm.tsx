@@ -132,7 +132,7 @@ export default function ContactForm({ prefill }: { prefill?: ContactPrefill }) {
         </div>
 
         {prefill?.service && (
-          <p className="rounded-lg border border-brand-teal/20 bg-brand-teal/[0.06] px-4 py-2.5 text-sm text-muted">
+          <p className="rounded-lg border border-brand-teal/12 bg-brand-teal/[0.06] px-4 py-2.5 text-sm text-muted">
             <span className="text-faint">{form.serviceLabel}: </span>
             {prefill.service}
           </p>

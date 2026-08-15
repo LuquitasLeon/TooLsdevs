@@ -117,7 +117,7 @@ export default function Diagnostico({ onComplete }: { onComplete: (prefill: Cont
                   key={option.id}
                   type="button"
                   onClick={() => choose(diagnosis.steps[stepIndex]!.id, option.id)}
-                  className="group flex items-center justify-between gap-3 rounded-xl border border-line/10 bg-line/[0.03] px-5 py-3.5 text-left text-sm text-muted transition-colors hover:border-brand-teal/40 hover:bg-line/[0.06]"
+                  className="group flex items-center justify-between gap-3 rounded-xl border border-line/10 bg-line/[0.03] px-5 py-3.5 text-left text-sm text-muted transition-colors hover:border-brand-teal/25 hover:bg-line/[0.06]"
                 >
                   {option.label}
                   <ArrowRight
@@ -145,7 +145,7 @@ export default function Diagnostico({ onComplete }: { onComplete: (prefill: Cont
         {atResult && (
           <motion.div key="result" {...transition} className="mt-4 flex flex-col gap-5">
             <h2 className="font-display text-xl font-semibold text-fg">{diagnosis.resultTitle}</h2>
-            <p className="rounded-xl border border-brand-teal/20 bg-gradient-to-br from-brand-teal/10 to-brand-green/5 px-5 py-4 text-fg">
+            <p className="rounded-xl border border-brand-teal/12 bg-gradient-to-br from-brand-teal/10 to-brand-green/5 px-5 py-4 text-fg">
               {answers["problema"] ? diagnosis.recommendations[answers["problema"]] : hero.description}
             </p>
             <div className="flex flex-wrap gap-3">

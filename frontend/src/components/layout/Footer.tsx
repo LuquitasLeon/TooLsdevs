@@ -17,7 +17,7 @@ export default function Footer() {
       Icon: Mail,
       external: false,
       colorClass:
-        "bg-brand-teal/10 text-brand-teal border-brand-teal/20 hover:bg-brand-teal/20 hover:border-brand-teal/40",
+        "bg-brand-teal/10 text-brand-teal border-brand-teal/12 hover:bg-brand-teal/20 hover:border-brand-teal/25",
     },
     {
       label: "WhatsApp",
@@ -25,7 +25,7 @@ export default function Footer() {
       Icon: MessageCircle,
       external: true,
       colorClass:
-        "bg-brand-green/10 text-brand-green border-brand-green/20 hover:bg-brand-green/20 hover:border-brand-green/40",
+        "bg-brand-green/10 text-brand-green border-brand-green/12 hover:bg-brand-green/20 hover:border-brand-green/25",
     },
     {
       label: "Instagram",
@@ -33,7 +33,7 @@ export default function Footer() {
       Icon: InstagramIcon,
       external: true,
       colorClass:
-        "bg-violet-400/10 text-violet-300 border-violet-400/20 hover:bg-violet-400/20 hover:border-violet-400/40",
+        "bg-violet-400/10 text-violet-300 border-violet-400/12 hover:bg-violet-400/20 hover:border-violet-400/25",
     },
   ];
 
