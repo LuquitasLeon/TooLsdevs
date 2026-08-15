@@ -1,11 +1,11 @@
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { Link } from "react-router";
 import type { HomeTeaser as HomeTeaserType } from "@toolsdevs/shared";
 import Container from "@/components/layout/Container";
 import Card from "@/components/ui/Card";
 import type { Accent } from "@/components/ui/Card";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
-import Button from "@/components/ui/Button";
 
 interface Props {
   teaser: HomeTeaserType;
@@ -39,10 +39,13 @@ export default function HomeTeaser({ teaser, accent = "teal" }: Props) {
         </div>
 
         <Reveal delay={0.15}>
-          <Button variant="secondary" to={teaser.cta.href}>
+          <Link
+            to={teaser.cta.href}
+            className="inline-flex items-center gap-2 text-sm font-semibold text-fg hover:text-brand-teal-text transition-colors"
+          >
             {teaser.cta.label}
             <ArrowRight size={16} aria-hidden="true" />
-          </Button>
+          </Link>
         </Reveal>
       </Container>
     </section>

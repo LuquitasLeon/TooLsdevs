@@ -1,9 +1,9 @@
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { Link } from "react-router";
 import Container from "@/components/layout/Container";
 import Card from "@/components/ui/Card";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
-import Button from "@/components/ui/Button";
 import { useContent } from "@/features/i18n/useI18n";
 
 export default function WhyUsSummary() {
@@ -31,10 +31,13 @@ export default function WhyUsSummary() {
         </div>
 
         <Reveal delay={0.15}>
-          <Button variant="secondary" to={whyUs.homeCta.href}>
+          <Link
+            to={whyUs.homeCta.href}
+            className="inline-flex items-center gap-2 text-sm font-semibold text-fg hover:text-brand-teal-text transition-colors"
+          >
             {whyUs.homeCta.label}
             <ArrowRight size={16} aria-hidden="true" />
-          </Button>
+          </Link>
         </Reveal>
       </Container>
     </section>
