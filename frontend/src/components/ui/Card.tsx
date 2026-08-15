@@ -43,7 +43,7 @@ export default function Card({
         paddings[padding],
         accents[accent],
         interactive &&
-          "transition-colors duration-300 hover:border-brand-teal/20 hover:bg-line/[0.05]",
+          "transition-colors duration-300 hover:border-brand-teal/20 hover:bg-surface-hover",
         className,
       )}
     >

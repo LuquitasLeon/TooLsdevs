@@ -35,6 +35,7 @@
      class funciona en los dos temas. */
   --color-page: #dbe1ea;
   --color-surface: #f4f6f9;
+  --color-surface-hover: #e9edf2;
   --color-fg: #12151c;
   --color-muted: #3f4757;
   --color-faint: #6b7385;
@@ -73,7 +74,8 @@
    no valores nuevos — así el oscuro también queda un poco menos pesado. */
 .dark {
   --color-page: #12151c;
-  --color-surface: #43464c;
+  --color-surface: #3d4352;
+  --color-surface-hover: #484f61;
   --color-fg: #f1f5f9;
   --color-muted: #cbd5e1;
   --color-faint: #94a3b8;
