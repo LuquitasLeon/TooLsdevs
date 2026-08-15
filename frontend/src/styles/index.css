@@ -14,8 +14,8 @@
   --color-navy-600: #3a4257;
 
   /* Los dos extremos del gradiente del logo. */
-  --color-brand-green: #4ade80;
-  --color-brand-teal: #22d3ee;
+  --color-brand-green: #22c55e;
+  --color-brand-teal: #06b6d4;
   /* Tomados del logo original: son más luminosos que los tokens de arriba y se
      usan cuando algo tiene que leerse como "la marca" y no como "un acento". */
   --color-logo-green: #84f866;
@@ -24,9 +24,9 @@
   /* Acentos de apoyo, para dar variedad sin perder la identidad teal/green.
      Ya estaban probados como pills de tecnología en Stack.tsx; se promueven acá
      a tokens con el mismo patrón que --color-brand-*. */
-  --color-accent-sky: #38bdf8;
-  --color-accent-violet: #a78bfa;
-  --color-accent-amber: #fbbf24;
+  --color-accent-sky: #0ea5e9;
+  --color-accent-violet: #8b5cf6;
+  --color-accent-amber: #f59e0b;
 
   /* Tokens semánticos de tema: acá van los valores del tema CLARO (son los que
      aplican por defecto). El tema oscuro los pisa más abajo, fuera de este
@@ -79,11 +79,11 @@
   --color-faint: #94a3b8;
   --color-line: #ffffff;
 
-  --color-brand-teal-text: #22d3ee;
-  --color-brand-green-text: #4ade80;
-  --color-accent-sky-text: #38bdf8;
-  --color-accent-violet-text: #a78bfa;
-  --color-accent-amber-text: #fbbf24;
+  --color-brand-teal-text: #06b6d4;
+  --color-brand-green-text: #22c55e;
+  --color-accent-sky-text: #0ea5e9;
+  --color-accent-violet-text: #8b5cf6;
+  --color-accent-amber-text: #f59e0b;
   --color-danger-text: #fca5a5;
 }
 
