@@ -23,7 +23,7 @@ interface ServicesProps {
 export default function Services({ hideHeading = false }: ServicesProps) {
   const { services } = useContent();
   return (
-    <section id="servicios" className="py-section sm:py-section-lg border-t border-line/5">
+    <section id="servicios" className="py-section sm:py-section-lg">
       <Container className="flex flex-col gap-14">
         {!hideHeading && (
           <SectionHeading

@@ -121,7 +121,7 @@ export default function Hero() {
             >
               <div className="pointer-events-none absolute inset-0 -z-10 rounded-full bg-brand-teal/10 blur-3xl" />
               <LogoMark
-                className="w-full drop-shadow-[0_0_45px_rgba(34,211,238,0.25)]"
+                className="w-full"
                 animate={false}
                 interactive
               />
@@ -210,7 +210,7 @@ export default function Hero() {
           >
             <div className="pointer-events-none absolute inset-0 -z-10 rounded-full bg-brand-teal/10 blur-3xl" />
             <LogoMark
-              className="w-full drop-shadow-[0_0_45px_rgba(34,211,238,0.25)]"
+              className="w-full"
               animate
               interactive
             />

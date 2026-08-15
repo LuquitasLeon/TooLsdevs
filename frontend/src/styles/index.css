@@ -33,8 +33,8 @@
      bloque, con una regla `.dark`. Cada componente usa el nombre semántico
      (bg-page, text-fg, border-line) en vez de un color literal, así el mismo
      class funciona en los dos temas. */
-  --color-page: #f5f7fb;
-  --color-surface: #ffffff;
+  --color-page: #e7ebf1;
+  --color-surface: #f4f6f9;
   --color-fg: #12151c;
   --color-muted: #3f4757;
   --color-faint: #6b7385;

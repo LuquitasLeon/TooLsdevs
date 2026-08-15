@@ -11,7 +11,7 @@ interface ProcessProps {
 export default function Process({ hideHeading = false }: ProcessProps) {
   const { process } = useContent();
   return (
-    <section id="proceso" className="py-section sm:py-section-lg border-t border-line/5">
+    <section id="proceso" className="py-section sm:py-section-lg">
       <Container className="flex flex-col gap-14">
         {!hideHeading && (
           <SectionHeading

@@ -33,7 +33,7 @@ export default function BackToTopButton() {
       aria-label={ui.backToTop}
       aria-hidden={!visible}
       tabIndex={visible ? 0 : -1}
-      className={`fixed bottom-6 right-6 z-40 rounded-full border border-line/10 bg-surface p-3 text-brand-teal shadow-lg shadow-brand-teal/10 transition-[opacity,transform] duration-200 hover:bg-line/5 ${
+      className={`fixed bottom-6 right-6 z-40 rounded-full border border-line/10 bg-surface p-3 text-brand-teal shadow-lg shadow-black/20 transition-[opacity,transform] duration-200 hover:bg-line/5 ${
         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none"
       }`}
     >

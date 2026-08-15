@@ -173,7 +173,7 @@ export default function ContactForm({ prefill }: { prefill?: ContactPrefill }) {
         <button
           type="submit"
           disabled={sending}
-          className="group inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-brand-green to-brand-teal px-7 py-3.5 text-sm font-semibold text-navy-950 shadow-lg shadow-brand-teal/25 transition-transform hover:scale-[1.03] disabled:cursor-not-allowed disabled:opacity-70 motion-reduce:transform-none"
+          className="group inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-brand-green to-brand-teal px-7 py-3.5 text-sm font-semibold text-navy-950 shadow-lg shadow-black/20 transition-transform hover:scale-[1.03] disabled:cursor-not-allowed disabled:opacity-70 motion-reduce:transform-none"
         >
           {sending ? form.sending : form.submit}
           {!sending && (

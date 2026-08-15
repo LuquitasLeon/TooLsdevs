@@ -18,7 +18,6 @@ export default function LocaleToggle({ className }: { className?: string }) {
       className={cn(
         "relative inline-flex items-center rounded-full p-1",
         "bg-surface border-2 border-brand-teal/60",
-        "shadow-[0_0_12px_rgba(45,212,191,0.25)]",
         className,
       )}
     >
@@ -30,7 +29,6 @@ export default function LocaleToggle({ className }: { className?: string }) {
           left: 4,
           transform: `translateX(${activeIndex * 42}px)`,
           transition: "transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1)",
-          boxShadow: "0 0 14px 3px rgba(45,212,191,0.55)",
         }}
       />
 

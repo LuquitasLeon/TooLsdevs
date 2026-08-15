@@ -28,7 +28,7 @@ export default function Team() {
             <Reveal key={member.name} delay={i * 0.08}>
               <Card className="group flex flex-col items-center text-center gap-5 py-8 px-6">
                 {/* Avatar */}
-                <div className="relative h-28 w-28 shrink-0 rounded-full overflow-hidden ring-2 ring-brand-teal/40 shadow-[0_0_20px_rgba(45,212,191,0.2)]">
+                <div className="relative h-28 w-28 shrink-0 rounded-full overflow-hidden ring-2 ring-brand-teal/40">
                   {member.photo ? (
                     <img
                       src={member.photo}

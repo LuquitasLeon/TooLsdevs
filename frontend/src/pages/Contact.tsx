@@ -44,19 +44,21 @@ export default function Contact() {
       />
 
       <section className="pb-section sm:pb-section-lg">
-        <Container className="flex flex-col gap-8">
-          <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:items-start">
-            <Reveal className="lg:sticky lg:top-28">
-              <Diagnostico onComplete={handleDiagnosisComplete} />
-            </Reveal>
+        <Container className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:items-start">
+          <Reveal className="lg:sticky lg:top-28">
+            <Diagnostico onComplete={handleDiagnosisComplete} />
+          </Reveal>
 
-            <Reveal delay={0.08}>
-              <div ref={formRef} className="scroll-mt-28">
-                <ContactForm prefill={prefill} />
-              </div>
-            </Reveal>
-          </div>
+          <Reveal delay={0.08}>
+            <div ref={formRef} className="scroll-mt-28">
+              <ContactForm prefill={prefill} />
+            </div>
+          </Reveal>
+        </Container>
+      </section>
 
+      <section className="py-section sm:py-section-lg border-t border-line/5">
+        <Container>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             <Reveal>
               <Card className="flex flex-col gap-4">
