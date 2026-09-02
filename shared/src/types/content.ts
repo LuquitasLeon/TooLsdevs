@@ -269,11 +269,21 @@ export interface DiagnosisContent {
   title: string;
   intro: string;
   start: string;
-  steps: DiagnosisStep[];
+  /**
+   * Primer paso: elegir el rubro. Es el que define qué preguntas siguen, para
+   * que el diagnóstico se sienta hecho a la medida de cada negocio.
+   */
+  rubroStep: DiagnosisStep;
+  /** Preguntas propias de cada rubro, indexadas por el id de la opción de rubro. */
+  branches: Record<string, DiagnosisStep[]>;
+  /** Pasos finales compartidos por todos los rubros (objetivo y etapa). */
+  commonSteps: DiagnosisStep[];
   back: string;
   resultTitle: string;
-  /** Recomendación según el problema elegido, indexada por el id de la opción. */
+  /** Recomendación personalizada por rubro, indexada por el id de la opción de rubro. */
   recommendations: Record<string, string>;
+  /** Servicio concreto sugerido según la necesidad, indexado por el id de esa opción. */
+  services: Record<string, string>;
   toForm: string;
   restart: string;
   progress: string;

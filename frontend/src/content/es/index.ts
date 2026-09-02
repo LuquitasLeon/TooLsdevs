@@ -404,50 +404,279 @@ export const es: SiteContent = {
       eyebrow: "Diagnóstico",
       title: "¿No sabés por dónde empezar?",
       intro:
-        "Respondé tres preguntas rápidas y te decimos qué solución encaja mejor con tu necesidad.",
+        "Contanos un poco de tu negocio y en cinco pasos armamos una propuesta pensada para tu rubro. Cada respuesta ajusta lo que te recomendamos.",
       start: "Empezar",
-      steps: [
+      rubroStep: {
+        id: "rubro",
+        question: "¿A qué se dedica tu negocio?",
+        options: [
+          { id: "tienda", label: "Comercio, tienda o venta de productos" },
+          { id: "salud", label: "Salud: consultorio, clínica o profesional" },
+          { id: "gastronomia", label: "Gastronomía: restaurante, café o delivery" },
+          { id: "profesional", label: "Estudio o servicios profesionales" },
+          { id: "educacion", label: "Educación: instituto, academia o cursos" },
+          { id: "industria", label: "Industria, logística o distribución" },
+          { id: "institucion", label: "Institución, ONG u organización" },
+          { id: "medios", label: "Medios, contenido o comunicación" },
+          { id: "otro", label: "Otro rubro / todavía no encaja" },
+        ],
+      },
+      branches: {
+        tienda: [
+          {
+            id: "tienda1",
+            question: "¿Cómo vendés hoy?",
+            options: [
+              { id: "local", label: "Solo en el local físico" },
+              { id: "redes", label: "Por redes y WhatsApp" },
+              { id: "online", label: "Ya tengo tienda online" },
+              { id: "empezando", label: "Todavía no vendo, estoy empezando" },
+            ],
+          },
+          {
+            id: "tienda2",
+            question: "¿Qué es lo que más te complica?",
+            options: [
+              { id: "stock", label: "Controlar el stock" },
+              { id: "pedidos", label: "Tomar y organizar los pedidos" },
+              { id: "encontrar", label: "Que me encuentren y compren online" },
+              { id: "cobrar", label: "Cobrar y facturar" },
+            ],
+          },
+        ],
+        salud: [
+          {
+            id: "salud1",
+            question: "¿Cómo manejás los turnos hoy?",
+            options: [
+              { id: "telefono", label: "Por teléfono o WhatsApp" },
+              { id: "papel", label: "Con agenda en papel o planilla" },
+              { id: "sistema", label: "Con un sistema, pero incómodo" },
+              { id: "ninguno", label: "No manejo turnos" },
+            ],
+          },
+          {
+            id: "salud2",
+            question: "¿Qué querés mejorar para tus pacientes?",
+            options: [
+              { id: "info", label: "Que encuentren info y especialidades" },
+              { id: "autoturno", label: "Que saquen turno solos" },
+              { id: "seguimiento", label: "Recordatorios y seguimiento" },
+              { id: "confianza", label: "Presencia y confianza online" },
+            ],
+          },
+        ],
+        gastronomia: [
+          {
+            id: "gastro1",
+            question: "¿Cómo recibís los pedidos?",
+            options: [
+              { id: "telefono", label: "Por teléfono y WhatsApp" },
+              { id: "apps", label: "Por apps de delivery de terceros" },
+              { id: "mostrador", label: "En el mostrador" },
+              { id: "ninguno", label: "Todavía no vendo online" },
+            ],
+          },
+          {
+            id: "gastro2",
+            question: "¿Qué te gustaría sumar?",
+            options: [
+              { id: "carta", label: "Carta digital siempre actualizada" },
+              { id: "pedidos", label: "Pedidos online propios" },
+              { id: "reservas", label: "Reservas de mesas" },
+              { id: "fidelizar", label: "Fidelizar a los que vuelven" },
+            ],
+          },
+        ],
+        profesional: [
+          {
+            id: "prof1",
+            question: "¿Cómo llegan hoy tus clientes?",
+            options: [
+              { id: "boca", label: "Recomendación de boca en boca" },
+              { id: "redes", label: "Por redes sociales" },
+              { id: "web", label: "Ya tengo web, pero floja" },
+              { id: "poco", label: "Casi no llegan por internet" },
+            ],
+          },
+          {
+            id: "prof2",
+            question: "¿Qué te ayudaría más?",
+            options: [
+              { id: "confianza", label: "Una web que dé confianza" },
+              { id: "agenda", label: "Agendar consultas online" },
+              { id: "automatizar", label: "Automatizar formularios y respuestas" },
+              { id: "seguimiento", label: "Ordenar el seguimiento de clientes" },
+            ],
+          },
+        ],
+        educacion: [
+          {
+            id: "edu1",
+            question: "¿Cómo se inscriben hoy tus alumnos?",
+            options: [
+              { id: "mensaje", label: "Por mensaje o teléfono" },
+              { id: "formularios", label: "Con formularios sueltos" },
+              { id: "sistema", label: "Con un sistema, pero limitado" },
+              { id: "presencial", label: "Presencial únicamente" },
+            ],
+          },
+          {
+            id: "edu2",
+            question: "¿Qué querés ofrecer?",
+            options: [
+              { id: "captar", label: "Mostrar la propuesta y captar alumnos" },
+              { id: "pagos", label: "Inscripción y pagos online" },
+              { id: "cursos", label: "Cursos y contenido online" },
+              { id: "seguimiento", label: "Seguimiento de alumnos" },
+            ],
+          },
+        ],
+        industria: [
+          {
+            id: "ind1",
+            question: "¿Cómo llevás la operación hoy?",
+            options: [
+              { id: "excel", label: "Con planillas de Excel" },
+              { id: "papel", label: "Con papeles y WhatsApp" },
+              { id: "sistema", label: "Un sistema, pero incompleto" },
+              { id: "nada", label: "Sin un sistema claro" },
+            ],
+          },
+          {
+            id: "ind2",
+            question: "¿Qué necesitás ordenar primero?",
+            options: [
+              { id: "stock", label: "Stock e inventario" },
+              { id: "repartos", label: "Repartos y logística" },
+              { id: "reportes", label: "Reportes y estadísticas" },
+              { id: "integrar", label: "Integrar áreas que hoy no se hablan" },
+            ],
+          },
+        ],
+        institucion: [
+          {
+            id: "inst1",
+            question: "¿Cuál es tu objetivo principal?",
+            options: [
+              { id: "comunicar", label: "Comunicar tu propuesta" },
+              { id: "sumar", label: "Sumar miembros o afiliados" },
+              { id: "eventos", label: "Organizar eventos o campañas" },
+              { id: "transparencia", label: "Transparencia e información" },
+            ],
+          },
+          {
+            id: "inst2",
+            question: "¿Cómo se comunican hoy?",
+            options: [
+              { id: "redes", label: "Solo por redes sociales" },
+              { id: "web", label: "Con una web desactualizada" },
+              { id: "boca", label: "De boca en boca" },
+              { id: "nada", label: "Todavía no tenemos presencia" },
+            ],
+          },
+        ],
+        medios: [
+          {
+            id: "med1",
+            question: "¿Dónde publicás hoy?",
+            options: [
+              { id: "redes", label: "Solo en redes sociales" },
+              { id: "blog", label: "En un blog o web básica" },
+              { id: "portal", label: "En un portal, pero lento o viejo" },
+              { id: "empezando", label: "Recién empezamos" },
+            ],
+          },
+          {
+            id: "med2",
+            question: "¿Qué te importa más?",
+            options: [
+              { id: "lectura", label: "Velocidad y experiencia de lectura" },
+              { id: "autonomia", label: "Publicar fácil, sin depender de nadie" },
+              { id: "audiencia", label: "Crecer en audiencia y SEO" },
+              { id: "monetizar", label: "Sumar suscripciones o pauta" },
+            ],
+          },
+        ],
+        otro: [
+          {
+            id: "otro1",
+            question: "¿Qué describe mejor tu situación?",
+            options: [
+              { id: "idea", label: "Tengo una idea nueva" },
+              { id: "digitalizar", label: "Quiero digitalizar mi negocio" },
+              { id: "problema", label: "Necesito resolver un problema puntual" },
+              { id: "asesor", label: "Busco asesoramiento general" },
+            ],
+          },
+          {
+            id: "otro2",
+            question: "¿Qué tenés hoy armado?",
+            options: [
+              { id: "nada", label: "Nada todavía" },
+              { id: "redes", label: "Redes sociales" },
+              { id: "web", label: "Una web básica" },
+              { id: "sistema", label: "Un sistema que quedó corto" },
+            ],
+          },
+        ],
+      },
+      commonSteps: [
         {
-          id: "problema",
-          question: "¿Cuál es tu principal desafío hoy?",
+          id: "necesidad",
+          question: "Para cerrar, ¿qué tipo de solución te imaginás?",
           options: [
-            { id: "procesos", label: "Tareas manuales que me consumen tiempo" },
-            { id: "presencia", label: "No tengo presencia web o está desactualizada" },
-            { id: "sistema", label: "Necesito un sistema a medida para mi negocio" },
-            { id: "seguridad", label: "Me preocupa la seguridad de mis datos o redes" },
-          ],
-        },
-        {
-          id: "rubro",
-          question: "¿A qué se dedica tu empresa?",
-          options: [
-            { id: "comercio", label: "Comercio o local" },
-            { id: "servicios", label: "Servicios profesionales" },
-            { id: "industria", label: "Industria o logística" },
-            { id: "otro", label: "Otro" },
+            { id: "vender", label: "Vender online y mostrar mi catálogo" },
+            { id: "gestion", label: "Ordenar la gestión: stock, pedidos y clientes" },
+            { id: "presencia", label: "Una web profesional que me represente" },
+            { id: "medida", label: "Un sistema o app a la medida de mi trabajo" },
+            { id: "automatizar", label: "Automatizar tareas manuales y repetitivas" },
+            { id: "seguridad", label: "Proteger mis datos, mi web o mi red" },
+            { id: "infraestructura", label: "Mejorar mi red o infraestructura" },
+            { id: "asesoramiento", label: "No estoy seguro, quiero asesoramiento" },
           ],
         },
         {
           id: "etapa",
-          question: "¿En qué etapa estás?",
+          question: "¿Para cuándo lo necesitás?",
           options: [
-            { id: "idea", label: "Es una idea, estoy explorando" },
-            { id: "creciendo", label: "Ya opero y quiero mejorar" },
-            { id: "urgente", label: "Tengo un problema puntual que resolver" },
+            { id: "explorando", label: "Estoy explorando, sin apuro" },
+            { id: "pronto", label: "En las próximas semanas" },
+            { id: "urgente", label: "Lo antes posible, es urgente" },
           ],
         },
       ],
       back: "Atrás",
-      resultTitle: "Lo que te recomendamos",
+      resultTitle: "Lo que pensamos para vos",
       recommendations: {
-        procesos:
-          "Una plataforma web a medida o un sistema de gestión que automatice esas tareas repetitivas y centralice tu información.",
-        presencia:
-          "Un sitio web institucional profesional, rápido y pensado para móviles, para que te encuentren y te contacten con facilidad.",
-        sistema:
-          "Una aplicación web personalizada que siga el proceso real de tu negocio, o una solución SaaS con cuota mensual para arrancar con menor inversión.",
-        seguridad:
-          "Una auditoría de seguridad de tus aplicaciones y redes, más la implementación de buenas prácticas y monitoreo.",
+        tienda:
+          "Para un comercio como el tuyo, lo ideal es una tienda online con catálogo, carrito y control de stock —incluso entre sucursales—, más un panel para gestionar pedidos, clientes y ventas. Es justo lo que resuelve ToolsShop: vendés las 24 horas y ordenás la trastienda en un solo lugar.",
+        salud:
+          "Para un consultorio o centro de salud armamos un sitio claro con tus especialidades, profesionales y contacto directo por WhatsApp, y si lo necesitás, un sistema para ordenar turnos y pacientes. Que la gente encuentre todo sin tener que llamar.",
+        gastronomia:
+          "Para gastronomía combinamos una web apetecible con tu carta siempre actualizada y, si querés, pedidos online, reservas o delivery. Menos llamados y mensajes sueltos, más pedidos que entran ordenados.",
+        profesional:
+          "Para un estudio o servicio profesional, una web que transmita confianza y capte consultas, con la opción de automatizar turnos, formularios y el seguimiento de cada cliente. Que tu presencia digital trabaje por vos.",
+        educacion:
+          "Para una institución educativa, un sitio claro para mostrar tu propuesta e inscribir alumnos, y si sumás cursos online, una plataforma para gestionar contenidos, pagos y seguimiento. Que anotarse sea tan simple como un clic.",
+        industria:
+          "Para industria o logística desarrollamos sistemas de gestión a medida —stock, repartos, reportes en tiempo real— y automatizamos lo que hoy vive en planillas y mensajes. Una única fuente de verdad para todo el equipo.",
+        institucion:
+          "Para una institución u organización armamos una plataforma para comunicar tu propuesta, sumar miembros o afiliados y ordenar la información, como hicimos con el Partido Demócrata Progresista. Que tu mensaje llegue y la gente se sume fácil.",
+        medios:
+          "Para un medio o proyecto de contenido, un portal estilo revista, rápido y cómodo de leer, con tu propio panel para publicar sin depender de nadie, como La Posta 381. Que tu contenido sea el protagonista.",
+        otro:
+          "Trabajamos con rubros muy distintos, así que arrancamos escuchando tu caso y te proponemos la solución a medida —desarrollo, gestión, seguridad o infraestructura— que mejor encaje. Contanos y lo pensamos juntos.",
+      },
+      services: {
+        vender: "Tienda online y control de stock (ToolsShop)",
+        gestion: "Sistema de gestión (stock, pedidos y clientes)",
+        presencia: "Sitio web institucional",
+        medida: "Aplicación web a medida",
+        automatizar: "Automatización de procesos",
+        seguridad: "Ciberseguridad y auditoría",
+        infraestructura: "Infraestructura y redes",
+        asesoramiento: "Asesoramiento a medida",
       },
       toForm: "Hablemos de esto",
       restart: "Empezar de nuevo",

@@ -410,50 +410,279 @@ export const en: SiteContent = {
       eyebrow: "Quick diagnosis",
       title: "Not sure where to start?",
       intro:
-        "Answer three quick questions and we'll tell you which solution fits your need best.",
+        "Tell us a bit about your business and in five steps we'll put together a proposal tailored to your industry. Every answer refines what we recommend.",
       start: "Start",
-      steps: [
+      rubroStep: {
+        id: "rubro",
+        question: "What does your business do?",
+        options: [
+          { id: "tienda", label: "Retail, a shop or selling products" },
+          { id: "salud", label: "Health: practice, clinic or professional" },
+          { id: "gastronomia", label: "Food: restaurant, café or delivery" },
+          { id: "profesional", label: "A firm or professional services" },
+          { id: "educacion", label: "Education: institute, academy or courses" },
+          { id: "industria", label: "Industry, logistics or distribution" },
+          { id: "institucion", label: "Institution, NGO or organization" },
+          { id: "medios", label: "Media, content or communications" },
+          { id: "otro", label: "Another industry / not sure yet" },
+        ],
+      },
+      branches: {
+        tienda: [
+          {
+            id: "tienda1",
+            question: "How do you sell today?",
+            options: [
+              { id: "local", label: "Only in the physical store" },
+              { id: "redes", label: "Through social media and WhatsApp" },
+              { id: "online", label: "I already have an online store" },
+              { id: "empezando", label: "Not selling yet, just starting" },
+            ],
+          },
+          {
+            id: "tienda2",
+            question: "What gives you the most trouble?",
+            options: [
+              { id: "stock", label: "Keeping track of stock" },
+              { id: "pedidos", label: "Taking and organizing orders" },
+              { id: "encontrar", label: "Getting found and selling online" },
+              { id: "cobrar", label: "Getting paid and invoicing" },
+            ],
+          },
+        ],
+        salud: [
+          {
+            id: "salud1",
+            question: "How do you handle appointments today?",
+            options: [
+              { id: "telefono", label: "By phone or WhatsApp" },
+              { id: "papel", label: "On paper or a spreadsheet" },
+              { id: "sistema", label: "With a system, but a clunky one" },
+              { id: "ninguno", label: "I don't handle appointments" },
+            ],
+          },
+          {
+            id: "salud2",
+            question: "What would you improve for your patients?",
+            options: [
+              { id: "info", label: "That they find info and specialties" },
+              { id: "autoturno", label: "That they book on their own" },
+              { id: "seguimiento", label: "Reminders and follow-up" },
+              { id: "confianza", label: "Presence and trust online" },
+            ],
+          },
+        ],
+        gastronomia: [
+          {
+            id: "gastro1",
+            question: "How do you take orders?",
+            options: [
+              { id: "telefono", label: "By phone and WhatsApp" },
+              { id: "apps", label: "Through third-party delivery apps" },
+              { id: "mostrador", label: "At the counter" },
+              { id: "ninguno", label: "Not selling online yet" },
+            ],
+          },
+          {
+            id: "gastro2",
+            question: "What would you like to add?",
+            options: [
+              { id: "carta", label: "An always-updated digital menu" },
+              { id: "pedidos", label: "Your own online ordering" },
+              { id: "reservas", label: "Table reservations" },
+              { id: "fidelizar", label: "Loyalty for returning customers" },
+            ],
+          },
+        ],
+        profesional: [
+          {
+            id: "prof1",
+            question: "How do clients reach you today?",
+            options: [
+              { id: "boca", label: "Word of mouth" },
+              { id: "redes", label: "Through social media" },
+              { id: "web", label: "I have a website, but a weak one" },
+              { id: "poco", label: "Hardly any come from the internet" },
+            ],
+          },
+          {
+            id: "prof2",
+            question: "What would help you most?",
+            options: [
+              { id: "confianza", label: "A website that builds trust" },
+              { id: "agenda", label: "Booking consultations online" },
+              { id: "automatizar", label: "Automating forms and replies" },
+              { id: "seguimiento", label: "Organizing client follow-up" },
+            ],
+          },
+        ],
+        educacion: [
+          {
+            id: "edu1",
+            question: "How do students enroll today?",
+            options: [
+              { id: "mensaje", label: "By message or phone" },
+              { id: "formularios", label: "With scattered forms" },
+              { id: "sistema", label: "With a system, but a limited one" },
+              { id: "presencial", label: "In person only" },
+            ],
+          },
+          {
+            id: "edu2",
+            question: "What do you want to offer?",
+            options: [
+              { id: "captar", label: "Showcase the offering and attract students" },
+              { id: "pagos", label: "Online enrollment and payments" },
+              { id: "cursos", label: "Online courses and content" },
+              { id: "seguimiento", label: "Student follow-up" },
+            ],
+          },
+        ],
+        industria: [
+          {
+            id: "ind1",
+            question: "How do you run operations today?",
+            options: [
+              { id: "excel", label: "With Excel spreadsheets" },
+              { id: "papel", label: "With paper and WhatsApp" },
+              { id: "sistema", label: "A system, but an incomplete one" },
+              { id: "nada", label: "Without a clear system" },
+            ],
+          },
+          {
+            id: "ind2",
+            question: "What do you need to sort out first?",
+            options: [
+              { id: "stock", label: "Stock and inventory" },
+              { id: "repartos", label: "Deliveries and logistics" },
+              { id: "reportes", label: "Reports and statistics" },
+              { id: "integrar", label: "Connecting areas that don't talk today" },
+            ],
+          },
+        ],
+        institucion: [
+          {
+            id: "inst1",
+            question: "What is your main goal?",
+            options: [
+              { id: "comunicar", label: "Communicate your message" },
+              { id: "sumar", label: "Sign up members or supporters" },
+              { id: "eventos", label: "Organize events or campaigns" },
+              { id: "transparencia", label: "Transparency and information" },
+            ],
+          },
+          {
+            id: "inst2",
+            question: "How do you communicate today?",
+            options: [
+              { id: "redes", label: "Only through social media" },
+              { id: "web", label: "With an outdated website" },
+              { id: "boca", label: "Word of mouth" },
+              { id: "nada", label: "We have no presence yet" },
+            ],
+          },
+        ],
+        medios: [
+          {
+            id: "med1",
+            question: "Where do you publish today?",
+            options: [
+              { id: "redes", label: "Only on social media" },
+              { id: "blog", label: "On a blog or basic site" },
+              { id: "portal", label: "On a portal, but slow or dated" },
+              { id: "empezando", label: "We're just starting" },
+            ],
+          },
+          {
+            id: "med2",
+            question: "What matters most to you?",
+            options: [
+              { id: "lectura", label: "Speed and reading experience" },
+              { id: "autonomia", label: "Publishing easily, on your own" },
+              { id: "audiencia", label: "Growing audience and SEO" },
+              { id: "monetizar", label: "Adding subscriptions or ads" },
+            ],
+          },
+        ],
+        otro: [
+          {
+            id: "otro1",
+            question: "What best describes your situation?",
+            options: [
+              { id: "idea", label: "I have a new idea" },
+              { id: "digitalizar", label: "I want to digitize my business" },
+              { id: "problema", label: "I need to solve a specific problem" },
+              { id: "asesor", label: "I'm looking for general advice" },
+            ],
+          },
+          {
+            id: "otro2",
+            question: "What do you have set up today?",
+            options: [
+              { id: "nada", label: "Nothing yet" },
+              { id: "redes", label: "Social media" },
+              { id: "web", label: "A basic website" },
+              { id: "sistema", label: "A system that fell short" },
+            ],
+          },
+        ],
+      },
+      commonSteps: [
         {
-          id: "problema",
-          question: "What's your main challenge today?",
+          id: "necesidad",
+          question: "To wrap up, what kind of solution do you picture?",
           options: [
-            { id: "procesos", label: "Manual tasks that eat up my time" },
-            { id: "presencia", label: "I have no web presence, or it's outdated" },
-            { id: "sistema", label: "I need a custom system for my business" },
-            { id: "seguridad", label: "I'm worried about the security of my data or networks" },
-          ],
-        },
-        {
-          id: "rubro",
-          question: "What does your company do?",
-          options: [
-            { id: "comercio", label: "Shop or retail" },
-            { id: "servicios", label: "Professional services" },
-            { id: "industria", label: "Industry or logistics" },
-            { id: "otro", label: "Other" },
+            { id: "vender", label: "Sell online and show my catalog" },
+            { id: "gestion", label: "Get organized: stock, orders and customers" },
+            { id: "presencia", label: "A professional website that represents me" },
+            { id: "medida", label: "A system or app tailored to how I work" },
+            { id: "automatizar", label: "Automate manual, repetitive tasks" },
+            { id: "seguridad", label: "Protect my data, my site or my network" },
+            { id: "infraestructura", label: "Improve my network or infrastructure" },
+            { id: "asesoramiento", label: "I'm not sure, I'd like some advice" },
           ],
         },
         {
           id: "etapa",
-          question: "What stage are you at?",
+          question: "When do you need it?",
           options: [
-            { id: "idea", label: "It's an idea, I'm exploring" },
-            { id: "creciendo", label: "I'm up and running and want to improve" },
-            { id: "urgente", label: "I have a specific problem to solve" },
+            { id: "explorando", label: "Just exploring, no rush" },
+            { id: "pronto", label: "In the coming weeks" },
+            { id: "urgente", label: "As soon as possible, it's urgent" },
           ],
         },
       ],
       back: "Back",
-      resultTitle: "What we recommend",
+      resultTitle: "What we'd suggest for you",
       recommendations: {
-        procesos:
-          "A custom web platform or a management system that automates those repetitive tasks and centralises your information.",
-        presencia:
-          "A professional, fast, mobile-first corporate website, so people can find and contact you with ease.",
-        sistema:
-          "A custom web application that follows your business's real process, or a SaaS solution on a monthly fee to start with less investment.",
-        seguridad:
-          "A security audit of your applications and networks, plus best practices and monitoring in place.",
+        tienda:
+          "For a shop like yours, the ideal is an online store with a catalog, cart and stock control —even across branches— plus a panel to manage orders, customers and sales. That's exactly what ToolsShop solves: sell around the clock and keep the back office in one place.",
+        salud:
+          "For a practice or health center we build a clear site with your specialties, professionals and direct WhatsApp contact, and if you need it, a system to organize appointments and patients. So people find everything without having to call.",
+        gastronomia:
+          "For food businesses we combine an appetizing site with your always-updated menu and, if you want, online ordering, reservations or delivery. Fewer scattered calls and messages, more orders coming in neatly.",
+        profesional:
+          "For a firm or professional service, a website that builds trust and captures inquiries, with the option to automate appointments, forms and client follow-up. So your online presence works for you.",
+        educacion:
+          "For an educational institution, a clear site to showcase your offering and enroll students, and if you add online courses, a platform to manage content, payments and progress. So signing up is as simple as a click.",
+        industria:
+          "For industry or logistics we build custom management systems —stock, deliveries, real-time reports— and automate what today lives in spreadsheets and messages. A single source of truth for the whole team.",
+        institucion:
+          "For an institution or organization we build a platform to communicate your message, sign up members or supporters and keep information tidy, like we did for the Partido Demócrata Progresista. So your message reaches people and they join easily.",
+        medios:
+          "For a media or content project, a fast, easy-to-read magazine-style portal with your own panel to publish without depending on anyone, like La Posta 381. So your content takes center stage.",
+        otro:
+          "We work across very different industries, so we start by listening to your case and propose the tailored solution —development, management, security or infrastructure— that fits best. Tell us and we'll figure it out together.",
+      },
+      services: {
+        vender: "Online store with stock control (ToolsShop)",
+        gestion: "Management system (stock, orders and customers)",
+        presencia: "Institutional website",
+        medida: "Custom web application",
+        automatizar: "Process automation",
+        seguridad: "Cybersecurity and audits",
+        infraestructura: "Infrastructure and networks",
+        asesoramiento: "Tailored advice",
       },
       toForm: "Let's talk about this",
       restart: "Start over",
