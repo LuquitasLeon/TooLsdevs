@@ -163,157 +163,139 @@ export const en: SiteContent = {
 
   projects: {
     eyebrow: "Our work",
-    title: "Case studies and completed projects",
+    title: "Projects already online",
     intro:
-      "Since day one we have built solutions for all kinds of organisations and companies, always focused on solving real needs.",
-    // NOTE: every card here is flagged `draft: true`. The problem/solution/
-    // results text and the figures are PLACEHOLDERS that show how a complete
-    // case study looks. When real data replaces them, remove `draft: true` from
-    // that card and the notice disappears on its own.
-    items: [
+      "These are some of the sites and systems we built for real clients. Go in and take a look.",
+    clientsEyebrow: "Companies that trust us",
+    comingSoonLabel: "Coming soon",
+    visitLabel: "Visit site",
+    featured: {
+      eyebrow: "Our own product",
+      name: "ToolsShop",
+      tagline: "Your online store and your management, in one system",
+      description:
+        "Our featured system: a complete e-commerce and management platform. Sell online 24/7, control stock across branches, manage orders, customers and roles, and make decisions with real data. All with separate admin, seller and customer views.",
+      badge: "Featured system",
+      cta: { label: "I want ToolsShop for my business", href: routes.contact },
+      slides: [
+        {
+          image: "/producto/01-tienda-online-inicio.png",
+          title: "Your business online, 24/7",
+          description:
+            "A professional presence with your brand and catalog, ready to sell around the clock.",
+        },
+        {
+          image: "/producto/02-catalogo-productos.png",
+          title: "Digital catalog with search and filters",
+          description:
+            "Your customers find the right product in seconds, with images, price and up-to-date stock.",
+        },
+        {
+          image: "/producto/03-ficha-producto.png",
+          title: "Product pages that sell",
+          description:
+            "Gallery, price, stock and description in one clear view, one click to add to cart.",
+        },
+        {
+          image: "/producto/04-carrito-checkout.png",
+          title: "A simple, reliable cart",
+          description:
+            "Order summary with automatic totals and shipping: less friction, more sales.",
+        },
+        {
+          image: "/producto/05-gestion-stock.png",
+          title: "Better stock control across branches",
+          description:
+            "Real-time stock per branch and one-click export to PDF/Excel.",
+        },
+        {
+          image: "/producto/06-analitica-ventas.png",
+          title: "Decisions from data, not gut feeling",
+          description:
+            "Revenue, orders, average ticket and best-sellers, with charts and export.",
+        },
+        {
+          image: "/producto/07-gestion-pedidos.png",
+          title: "All your orders in one place",
+          description:
+            "Status, customer, payment method and total of every sale, end to end.",
+        },
+        {
+          image: "/producto/08-base-clientes.png",
+          title: "Your customer base always at hand",
+          description:
+            "Centralized contacts to build loyalty and sell again.",
+        },
+        {
+          image: "/producto/09-usuarios-roles.png",
+          title: "Everyone with their own access",
+          description:
+            "Admin, seller and customer roles to work as a team, securely.",
+        },
+        {
+          image: "/producto/10-servicios-postventa.png",
+          title: "Professional after-sales that builds loyalty",
+          description:
+            "Receive and manage requests with statuses and tracking; your customers feel supported.",
+        },
+        {
+          image: "/producto/11-personalizacion-web.png",
+          title: "Update your site without coding",
+          description:
+            "Change homepage banners and offers from a simple panel, whenever you want.",
+        },
+        {
+          image: "/producto/12-contenido-institucional.png",
+          title: "Tell your story",
+          description:
+            "Edit the company's vision, mission and structure that your customers will see.",
+        },
+        {
+          image: "/producto/13-favoritos.png",
+          title: "A wishlist for your customers",
+          description:
+            "Each customer saves their favorite products and buys them again in one click: more repeat sales and loyalty.",
+        },
+        {
+          image: "/producto/14-vendedor-punto-venta.png",
+          title: "A point of sale for your team",
+          description:
+            "Sellers register sales at the counter: pick customer and branch, apply discounts or installments and confirm the order instantly.",
+        },
+      ],
+    },
+    clients: [
       {
-        slug: "sistema-gestion-logistica",
-        title: "Logistics Management System",
+        name: "Consultorios Villa Carmela",
+        logo: "/logos/ConsultoriosVC.png",
+        category: "Health",
         summary:
-          "A platform to manage deliveries, customers, products and operational statistics end to end.",
-        category: "desarrollo",
-        client: "Logistics company — Tucumán",
-        featured: true,
-        draft: true,
-        year: "2024",
-        problem:
-          "Delivery tracking lived across separate spreadsheets and WhatsApp messages. There was no single view of the day, data-entry mistakes were common, and putting together a monthly report took hours.",
-        solution:
-          "We built a centralised web platform with a real-time delivery board, customer and product management, and automatic reports. Each role only sees what it needs, with security applied from the design stage.",
-        results: [
-          "Report preparation cut from hours to minutes.",
-          "A single source of truth for the whole delivery team.",
-          "Fewer data-entry errors thanks to automatic validation.",
-        ],
-        stack: ["react", "typescript", "node", "postgresql"],
-        images: [
-          {
-            src: "/proyectos/gestion-logistica.svg",
-            alt: "Illustrative sketch of the logistics dashboard with metrics, a chart and a delivery map",
-            width: 800,
-            height: 500,
-          },
-        ],
+          "Institutional site for a health center in Villa Carmela: medical specialties, professionals, consulting-room rental and direct WhatsApp contact.",
+        url: "https://www.consultoriovc.com/",
       },
       {
-        slug: "sitios-web-institucionales",
-        title: "Corporate Websites",
+        name: "Partido Demócrata Progresista",
+        logo: "/logos/PartidoDemocrataProgresista.png",
+        category: "Institutional / Political",
         summary:
-          "Professional websites for companies, organisations and shops looking to strengthen their online presence.",
-        category: "desarrollo",
-        client: "Businesses and organisations in northwestern Argentina",
-        featured: true,
-        draft: true,
-        problem:
-          "Many local businesses had no web presence, or relied on an outdated page that no longer reflected what they did and worked poorly on mobile.",
-        solution:
-          "We designed and built fast, accessible, mobile-first corporate sites, focused on making the business easy to find and easy to contact.",
-        results: [
-          "A professional digital presence ready to share.",
-          "Sites that load fast and look good on any screen.",
-          "Better ranking in local searches.",
-        ],
-        stack: ["react", "typescript", "tailwind"],
-        images: [
-          {
-            src: "/proyectos/sitio-institucional.svg",
-            alt: "Illustrative sketch of a corporate website with a hero, menu and cards",
-            width: 800,
-            height: 500,
-          },
-        ],
+          "Platform for the PDP's Tucumán district: presents the government plan across five pillars, with membership and volunteer sign-up sections.",
+        url: "https://partido-democrata-progresista.vercel.app/",
       },
       {
-        slug: "plataformas-web-personalizadas",
-        title: "Custom Web Platforms",
-        summary: "Web applications shaped entirely around each client's internal processes.",
-        category: "desarrollo",
-        client: "Several clients",
-        featured: false,
-        draft: true,
-        problem:
-          "Off-the-shelf systems forced each company to bend its way of working to the software, rather than the other way round, leaving important tasks outside the system.",
-        solution:
-          "We built custom platforms that follow each client's real process: the flows, states and permissions are the ones they already use, now organised and automated.",
-        results: [
-          "The system adapts to the business, not the other way round.",
-          "Repetitive tasks automated.",
-          "Centralised information the whole team can reach.",
-        ],
-        stack: ["react", "typescript", "node", "postgresql", "docker"],
-        images: [
-          {
-            src: "/proyectos/plataforma-web.svg",
-            alt: "Illustrative sketch of a custom web platform with a board, a form and a process flow",
-            width: 800,
-            height: 500,
-          },
-        ],
+        name: "EndPoint Security",
+        logo: "/logos/EndPoint.png",
+        category: "Cybersecurity",
+        summary:
+          "Corporate site for a cybersecurity company: prevention, protection and incident-response services, training and its own Cyber Challenge.",
+        url: "https://web-iota-two-64.vercel.app/",
       },
       {
-        slug: "soluciones-saas",
-        title: "SaaS Solutions",
+        name: "La Posta 381",
+        logo: "/logos/LaPosta381.jpeg",
+        category: "Media / News",
         summary:
-          "Platforms on a monthly subscription, cutting upfront costs and guaranteeing ongoing maintenance.",
-        category: "desarrollo",
-        client: "Small and medium businesses",
-        featured: true,
-        draft: true,
-        problem:
-          "Owning a system meant a high upfront investment many small businesses could not afford — and being left without maintenance afterwards.",
-        solution:
-          "We offer our tools as a service, with an affordable monthly fee that includes hosting, updates and support, so the client pays to use it, not to get started.",
-        results: [
-          "Upfront cost reduced to a minimum.",
-          "Updates and maintenance included.",
-          "The client grows and the system keeps up.",
-        ],
-        stack: ["react", "typescript", "node", "postgresql", "nginx"],
-      },
-      {
-        slug: "infraestructura-tecnologica",
-        title: "Technology Infrastructure",
-        summary:
-          "Network design and rollout, structured cabling and rack assembly to improve connectivity and security.",
-        category: "infraestructura",
-        client: "Companies in Tucumán",
-        featured: false,
-        draft: true,
-        problem:
-          "Networks put together without planning, with messy cabling and poorly placed equipment, causing outages, slowdowns and security blind spots.",
-        solution:
-          "We redesigned the network infrastructure: structured cabling, tidy racks and well-configured equipment, documenting everything so future maintenance is simple.",
-        results: [
-          "A more stable, faster connection.",
-          "Tidy, documented infrastructure.",
-          "A base ready to grow without redoing everything.",
-        ],
-        stack: ["redes", "linux", "hardening"],
-      },
-      {
-        slug: "seguridad-informatica",
-        title: "Information Security",
-        summary:
-          "Assessment and rollout of protective measures for business applications and networks.",
-        category: "seguridad",
-        client: "Companies in Tucumán",
-        featured: false,
-        draft: true,
-        problem:
-          "Applications and networks in production with no security review, with known vulnerabilities exposed and no clear plan in case of an incident.",
-        solution:
-          "We audited the applications and the network, fixed the vulnerabilities we found and put best practices and monitoring in place, following the same standard we apply to what we build.",
-        results: [
-          "Vulnerabilities found and fixed.",
-          "Security best practices in place.",
-          "A team with clear criteria to keep the protection up.",
-        ],
-        stack: ["auditorias", "hardening", "wifi"],
+          "A magazine-style portal to inform the people of Tucumán: news, articles and local current affairs with a fast reading experience. In development.",
+        comingSoon: true,
       },
     ],
   },
@@ -400,23 +382,7 @@ export const en: SiteContent = {
     mainNav: "Main",
     contactCta: "Get in touch",
     languageLabel: "Change language",
-    backToProjects: "Back to projects",
-    viewProject: "View project",
     allProjects: "See all projects",
-    filterAll: "All",
-    categories: {
-      desarrollo: "Development",
-      infraestructura: "Infrastructure",
-      seguridad: "Security",
-    },
-    projectClient: "Client",
-    projectProblem: "The problem",
-    projectSolution: "The solution",
-    projectResults: "Results",
-    projectStack: "Technologies",
-    draftBadge: "Sample",
-    draftNotice:
-      "The details of this case are illustrative placeholders. We will soon replace them with real project information.",
     notFoundTitle: "This page doesn't exist",
     notFoundText:
       "The link may be misspelled, or the page may have moved. Head back to the home page and carry on from there.",

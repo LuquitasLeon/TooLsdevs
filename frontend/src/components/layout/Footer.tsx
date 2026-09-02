@@ -2,6 +2,7 @@ import { Mail, MapPin, MessageCircle } from "lucide-react";
 import { Link, NavLink } from "react-router";
 import Container from "@/components/layout/Container";
 import Logo from "@/components/brand/Logo";
+import Divider from "@/components/ui/Divider";
 import { InstagramIcon } from "@/components/icons/SocialIcons";
 import { useContent } from "@/features/i18n/useI18n";
 import { contact } from "@/content";
@@ -32,7 +33,8 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="border-t border-white/5 py-10">
+    <footer className="relative py-10">
+      <Divider />
       <Container className="flex flex-col gap-8">
         {/* Logo + social icons */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6">

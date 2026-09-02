@@ -156,158 +156,139 @@ export const es: SiteContent = {
 
   projects: {
     eyebrow: "Trabajos realizados",
-    title: "Casos de uso y proyectos realizados",
+    title: "Proyectos que ya están online",
     intro:
-      "Desde nuestros inicios desarrollamos soluciones para distintos tipos de organizaciones y empresas, enfocándonos siempre en resolver necesidades reales.",
-    // NOTA: todas estas fichas están marcadas con `draft: true`. Los textos de
-    // problema/solución/resultados y las cifras son de EJEMPLO, para mostrar
-    // cómo se ve una ficha completa. Al reemplazarlos por datos reales, borrar
-    // `draft: true` de esa ficha y el aviso desaparece solo.
-    items: [
+      "Estos son algunos de los sitios y sistemas que construimos para clientes reales. Entrá y conocelos.",
+    clientsEyebrow: "Empresas que confían en nosotros",
+    comingSoonLabel: "Próximamente",
+    visitLabel: "Visitar sitio",
+    featured: {
+      eyebrow: "Producto propio",
+      name: "ToolsShop",
+      tagline: "Tu tienda online y tu gestión, en un solo sistema",
+      description:
+        "Nuestro sistema destacado: una plataforma completa de e-commerce y gestión. Vendé online las 24 horas, controlá el stock entre sucursales, gestioná pedidos, clientes y roles, y tomá decisiones con datos reales. Todo con vistas separadas de administrador, vendedor y cliente.",
+      badge: "Sistema destacado",
+      cta: { label: "Quiero ToolsShop para mi empresa", href: routes.contact },
+      slides: [
+        {
+          image: "/producto/01-tienda-online-inicio.png",
+          title: "Tu empresa online, 24/7",
+          description:
+            "Presencia profesional con tu marca y catálogo, lista para vender a toda hora.",
+        },
+        {
+          image: "/producto/02-catalogo-productos.png",
+          title: "Catálogo digital con buscador y filtros",
+          description:
+            "Tus clientes encuentran el producto ideal en segundos, con imágenes, precio y stock actualizados.",
+        },
+        {
+          image: "/producto/03-ficha-producto.png",
+          title: "Fichas de producto que venden",
+          description:
+            "Galería, precio, stock y descripción en una vista clara, con un clic para agregar al carrito.",
+        },
+        {
+          image: "/producto/04-carrito-checkout.png",
+          title: "Carrito simple y confiable",
+          description:
+            "Resumen del pedido y cálculo automático de totales y envío: menos fricción, más ventas.",
+        },
+        {
+          image: "/producto/05-gestion-stock.png",
+          title: "Mejor control del stock entre sucursales",
+          description:
+            "Stock por sucursal en tiempo real y exportación a PDF/Excel con un clic.",
+        },
+        {
+          image: "/producto/06-analitica-ventas.png",
+          title: "Decisiones con datos, no con intuición",
+          description:
+            "Ingresos, pedidos, ticket promedio y productos más vendidos, con gráficos y exportación.",
+        },
+        {
+          image: "/producto/07-gestion-pedidos.png",
+          title: "Todos tus pedidos en un solo lugar",
+          description:
+            "Estado, cliente, forma de pago y total de cada venta, de principio a fin.",
+        },
+        {
+          image: "/producto/08-base-clientes.png",
+          title: "Tu base de clientes siempre a mano",
+          description:
+            "Contactos centralizados para fidelizar y volver a vender.",
+        },
+        {
+          image: "/producto/09-usuarios-roles.png",
+          title: "Cada quien con su acceso",
+          description:
+            "Roles de administrador, vendedor y cliente para trabajar en equipo con seguridad.",
+        },
+        {
+          image: "/producto/10-servicios-postventa.png",
+          title: "Post-venta profesional que fideliza",
+          description:
+            "Recibí y gestioná solicitudes con estados y seguimiento; tus clientes se sienten acompañados.",
+        },
+        {
+          image: "/producto/11-personalizacion-web.png",
+          title: "Actualizá tu web sin programar",
+          description:
+            "Cambiá banners y ofertas del inicio desde un panel simple, cuando quieras.",
+        },
+        {
+          image: "/producto/12-contenido-institucional.png",
+          title: "Contá tu historia",
+          description:
+            "Editá visión, misión y estructura de la empresa que verán tus clientes.",
+        },
+        {
+          image: "/producto/13-favoritos.png",
+          title: "Lista de deseos para tus clientes",
+          description:
+            "Cada cliente guarda sus productos favoritos y vuelve a comprarlos en un clic: más recompra y fidelización.",
+        },
+        {
+          image: "/producto/14-vendedor-punto-venta.png",
+          title: "Punto de venta para tu equipo",
+          description:
+            "El vendedor registra ventas en el mostrador: elige cliente y sucursal, aplica descuentos o cuotas y confirma el pedido al instante.",
+        },
+      ],
+    },
+    clients: [
       {
-        slug: "sistema-gestion-logistica",
-        title: "Sistema de Gestión Logística",
+        name: "Consultorios Villa Carmela",
+        logo: "/logos/ConsultoriosVC.png",
+        category: "Salud",
         summary:
-          "Plataforma para la administración integral de repartos, clientes, productos y estadísticas operativas.",
-        category: "desarrollo",
-        client: "Empresa de logística — Tucumán",
-        featured: true,
-        draft: true,
-        year: "2024",
-        problem:
-          "El seguimiento de repartos se llevaba en planillas separadas y mensajes de WhatsApp. No había una vista única del día, los errores de carga eran frecuentes y armar un informe mensual llevaba horas.",
-        solution:
-          "Desarrollamos una plataforma web centralizada con panel de repartos en tiempo real, gestión de clientes y productos, y reportes automáticos. Cada rol accede sólo a lo que necesita, con la seguridad aplicada desde el diseño.",
-        results: [
-          "Reducción del tiempo de armado de informes de horas a minutos.",
-          "Una única fuente de verdad para todo el equipo de reparto.",
-          "Menos errores de carga gracias a validaciones automáticas.",
-        ],
-        stack: ["react", "typescript", "node", "postgresql"],
-        images: [
-          {
-            src: "/proyectos/gestion-logistica.svg",
-            alt: "Boceto ilustrativo del panel de gestión logística con indicadores, gráfico y mapa de repartos",
-            width: 800,
-            height: 500,
-          },
-        ],
+          "Sitio institucional para un centro de salud en Villa Carmela: especialidades médicas, profesionales, alquiler de consultorios y contacto directo por WhatsApp.",
+        url: "https://www.consultoriovc.com/",
       },
       {
-        slug: "sitios-web-institucionales",
-        title: "Sitios Web Institucionales",
+        name: "Partido Demócrata Progresista",
+        logo: "/logos/PartidoDemocrataProgresista.png",
+        category: "Institucional / Político",
         summary:
-          "Páginas web profesionales para empresas, organizaciones y comercios que buscan fortalecer su presencia digital.",
-        category: "desarrollo",
-        client: "Comercios y organizaciones del NOA",
-        featured: true,
-        draft: true,
-        problem:
-          "Muchos comercios de la región no tenían presencia web o dependían de una página desactualizada que no reflejaba lo que hacían ni funcionaba bien en el celular.",
-        solution:
-          "Diseñamos y desarrollamos sitios institucionales rápidos, accesibles y pensados para móviles primero, con foco en que el cliente pueda encontrarlos y contactarlos con facilidad.",
-        results: [
-          "Presencia digital profesional lista para compartir.",
-          "Sitios que cargan rápido y se ven bien en cualquier pantalla.",
-          "Mejor posicionamiento en búsquedas locales.",
-        ],
-        stack: ["react", "typescript", "tailwind"],
-        images: [
-          {
-            src: "/proyectos/sitio-institucional.svg",
-            alt: "Boceto ilustrativo de un sitio web institucional con portada, menú y tarjetas",
-            width: 800,
-            height: 500,
-          },
-        ],
+          "Plataforma del distrito Tucumán del PDP: presenta el plan de gobierno en cinco ejes, con secciones de afiliación y sumatoria de voluntarios.",
+        url: "https://partido-democrata-progresista.vercel.app/",
       },
       {
-        slug: "plataformas-web-personalizadas",
-        title: "Plataformas Web Personalizadas",
+        name: "EndPoint Security",
+        logo: "/logos/EndPoint.png",
+        category: "Ciberseguridad",
         summary:
-          "Aplicaciones web adaptadas completamente a los procesos internos de cada cliente.",
-        category: "desarrollo",
-        client: "Varios clientes",
-        featured: false,
-        draft: true,
-        problem:
-          "Los sistemas genéricos del mercado obligaban a cada empresa a adaptar su forma de trabajar al software, en vez de al revés, dejando tareas importantes fuera del sistema.",
-        solution:
-          "Construimos plataformas a medida que siguen el proceso real de cada cliente: los flujos, los estados y los permisos son los que ya usan, ahora ordenados y automatizados.",
-        results: [
-          "El sistema se adapta al negocio, no al revés.",
-          "Tareas repetitivas automatizadas.",
-          "Información centralizada y accesible para el equipo.",
-        ],
-        stack: ["react", "typescript", "node", "postgresql", "docker"],
-        images: [
-          {
-            src: "/proyectos/plataforma-web.svg",
-            alt: "Boceto ilustrativo de una plataforma web a medida con tablero, formulario y flujo de proceso",
-            width: 800,
-            height: 500,
-          },
-        ],
+          "Sitio corporativo de una empresa de ciberseguridad: servicios de prevención, protección y respuesta a incidentes, capacitaciones y su propio Cyber Challenge.",
+        url: "https://web-iota-two-64.vercel.app/",
       },
       {
-        slug: "soluciones-saas",
-        title: "Soluciones SaaS",
+        name: "La Posta 381",
+        logo: "/logos/LaPosta381.jpeg",
+        category: "Medios / Noticias",
         summary:
-          "Plataformas bajo modalidad de alquiler mensual, que reducen costos iniciales y aseguran mantenimiento continuo.",
-        category: "desarrollo",
-        client: "Pymes del NOA",
-        featured: true,
-        draft: true,
-        problem:
-          "Adquirir un sistema propio implicaba una inversión inicial alta que muchas pymes no podían afrontar, y quedarse sin mantenimiento después.",
-        solution:
-          "Ofrecemos nuestras herramientas como servicio, con una cuota mensual accesible que incluye hosting, actualizaciones y soporte, para que el cliente pague por usar y no por empezar.",
-        results: [
-          "Costo inicial reducido al mínimo.",
-          "Actualizaciones y mantenimiento incluidos.",
-          "El cliente crece y el sistema lo acompaña.",
-        ],
-        stack: ["react", "typescript", "node", "postgresql", "nginx"],
-      },
-      {
-        slug: "infraestructura-tecnologica",
-        title: "Infraestructura Tecnológica",
-        summary:
-          "Diseño e implementación de redes, cableado estructurado y armado de racks para mejorar la conectividad y la seguridad.",
-        category: "infraestructura",
-        client: "Empresas de Tucumán",
-        featured: false,
-        draft: true,
-        problem:
-          "Redes armadas sin planificación, con cableado desordenado y equipos mal ubicados, que generaban cortes, lentitud y puntos ciegos de seguridad.",
-        solution:
-          "Rediseñamos la infraestructura de red: cableado estructurado, racks ordenados y equipamiento bien configurado, documentando todo para que el mantenimiento futuro sea simple.",
-        results: [
-          "Conexión más estable y rápida.",
-          "Infraestructura ordenada y documentada.",
-          "Base lista para crecer sin rehacer todo.",
-        ],
-        stack: ["redes", "linux", "hardening"],
-      },
-      {
-        slug: "seguridad-informatica",
-        title: "Seguridad Informática",
-        summary:
-          "Evaluación e implementación de medidas de protección para aplicaciones y redes empresariales.",
-        category: "seguridad",
-        client: "Empresas de Tucumán",
-        featured: false,
-        draft: true,
-        problem:
-          "Aplicaciones y redes en producción sin una revisión de seguridad, con vulnerabilidades conocidas expuestas y sin un plan claro ante un incidente.",
-        solution:
-          "Auditamos las aplicaciones y la red, corregimos las vulnerabilidades encontradas y dejamos implementadas buenas prácticas y monitoreo, siguiendo el mismo estándar que aplicamos a lo que desarrollamos.",
-        results: [
-          "Vulnerabilidades detectadas y corregidas.",
-          "Buenas prácticas de seguridad implementadas.",
-          "Equipo con criterios claros para mantener la protección.",
-        ],
-        stack: ["auditorias", "hardening", "wifi"],
+          "Portal estilo revista para informar al tucumano: noticias, notas y actualidad local con una experiencia de lectura ágil. En desarrollo.",
+        comingSoon: true,
       },
     ],
   },
@@ -394,23 +375,7 @@ export const es: SiteContent = {
     mainNav: "Principal",
     contactCta: "Contactanos",
     languageLabel: "Cambiar idioma",
-    backToProjects: "Volver a proyectos",
-    viewProject: "Ver el proyecto",
     allProjects: "Ver todos los proyectos",
-    filterAll: "Todos",
-    categories: {
-      desarrollo: "Desarrollo",
-      infraestructura: "Infraestructura",
-      seguridad: "Seguridad",
-    },
-    projectClient: "Cliente",
-    projectProblem: "El problema",
-    projectSolution: "La solución",
-    projectResults: "Resultados",
-    projectStack: "Tecnologías",
-    draftBadge: "Ejemplo",
-    draftNotice:
-      "Los datos de este caso son ilustrativos, a modo de ejemplo. Pronto los reemplazaremos por información real del proyecto.",
     notFoundTitle: "Esta página no existe",
     notFoundText:
       "El enlace puede estar mal escrito o la página pudo haberse movido. Volvé al inicio y seguí desde ahí.",

@@ -5,6 +5,7 @@ import Card from "@/components/ui/Card";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Button from "@/components/ui/Button";
+import Divider from "@/components/ui/Divider";
 
 interface Props {
   teaser: HomeTeaserType;
@@ -12,7 +13,8 @@ interface Props {
 
 export default function HomeTeaser({ teaser }: Props) {
   return (
-    <section className="py-section sm:py-section-lg border-t border-white/5">
+    <section className="relative py-section sm:py-section-lg">
+      <Divider />
       <Container className="flex flex-col gap-10">
         <SectionHeading eyebrow={teaser.eyebrow} title={teaser.title} />
 

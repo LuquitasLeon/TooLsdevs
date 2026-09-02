@@ -6,7 +6,7 @@ import ScrollProgress from "@/components/layout/ScrollProgress";
 import { I18nProvider } from "@/features/i18n/I18nProvider";
 import { useContent, useI18n } from "@/features/i18n/useI18n";
 import ScrollToTop from "./ScrollToTop";
-import { PROJECT_ROUTE_PATTERN, routes } from "./routes";
+import { routes } from "./routes";
 
 /*
  * Cada página se carga por separado: quien entra a la portada no descarga el
@@ -16,7 +16,6 @@ import { PROJECT_ROUTE_PATTERN, routes } from "./routes";
 const Home = lazy(() => import("@/pages/Home"));
 const Services = lazy(() => import("@/pages/Services"));
 const Projects = lazy(() => import("@/pages/Projects"));
-const ProjectDetail = lazy(() => import("@/pages/ProjectDetail"));
 const Process = lazy(() => import("@/pages/Process"));
 const Contact = lazy(() => import("@/pages/Contact"));
 const NotFound = lazy(() => import("@/pages/NotFound"));
@@ -68,7 +67,6 @@ function Layout() {
             <Route path={routes.home} element={<Home />} />
             <Route path={routes.services} element={<Services />} />
             <Route path={routes.projects} element={<Projects />} />
-            <Route path={PROJECT_ROUTE_PATTERN} element={<ProjectDetail />} />
             <Route path={routes.process} element={<Process />} />
             <Route path={routes.contact} element={<Contact />} />
             <Route path="*" element={<NotFound />} />

@@ -4,13 +4,15 @@ import Reveal from "@/components/ui/Reveal";
 import LogoMark from "@/components/brand/LogoMark";
 import Button from "@/components/ui/Button";
 import Magnetic from "@/components/ui/Magnetic";
+import Divider from "@/components/ui/Divider";
 import { useContent } from "@/features/i18n/useI18n";
 import { routes } from "@/app/routes";
 
 export default function Philosophy() {
   const { philosophy, ui } = useContent();
   return (
-    <section className="relative py-section sm:py-section-lg overflow-hidden border-t border-white/5">
+    <section className="relative py-section sm:py-section-lg overflow-hidden">
+      <Divider />
       <div className="pointer-events-none absolute left-1/2 top-1/2 h-[30rem] w-[30rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-teal/10 blur-[120px]" />
 
       <Container className="relative flex flex-col items-center gap-8 text-center">
