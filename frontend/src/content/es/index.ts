@@ -156,158 +156,139 @@ export const es: SiteContent = {
 
   projects: {
     eyebrow: "Trabajos realizados",
-    title: "Casos de uso y proyectos realizados",
+    title: "Proyectos que ya están online",
     intro:
-      "Desde nuestros inicios desarrollamos soluciones para distintos tipos de organizaciones y empresas, enfocándonos siempre en resolver necesidades reales.",
-    // NOTA: todas estas fichas están marcadas con `draft: true`. Los textos de
-    // problema/solución/resultados y las cifras son de EJEMPLO, para mostrar
-    // cómo se ve una ficha completa. Al reemplazarlos por datos reales, borrar
-    // `draft: true` de esa ficha y el aviso desaparece solo.
-    items: [
+      "Estos son algunos de los sitios y sistemas que construimos para clientes reales. Entrá y conocelos.",
+    clientsEyebrow: "Empresas que confían en nosotros",
+    comingSoonLabel: "Próximamente",
+    visitLabel: "Visitar sitio",
+    featured: {
+      eyebrow: "Producto propio",
+      name: "ToolsShop",
+      tagline: "Tu tienda online y tu gestión, en un solo sistema",
+      description:
+        "Nuestro sistema destacado: una plataforma completa de e-commerce y gestión. Vendé online las 24 horas, controlá el stock entre sucursales, gestioná pedidos, clientes y roles, y tomá decisiones con datos reales. Todo con vistas separadas de administrador, vendedor y cliente.",
+      badge: "Sistema destacado",
+      cta: { label: "Quiero ToolsShop para mi empresa", href: routes.contact },
+      slides: [
+        {
+          image: "/producto/01-tienda-online-inicio.png",
+          title: "Tu empresa online, 24/7",
+          description:
+            "Presencia profesional con tu marca y catálogo, lista para vender a toda hora.",
+        },
+        {
+          image: "/producto/02-catalogo-productos.png",
+          title: "Catálogo digital con buscador y filtros",
+          description:
+            "Tus clientes encuentran el producto ideal en segundos, con imágenes, precio y stock actualizados.",
+        },
+        {
+          image: "/producto/03-ficha-producto.png",
+          title: "Fichas de producto que venden",
+          description:
+            "Galería, precio, stock y descripción en una vista clara, con un clic para agregar al carrito.",
+        },
+        {
+          image: "/producto/04-carrito-checkout.png",
+          title: "Carrito simple y confiable",
+          description:
+            "Resumen del pedido y cálculo automático de totales y envío: menos fricción, más ventas.",
+        },
+        {
+          image: "/producto/05-gestion-stock.png",
+          title: "Mejor control del stock entre sucursales",
+          description:
+            "Stock por sucursal en tiempo real y exportación a PDF/Excel con un clic.",
+        },
+        {
+          image: "/producto/06-analitica-ventas.png",
+          title: "Decisiones con datos, no con intuición",
+          description:
+            "Ingresos, pedidos, ticket promedio y productos más vendidos, con gráficos y exportación.",
+        },
+        {
+          image: "/producto/07-gestion-pedidos.png",
+          title: "Todos tus pedidos en un solo lugar",
+          description:
+            "Estado, cliente, forma de pago y total de cada venta, de principio a fin.",
+        },
+        {
+          image: "/producto/08-base-clientes.png",
+          title: "Tu base de clientes siempre a mano",
+          description:
+            "Contactos centralizados para fidelizar y volver a vender.",
+        },
+        {
+          image: "/producto/09-usuarios-roles.png",
+          title: "Cada quien con su acceso",
+          description:
+            "Roles de administrador, vendedor y cliente para trabajar en equipo con seguridad.",
+        },
+        {
+          image: "/producto/10-servicios-postventa.png",
+          title: "Post-venta profesional que fideliza",
+          description:
+            "Recibí y gestioná solicitudes con estados y seguimiento; tus clientes se sienten acompañados.",
+        },
+        {
+          image: "/producto/11-personalizacion-web.png",
+          title: "Actualizá tu web sin programar",
+          description:
+            "Cambiá banners y ofertas del inicio desde un panel simple, cuando quieras.",
+        },
+        {
+          image: "/producto/12-contenido-institucional.png",
+          title: "Contá tu historia",
+          description:
+            "Editá visión, misión y estructura de la empresa que verán tus clientes.",
+        },
+        {
+          image: "/producto/13-favoritos.png",
+          title: "Lista de deseos para tus clientes",
+          description:
+            "Cada cliente guarda sus productos favoritos y vuelve a comprarlos en un clic: más recompra y fidelización.",
+        },
+        {
+          image: "/producto/14-vendedor-punto-venta.png",
+          title: "Punto de venta para tu equipo",
+          description:
+            "El vendedor registra ventas en el mostrador: elige cliente y sucursal, aplica descuentos o cuotas y confirma el pedido al instante.",
+        },
+      ],
+    },
+    clients: [
       {
-        slug: "sistema-gestion-logistica",
-        title: "Sistema de Gestión Logística",
+        name: "Consultorios Villa Carmela",
+        logo: "/logos/ConsultoriosVC.png",
+        category: "Salud",
         summary:
-          "Plataforma para la administración integral de repartos, clientes, productos y estadísticas operativas.",
-        category: "desarrollo",
-        client: "Empresa de logística — Tucumán",
-        featured: true,
-        draft: true,
-        year: "2024",
-        problem:
-          "El seguimiento de repartos se llevaba en planillas separadas y mensajes de WhatsApp. No había una vista única del día, los errores de carga eran frecuentes y armar un informe mensual llevaba horas.",
-        solution:
-          "Desarrollamos una plataforma web centralizada con panel de repartos en tiempo real, gestión de clientes y productos, y reportes automáticos. Cada rol accede sólo a lo que necesita, con la seguridad aplicada desde el diseño.",
-        results: [
-          "Reducción del tiempo de armado de informes de horas a minutos.",
-          "Una única fuente de verdad para todo el equipo de reparto.",
-          "Menos errores de carga gracias a validaciones automáticas.",
-        ],
-        stack: ["react", "typescript", "node", "postgresql"],
-        images: [
-          {
-            src: "/proyectos/gestion-logistica.svg",
-            alt: "Boceto ilustrativo del panel de gestión logística con indicadores, gráfico y mapa de repartos",
-            width: 800,
-            height: 500,
-          },
-        ],
+          "Sitio institucional para un centro de salud en Villa Carmela: especialidades médicas, profesionales, alquiler de consultorios y contacto directo por WhatsApp.",
+        url: "https://www.consultoriovc.com/",
       },
       {
-        slug: "sitios-web-institucionales",
-        title: "Sitios Web Institucionales",
+        name: "Partido Demócrata Progresista",
+        logo: "/logos/PartidoDemocrataProgresista.png",
+        category: "Institucional / Político",
         summary:
-          "Páginas web profesionales para empresas, organizaciones y comercios que buscan fortalecer su presencia digital.",
-        category: "desarrollo",
-        client: "Comercios y organizaciones del NOA",
-        featured: true,
-        draft: true,
-        problem:
-          "Muchos comercios de la región no tenían presencia web o dependían de una página desactualizada que no reflejaba lo que hacían ni funcionaba bien en el celular.",
-        solution:
-          "Diseñamos y desarrollamos sitios institucionales rápidos, accesibles y pensados para móviles primero, con foco en que el cliente pueda encontrarlos y contactarlos con facilidad.",
-        results: [
-          "Presencia digital profesional lista para compartir.",
-          "Sitios que cargan rápido y se ven bien en cualquier pantalla.",
-          "Mejor posicionamiento en búsquedas locales.",
-        ],
-        stack: ["react", "typescript", "tailwind"],
-        images: [
-          {
-            src: "/proyectos/sitio-institucional.svg",
-            alt: "Boceto ilustrativo de un sitio web institucional con portada, menú y tarjetas",
-            width: 800,
-            height: 500,
-          },
-        ],
+          "Plataforma del distrito Tucumán del PDP: presenta el plan de gobierno en cinco ejes, con secciones de afiliación y sumatoria de voluntarios.",
+        url: "https://partido-democrata-progresista.vercel.app/",
       },
       {
-        slug: "plataformas-web-personalizadas",
-        title: "Plataformas Web Personalizadas",
+        name: "EndPoint Security",
+        logo: "/logos/EndPoint.png",
+        category: "Ciberseguridad",
         summary:
-          "Aplicaciones web adaptadas completamente a los procesos internos de cada cliente.",
-        category: "desarrollo",
-        client: "Varios clientes",
-        featured: false,
-        draft: true,
-        problem:
-          "Los sistemas genéricos del mercado obligaban a cada empresa a adaptar su forma de trabajar al software, en vez de al revés, dejando tareas importantes fuera del sistema.",
-        solution:
-          "Construimos plataformas a medida que siguen el proceso real de cada cliente: los flujos, los estados y los permisos son los que ya usan, ahora ordenados y automatizados.",
-        results: [
-          "El sistema se adapta al negocio, no al revés.",
-          "Tareas repetitivas automatizadas.",
-          "Información centralizada y accesible para el equipo.",
-        ],
-        stack: ["react", "typescript", "node", "postgresql", "docker"],
-        images: [
-          {
-            src: "/proyectos/plataforma-web.svg",
-            alt: "Boceto ilustrativo de una plataforma web a medida con tablero, formulario y flujo de proceso",
-            width: 800,
-            height: 500,
-          },
-        ],
+          "Sitio corporativo de una empresa de ciberseguridad: servicios de prevención, protección y respuesta a incidentes, capacitaciones y su propio Cyber Challenge.",
+        url: "https://web-iota-two-64.vercel.app/",
       },
       {
-        slug: "soluciones-saas",
-        title: "Soluciones SaaS",
+        name: "La Posta 381",
+        logo: "/logos/LaPosta381.jpeg",
+        category: "Medios / Noticias",
         summary:
-          "Plataformas bajo modalidad de alquiler mensual, que reducen costos iniciales y aseguran mantenimiento continuo.",
-        category: "desarrollo",
-        client: "Pymes del NOA",
-        featured: true,
-        draft: true,
-        problem:
-          "Adquirir un sistema propio implicaba una inversión inicial alta que muchas pymes no podían afrontar, y quedarse sin mantenimiento después.",
-        solution:
-          "Ofrecemos nuestras herramientas como servicio, con una cuota mensual accesible que incluye hosting, actualizaciones y soporte, para que el cliente pague por usar y no por empezar.",
-        results: [
-          "Costo inicial reducido al mínimo.",
-          "Actualizaciones y mantenimiento incluidos.",
-          "El cliente crece y el sistema lo acompaña.",
-        ],
-        stack: ["react", "typescript", "node", "postgresql", "nginx"],
-      },
-      {
-        slug: "infraestructura-tecnologica",
-        title: "Infraestructura Tecnológica",
-        summary:
-          "Diseño e implementación de redes, cableado estructurado y armado de racks para mejorar la conectividad y la seguridad.",
-        category: "infraestructura",
-        client: "Empresas de Tucumán",
-        featured: false,
-        draft: true,
-        problem:
-          "Redes armadas sin planificación, con cableado desordenado y equipos mal ubicados, que generaban cortes, lentitud y puntos ciegos de seguridad.",
-        solution:
-          "Rediseñamos la infraestructura de red: cableado estructurado, racks ordenados y equipamiento bien configurado, documentando todo para que el mantenimiento futuro sea simple.",
-        results: [
-          "Conexión más estable y rápida.",
-          "Infraestructura ordenada y documentada.",
-          "Base lista para crecer sin rehacer todo.",
-        ],
-        stack: ["redes", "linux", "hardening"],
-      },
-      {
-        slug: "seguridad-informatica",
-        title: "Seguridad Informática",
-        summary:
-          "Evaluación e implementación de medidas de protección para aplicaciones y redes empresariales.",
-        category: "seguridad",
-        client: "Empresas de Tucumán",
-        featured: false,
-        draft: true,
-        problem:
-          "Aplicaciones y redes en producción sin una revisión de seguridad, con vulnerabilidades conocidas expuestas y sin un plan claro ante un incidente.",
-        solution:
-          "Auditamos las aplicaciones y la red, corregimos las vulnerabilidades encontradas y dejamos implementadas buenas prácticas y monitoreo, siguiendo el mismo estándar que aplicamos a lo que desarrollamos.",
-        results: [
-          "Vulnerabilidades detectadas y corregidas.",
-          "Buenas prácticas de seguridad implementadas.",
-          "Equipo con criterios claros para mantener la protección.",
-        ],
-        stack: ["auditorias", "hardening", "wifi"],
+          "Portal estilo revista para informar al tucumano: noticias, notas y actualidad local con una experiencia de lectura ágil. En desarrollo.",
+        comingSoon: true,
       },
     ],
   },
@@ -394,23 +375,7 @@ export const es: SiteContent = {
     mainNav: "Principal",
     contactCta: "Contactanos",
     languageLabel: "Cambiar idioma",
-    backToProjects: "Volver a proyectos",
-    viewProject: "Ver el proyecto",
     allProjects: "Ver todos los proyectos",
-    filterAll: "Todos",
-    categories: {
-      desarrollo: "Desarrollo",
-      infraestructura: "Infraestructura",
-      seguridad: "Seguridad",
-    },
-    projectClient: "Cliente",
-    projectProblem: "El problema",
-    projectSolution: "La solución",
-    projectResults: "Resultados",
-    projectStack: "Tecnologías",
-    draftBadge: "Ejemplo",
-    draftNotice:
-      "Los datos de este caso son ilustrativos, a modo de ejemplo. Pronto los reemplazaremos por información real del proyecto.",
     notFoundTitle: "Esta página no existe",
     notFoundText:
       "El enlace puede estar mal escrito o la página pudo haberse movido. Volvé al inicio y seguí desde ahí.",
@@ -440,50 +405,279 @@ export const es: SiteContent = {
       eyebrow: "Diagnóstico",
       title: "¿No sabés por dónde empezar?",
       intro:
-        "Respondé tres preguntas rápidas y te decimos qué solución encaja mejor con tu necesidad.",
+        "Contanos un poco de tu negocio y en cinco pasos armamos una propuesta pensada para tu rubro. Cada respuesta ajusta lo que te recomendamos.",
       start: "Empezar",
-      steps: [
+      rubroStep: {
+        id: "rubro",
+        question: "¿A qué se dedica tu negocio?",
+        options: [
+          { id: "tienda", label: "Comercio, tienda o venta de productos" },
+          { id: "salud", label: "Salud: consultorio, clínica o profesional" },
+          { id: "gastronomia", label: "Gastronomía: restaurante, café o delivery" },
+          { id: "profesional", label: "Estudio o servicios profesionales" },
+          { id: "educacion", label: "Educación: instituto, academia o cursos" },
+          { id: "industria", label: "Industria, logística o distribución" },
+          { id: "institucion", label: "Institución, ONG u organización" },
+          { id: "medios", label: "Medios, contenido o comunicación" },
+          { id: "otro", label: "Otro rubro / todavía no encaja" },
+        ],
+      },
+      branches: {
+        tienda: [
+          {
+            id: "tienda1",
+            question: "¿Cómo vendés hoy?",
+            options: [
+              { id: "local", label: "Solo en el local físico" },
+              { id: "redes", label: "Por redes y WhatsApp" },
+              { id: "online", label: "Ya tengo tienda online" },
+              { id: "empezando", label: "Todavía no vendo, estoy empezando" },
+            ],
+          },
+          {
+            id: "tienda2",
+            question: "¿Qué es lo que más te complica?",
+            options: [
+              { id: "stock", label: "Controlar el stock" },
+              { id: "pedidos", label: "Tomar y organizar los pedidos" },
+              { id: "encontrar", label: "Que me encuentren y compren online" },
+              { id: "cobrar", label: "Cobrar y facturar" },
+            ],
+          },
+        ],
+        salud: [
+          {
+            id: "salud1",
+            question: "¿Cómo manejás los turnos hoy?",
+            options: [
+              { id: "telefono", label: "Por teléfono o WhatsApp" },
+              { id: "papel", label: "Con agenda en papel o planilla" },
+              { id: "sistema", label: "Con un sistema, pero incómodo" },
+              { id: "ninguno", label: "No manejo turnos" },
+            ],
+          },
+          {
+            id: "salud2",
+            question: "¿Qué querés mejorar para tus pacientes?",
+            options: [
+              { id: "info", label: "Que encuentren info y especialidades" },
+              { id: "autoturno", label: "Que saquen turno solos" },
+              { id: "seguimiento", label: "Recordatorios y seguimiento" },
+              { id: "confianza", label: "Presencia y confianza online" },
+            ],
+          },
+        ],
+        gastronomia: [
+          {
+            id: "gastro1",
+            question: "¿Cómo recibís los pedidos?",
+            options: [
+              { id: "telefono", label: "Por teléfono y WhatsApp" },
+              { id: "apps", label: "Por apps de delivery de terceros" },
+              { id: "mostrador", label: "En el mostrador" },
+              { id: "ninguno", label: "Todavía no vendo online" },
+            ],
+          },
+          {
+            id: "gastro2",
+            question: "¿Qué te gustaría sumar?",
+            options: [
+              { id: "carta", label: "Carta digital siempre actualizada" },
+              { id: "pedidos", label: "Pedidos online propios" },
+              { id: "reservas", label: "Reservas de mesas" },
+              { id: "fidelizar", label: "Fidelizar a los que vuelven" },
+            ],
+          },
+        ],
+        profesional: [
+          {
+            id: "prof1",
+            question: "¿Cómo llegan hoy tus clientes?",
+            options: [
+              { id: "boca", label: "Recomendación de boca en boca" },
+              { id: "redes", label: "Por redes sociales" },
+              { id: "web", label: "Ya tengo web, pero floja" },
+              { id: "poco", label: "Casi no llegan por internet" },
+            ],
+          },
+          {
+            id: "prof2",
+            question: "¿Qué te ayudaría más?",
+            options: [
+              { id: "confianza", label: "Una web que dé confianza" },
+              { id: "agenda", label: "Agendar consultas online" },
+              { id: "automatizar", label: "Automatizar formularios y respuestas" },
+              { id: "seguimiento", label: "Ordenar el seguimiento de clientes" },
+            ],
+          },
+        ],
+        educacion: [
+          {
+            id: "edu1",
+            question: "¿Cómo se inscriben hoy tus alumnos?",
+            options: [
+              { id: "mensaje", label: "Por mensaje o teléfono" },
+              { id: "formularios", label: "Con formularios sueltos" },
+              { id: "sistema", label: "Con un sistema, pero limitado" },
+              { id: "presencial", label: "Presencial únicamente" },
+            ],
+          },
+          {
+            id: "edu2",
+            question: "¿Qué querés ofrecer?",
+            options: [
+              { id: "captar", label: "Mostrar la propuesta y captar alumnos" },
+              { id: "pagos", label: "Inscripción y pagos online" },
+              { id: "cursos", label: "Cursos y contenido online" },
+              { id: "seguimiento", label: "Seguimiento de alumnos" },
+            ],
+          },
+        ],
+        industria: [
+          {
+            id: "ind1",
+            question: "¿Cómo llevás la operación hoy?",
+            options: [
+              { id: "excel", label: "Con planillas de Excel" },
+              { id: "papel", label: "Con papeles y WhatsApp" },
+              { id: "sistema", label: "Un sistema, pero incompleto" },
+              { id: "nada", label: "Sin un sistema claro" },
+            ],
+          },
+          {
+            id: "ind2",
+            question: "¿Qué necesitás ordenar primero?",
+            options: [
+              { id: "stock", label: "Stock e inventario" },
+              { id: "repartos", label: "Repartos y logística" },
+              { id: "reportes", label: "Reportes y estadísticas" },
+              { id: "integrar", label: "Integrar áreas que hoy no se hablan" },
+            ],
+          },
+        ],
+        institucion: [
+          {
+            id: "inst1",
+            question: "¿Cuál es tu objetivo principal?",
+            options: [
+              { id: "comunicar", label: "Comunicar tu propuesta" },
+              { id: "sumar", label: "Sumar miembros o afiliados" },
+              { id: "eventos", label: "Organizar eventos o campañas" },
+              { id: "transparencia", label: "Transparencia e información" },
+            ],
+          },
+          {
+            id: "inst2",
+            question: "¿Cómo se comunican hoy?",
+            options: [
+              { id: "redes", label: "Solo por redes sociales" },
+              { id: "web", label: "Con una web desactualizada" },
+              { id: "boca", label: "De boca en boca" },
+              { id: "nada", label: "Todavía no tenemos presencia" },
+            ],
+          },
+        ],
+        medios: [
+          {
+            id: "med1",
+            question: "¿Dónde publicás hoy?",
+            options: [
+              { id: "redes", label: "Solo en redes sociales" },
+              { id: "blog", label: "En un blog o web básica" },
+              { id: "portal", label: "En un portal, pero lento o viejo" },
+              { id: "empezando", label: "Recién empezamos" },
+            ],
+          },
+          {
+            id: "med2",
+            question: "¿Qué te importa más?",
+            options: [
+              { id: "lectura", label: "Velocidad y experiencia de lectura" },
+              { id: "autonomia", label: "Publicar fácil, sin depender de nadie" },
+              { id: "audiencia", label: "Crecer en audiencia y SEO" },
+              { id: "monetizar", label: "Sumar suscripciones o pauta" },
+            ],
+          },
+        ],
+        otro: [
+          {
+            id: "otro1",
+            question: "¿Qué describe mejor tu situación?",
+            options: [
+              { id: "idea", label: "Tengo una idea nueva" },
+              { id: "digitalizar", label: "Quiero digitalizar mi negocio" },
+              { id: "problema", label: "Necesito resolver un problema puntual" },
+              { id: "asesor", label: "Busco asesoramiento general" },
+            ],
+          },
+          {
+            id: "otro2",
+            question: "¿Qué tenés hoy armado?",
+            options: [
+              { id: "nada", label: "Nada todavía" },
+              { id: "redes", label: "Redes sociales" },
+              { id: "web", label: "Una web básica" },
+              { id: "sistema", label: "Un sistema que quedó corto" },
+            ],
+          },
+        ],
+      },
+      commonSteps: [
         {
-          id: "problema",
-          question: "¿Cuál es tu principal desafío hoy?",
+          id: "necesidad",
+          question: "Para cerrar, ¿qué tipo de solución te imaginás?",
           options: [
-            { id: "procesos", label: "Tareas manuales que me consumen tiempo" },
-            { id: "presencia", label: "No tengo presencia web o está desactualizada" },
-            { id: "sistema", label: "Necesito un sistema a medida para mi negocio" },
-            { id: "seguridad", label: "Me preocupa la seguridad de mis datos o redes" },
-          ],
-        },
-        {
-          id: "rubro",
-          question: "¿A qué se dedica tu empresa?",
-          options: [
-            { id: "comercio", label: "Comercio o local" },
-            { id: "servicios", label: "Servicios profesionales" },
-            { id: "industria", label: "Industria o logística" },
-            { id: "otro", label: "Otro" },
+            { id: "vender", label: "Vender online y mostrar mi catálogo" },
+            { id: "gestion", label: "Ordenar la gestión: stock, pedidos y clientes" },
+            { id: "presencia", label: "Una web profesional que me represente" },
+            { id: "medida", label: "Un sistema o app a la medida de mi trabajo" },
+            { id: "automatizar", label: "Automatizar tareas manuales y repetitivas" },
+            { id: "seguridad", label: "Proteger mis datos, mi web o mi red" },
+            { id: "infraestructura", label: "Mejorar mi red o infraestructura" },
+            { id: "asesoramiento", label: "No estoy seguro, quiero asesoramiento" },
           ],
         },
         {
           id: "etapa",
-          question: "¿En qué etapa estás?",
+          question: "¿Para cuándo lo necesitás?",
           options: [
-            { id: "idea", label: "Es una idea, estoy explorando" },
-            { id: "creciendo", label: "Ya opero y quiero mejorar" },
-            { id: "urgente", label: "Tengo un problema puntual que resolver" },
+            { id: "explorando", label: "Estoy explorando, sin apuro" },
+            { id: "pronto", label: "En las próximas semanas" },
+            { id: "urgente", label: "Lo antes posible, es urgente" },
           ],
         },
       ],
       back: "Atrás",
-      resultTitle: "Lo que te recomendamos",
+      resultTitle: "Lo que pensamos para vos",
       recommendations: {
-        procesos:
-          "Una plataforma web a medida o un sistema de gestión que automatice esas tareas repetitivas y centralice tu información.",
-        presencia:
-          "Un sitio web institucional profesional, rápido y pensado para móviles, para que te encuentren y te contacten con facilidad.",
-        sistema:
-          "Una aplicación web personalizada que siga el proceso real de tu negocio, o una solución SaaS con cuota mensual para arrancar con menor inversión.",
-        seguridad:
-          "Una auditoría de seguridad de tus aplicaciones y redes, más la implementación de buenas prácticas y monitoreo.",
+        tienda:
+          "Para un comercio como el tuyo, lo ideal es una tienda online con catálogo, carrito y control de stock —incluso entre sucursales—, más un panel para gestionar pedidos, clientes y ventas. Es justo lo que resuelve ToolsShop: vendés las 24 horas y ordenás la trastienda en un solo lugar.",
+        salud:
+          "Para un consultorio o centro de salud armamos un sitio claro con tus especialidades, profesionales y contacto directo por WhatsApp, y si lo necesitás, un sistema para ordenar turnos y pacientes. Que la gente encuentre todo sin tener que llamar.",
+        gastronomia:
+          "Para gastronomía combinamos una web apetecible con tu carta siempre actualizada y, si querés, pedidos online, reservas o delivery. Menos llamados y mensajes sueltos, más pedidos que entran ordenados.",
+        profesional:
+          "Para un estudio o servicio profesional, una web que transmita confianza y capte consultas, con la opción de automatizar turnos, formularios y el seguimiento de cada cliente. Que tu presencia digital trabaje por vos.",
+        educacion:
+          "Para una institución educativa, un sitio claro para mostrar tu propuesta e inscribir alumnos, y si sumás cursos online, una plataforma para gestionar contenidos, pagos y seguimiento. Que anotarse sea tan simple como un clic.",
+        industria:
+          "Para industria o logística desarrollamos sistemas de gestión a medida —stock, repartos, reportes en tiempo real— y automatizamos lo que hoy vive en planillas y mensajes. Una única fuente de verdad para todo el equipo.",
+        institucion:
+          "Para una institución u organización armamos una plataforma para comunicar tu propuesta, sumar miembros o afiliados y ordenar la información, como hicimos con el Partido Demócrata Progresista. Que tu mensaje llegue y la gente se sume fácil.",
+        medios:
+          "Para un medio o proyecto de contenido, un portal estilo revista, rápido y cómodo de leer, con tu propio panel para publicar sin depender de nadie, como La Posta 381. Que tu contenido sea el protagonista.",
+        otro:
+          "Trabajamos con rubros muy distintos, así que arrancamos escuchando tu caso y te proponemos la solución a medida —desarrollo, gestión, seguridad o infraestructura— que mejor encaje. Contanos y lo pensamos juntos.",
+      },
+      services: {
+        vender: "Tienda online y control de stock (ToolsShop)",
+        gestion: "Sistema de gestión (stock, pedidos y clientes)",
+        presencia: "Sitio web institucional",
+        medida: "Aplicación web a medida",
+        automatizar: "Automatización de procesos",
+        seguridad: "Ciberseguridad y auditoría",
+        infraestructura: "Infraestructura y redes",
+        asesoramiento: "Asesoramiento a medida",
       },
       toForm: "Hablemos de esto",
       restart: "Empezar de nuevo",

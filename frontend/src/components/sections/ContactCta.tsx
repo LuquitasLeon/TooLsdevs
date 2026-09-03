@@ -3,6 +3,7 @@ import Container from "@/components/layout/Container";
 import Button from "@/components/ui/Button";
 import Magnetic from "@/components/ui/Magnetic";
 import Reveal from "@/components/ui/Reveal";
+import Divider from "@/components/ui/Divider";
 import { useContent } from "@/features/i18n/useI18n";
 import { routes } from "@/app/routes";
 
@@ -11,7 +12,8 @@ export default function ContactCta() {
   const { ui } = useContent();
 
   return (
-    <section className="relative overflow-hidden py-section border-t border-white/5">
+    <section className="relative overflow-hidden py-section">
+      <Divider />
       <div className="pointer-events-none absolute left-1/2 top-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-teal/10 blur-[120px]" />
 
       <Container className="relative flex flex-col items-center gap-6 text-center">

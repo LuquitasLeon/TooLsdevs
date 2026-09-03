@@ -3,6 +3,7 @@ import Container from "@/components/layout/Container";
 import Card from "@/components/ui/Card";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
+import Divider from "@/components/ui/Divider";
 import { useContent } from "@/features/i18n/useI18n";
 
 const icons = [Code2, ShieldHalf];
@@ -18,7 +19,8 @@ interface ServicesProps {
 export default function Services({ hideHeading = false }: ServicesProps) {
   const { services } = useContent();
   return (
-    <section id="servicios" className="py-section sm:py-section-lg border-t border-white/5">
+    <section id="servicios" className="relative py-section sm:py-section-lg">
+      <Divider />
       <Container className="flex flex-col gap-14">
         {!hideHeading && (
           <SectionHeading

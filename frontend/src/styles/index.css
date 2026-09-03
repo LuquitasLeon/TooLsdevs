@@ -78,6 +78,26 @@ body {
   background-size: 44px 44px;
 }
 
+/* Carrusel de logos: dos copias de la lista en fila y un desplazamiento del
+   50% que, al reiniciarse, es indistinguible de un bucle continuo. */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee var(--marquee-duration, 40s) linear infinite;
+}
+
+/* Al pasar el mouse se pausa, así se puede mirar un logo con calma. */
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
 /* Respetar la preferencia del sistema de reducir movimiento no es un detalle:
    para algunas personas las animaciones producen mareo real. */
 @media (prefers-reduced-motion: reduce) {

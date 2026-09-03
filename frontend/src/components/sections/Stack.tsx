@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import type { StackCategory } from "@toolsdevs/shared";
 import Container from "@/components/layout/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
+import Divider from "@/components/ui/Divider";
 import { useContent } from "@/features/i18n/useI18n";
 import { useIsIOS } from "@/hooks/useMediaQuery";
 import { useInView } from "@/hooks/useInView";
@@ -36,7 +37,8 @@ export default function Stack() {
   const isIOS = useIsIOS();
 
   return (
-    <section className="py-section sm:py-section-lg border-t border-white/5">
+    <section className="relative py-section sm:py-section-lg">
+      <Divider />
       <Container className="flex flex-col gap-12">
         <SectionHeading eyebrow={stack.eyebrow} title={stack.title} description={stack.intro} />
 

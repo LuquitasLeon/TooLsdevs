@@ -8,10 +8,6 @@ export const routes = {
   home: "/",
   services: "/servicios",
   projects: "/proyectos",
-  project: (slug: string) => `/proyectos/${slug}`,
   process: "/como-trabajamos",
   contact: "/contacto",
 } as const;
-
-/** Patrón que consume el router para la ficha de un proyecto. */
-export const PROJECT_ROUTE_PATTERN = "/proyectos/:slug";
