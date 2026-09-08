@@ -11,3 +11,4 @@ export const uploadsDir = join(backendRoot, "uploads");
 
 export const companiesFile = join(dataDir, "companies.json");
 export const teamFile = join(dataDir, "team.json");
+export const productSlidesFile = join(dataDir, "productSlides.json");

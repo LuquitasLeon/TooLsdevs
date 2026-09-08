@@ -14,4 +14,5 @@ export const routes = {
   admin: "/admin",
   adminCompanies: "/admin/empresas",
   adminTeam: "/admin/fundadores",
+  adminProductSlides: "/admin/producto",
 } as const;

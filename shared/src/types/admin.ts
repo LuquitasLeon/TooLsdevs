@@ -39,3 +39,21 @@ export interface CompanyRecord {
   createdAt: string;
   updatedAt: string;
 }
+
+/**
+ * Una captura del carrusel del producto propio (ToolsShop), mostrado en
+ * `FeaturedProduct`.
+ */
+export interface ProductSlideRecord {
+  id: string;
+  /** Ruta a la captura, relativa a la raíz del sitio. */
+  image: string;
+  titleEs: string;
+  titleEn: string;
+  descriptionEs: string;
+  descriptionEn: string;
+  /** Posición en el carrusel: menor primero. */
+  order: number;
+  createdAt: string;
+  updatedAt: string;
+}

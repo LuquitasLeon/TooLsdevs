@@ -1,4 +1,4 @@
-import type { CompanyRecord, TeamMemberRecord } from "@toolsdevs/shared";
+import type { CompanyRecord, ProductSlideRecord, TeamMemberRecord } from "@toolsdevs/shared";
 
 const API_URL = import.meta.env.VITE_API_URL ?? "";
 
@@ -92,4 +92,28 @@ export function updateTeamMember(id: string, formData: FormData) {
 
 export function deleteTeamMember(id: string) {
   return request<Record<string, never>>(`/api/admin/team/${id}`, { method: "DELETE" });
+}
+
+// --- Carrusel del producto propio ---
+
+export function listProductSlides() {
+  return request<{ slides: ProductSlideRecord[] }>("/api/product-slides");
+}
+
+export function createProductSlide(formData: FormData) {
+  return request<{ slide: ProductSlideRecord }>("/api/admin/product-slides", {
+    method: "POST",
+    body: formData,
+  });
+}
+
+export function updateProductSlide(id: string, formData: FormData) {
+  return request<{ slide: ProductSlideRecord }>(`/api/admin/product-slides/${id}`, {
+    method: "PUT",
+    body: formData,
+  });
+}
+
+export function deleteProductSlide(id: string) {
+  return request<Record<string, never>>(`/api/admin/product-slides/${id}`, { method: "DELETE" });
 }

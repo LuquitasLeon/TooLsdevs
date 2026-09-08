@@ -7,6 +7,7 @@ import { cn } from "@/lib/cn";
 const links = [
   { to: routes.adminCompanies, label: "Empresas" },
   { to: routes.adminTeam, label: "Fundadores" },
+  { to: routes.adminProductSlides, label: "Carrusel del producto" },
 ];
 
 export default function AdminLayout() {

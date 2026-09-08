@@ -138,7 +138,6 @@ export interface FeaturedProduct {
   description: string;
   /** Etiqueta que lo distingue como producto propio (ej. "Producto estrella"). */
   badge: string;
-  slides: ProductSlide[];
   cta: CallToAction;
 }
 

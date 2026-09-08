@@ -27,6 +27,7 @@ const AdminLayout = lazy(() => import("@/pages/admin/AdminLayout"));
 const RequireAdmin = lazy(() => import("@/pages/admin/RequireAdmin"));
 const CompaniesAdmin = lazy(() => import("@/pages/admin/CompaniesAdmin"));
 const TeamAdmin = lazy(() => import("@/pages/admin/TeamAdmin"));
+const ProductSlidesAdmin = lazy(() => import("@/pages/admin/ProductSlidesAdmin"));
 
 /** Espacio reservado mientras llega el código de una página. */
 function PageFallback() {
@@ -55,6 +56,7 @@ function AdminRoutes() {
           <Route index element={<CompaniesAdmin />} />
           <Route path="empresas" element={<CompaniesAdmin />} />
           <Route path="fundadores" element={<TeamAdmin />} />
+          <Route path="producto" element={<ProductSlidesAdmin />} />
         </Route>
       </Routes>
     </Suspense>

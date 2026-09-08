@@ -43,6 +43,17 @@ export const companyInputSchema = z.object({
 
 export type CompanyInput = z.infer<typeof companyInputSchema>;
 
+/** Validación de los campos de texto de una captura del carrusel del producto. */
+export const productSlideInputSchema = z.object({
+  titleEs: z.string().trim().min(2, { error: "Falta el título en español." }).max(120),
+  titleEn: z.string().trim().min(2, { error: "Falta el título en inglés." }).max(120),
+  descriptionEs: z.string().trim().min(2, { error: "Falta la descripción en español." }).max(400),
+  descriptionEn: z.string().trim().min(2, { error: "Falta la descripción en inglés." }).max(400),
+  order: z.coerce.number().int().min(0).max(9999).default(0),
+});
+
+export type ProductSlideInput = z.infer<typeof productSlideInputSchema>;
+
 /** Credenciales del login del admin. */
 export const adminLoginSchema = z.object({
   email: z.string().trim().toLowerCase().pipe(z.email({ error: "Correo inválido." })),

@@ -8,6 +8,7 @@ import { contactRouter } from "./routes/contact.route.js";
 import { authRouter } from "./routes/auth.route.js";
 import { teamRouter } from "./routes/team.route.js";
 import { companiesRouter } from "./routes/companies.route.js";
+import { productSlidesRouter } from "./routes/productSlides.route.js";
 import { dataDir, uploadsDir } from "./data/paths.js";
 
 /**
@@ -59,6 +60,7 @@ export function createApp() {
   app.use("/api", authRouter);
   app.use("/api", teamRouter);
   app.use("/api", companiesRouter);
+  app.use("/api", productSlidesRouter);
 
   app.use(notFoundHandler);
   app.use(errorHandler);
