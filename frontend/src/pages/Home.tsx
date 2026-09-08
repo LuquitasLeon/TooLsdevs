@@ -7,13 +7,15 @@ import WhyUsSummary from "@/components/sections/WhyUsSummary";
 import Philosophy from "@/components/sections/Philosophy";
 import Container from "@/components/layout/Container";
 import PageTransition from "@/components/layout/PageTransition";
-import Card from "@/components/ui/Card";
+import ClientCard from "@/components/ui/ClientCard";
 import Reveal from "@/components/ui/Reveal";
+import Divider from "@/components/ui/Divider";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { useContent } from "@/features/i18n/useI18n";
+import { useClients } from "@/features/clients/useClients";
+import { ClientProjectModel } from "@/lib/ClientProjectModel";
 import { routes } from "@/app/routes";
 import { usePageMeta } from "@/lib/usePageMeta";
-import { projectCategoryText } from "@/lib/projectAccent";
 
 /**
  * Portada: un recorrido corto y contundente.
@@ -24,7 +26,9 @@ import { projectCategoryText } from "@/lib/projectAccent";
  */
 export default function Home() {
   const { projects, homeTeasers, ui } = useContent();
-  const featured = projects.items.filter((project) => project.featured);
+  const { clients } = useClients();
+  // En la portada mostramos sólo tres, como adelanto; el resto vive en /proyectos.
+  const preview = ClientProjectModel.fromList(clients).slice(0, 3);
 
   usePageMeta({
     title: "ToolsDevs | Creamos herramientas",
@@ -37,7 +41,8 @@ export default function Home() {
       <Hero />
       <About />
 
-      <section className="py-section sm:py-section-lg border-t border-line/5">
+      <section className="relative py-section sm:py-section-lg">
+        <Divider />
         <Container className="flex flex-col gap-12">
           <SectionHeading
             eyebrow={projects.eyebrow}
@@ -46,39 +51,13 @@ export default function Home() {
           />
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {featured.map((project, i) => (
-              <Reveal key={project.slug} delay={(i % 3) * 0.08}>
-                <Card interactive className="group flex flex-col">
-                  <div className="flex items-center justify-between gap-2">
-                    <span
-                      className={`text-xs font-semibold uppercase tracking-[0.15em] ${projectCategoryText[project.category]}`}
-                    >
-                      {ui.categories[project.category]}
-                    </span>
-                    {project.draft && (
-                      <span className="rounded-full border border-amber-400/30 bg-amber-400/10 px-2 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wider text-accent-amber-text">
-                        {ui.draftBadge}
-                      </span>
-                    )}
-                  </div>
-                  <h3 className="mt-3 font-display text-lg font-semibold text-fg">
-                    {project.title}
-                  </h3>
-                  <p className="mt-2 flex-1 text-sm sm:text-base leading-relaxed text-muted/90">
-                    {project.summary}
-                  </p>
-                  <Link
-                    to={routes.project(project.slug)}
-                    className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-teal-text"
-                  >
-                    {ui.viewProject}
-                    <ArrowRight
-                      size={15}
-                      aria-hidden="true"
-                      className="transition-transform group-hover:translate-x-0.5"
-                    />
-                  </Link>
-                </Card>
+            {preview.map((model, i) => (
+              <Reveal key={model.name} delay={(i % 3) * 0.08}>
+                <ClientCard
+                  model={model}
+                  visitLabel={projects.visitLabel}
+                  comingSoonLabel={projects.comingSoonLabel}
+                />
               </Reveal>
             ))}
           </div>

@@ -4,13 +4,15 @@ import Container from "@/components/layout/Container";
 import Card from "@/components/ui/Card";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
+import Divider from "@/components/ui/Divider";
 import { useContent } from "@/features/i18n/useI18n";
 
 export default function WhyUsSummary() {
   const { whyUs } = useContent();
 
   return (
-    <section className="py-section sm:py-section-lg border-t border-line/5">
+    <section className="relative py-section sm:py-section-lg">
+      <Divider />
       <Container className="flex flex-col items-center gap-12">
         <SectionHeading
           eyebrow={whyUs.eyebrow}

@@ -3,7 +3,9 @@ import Container from "@/components/layout/Container";
 import Card from "@/components/ui/Card";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
-import { useContent } from "@/features/i18n/useI18n";
+import Divider from "@/components/ui/Divider";
+import { useContent, useI18n } from "@/features/i18n/useI18n";
+import { useTeamMembers } from "@/features/team/useTeamMembers";
 
 function initials(name: string): string {
   const parts = name.split(" ").filter(Boolean);
@@ -16,58 +18,68 @@ function initials(name: string): string {
 
 export default function Team() {
   const { team } = useContent();
+  const { locale } = useI18n();
+  const { members } = useTeamMembers();
+
   return (
-    <section className="relative overflow-hidden py-section sm:py-section-lg border-t border-line/5">
+    <section className="relative overflow-hidden py-section sm:py-section-lg">
+      <Divider />
       <div className="pointer-events-none absolute -top-24 right-0 h-96 w-96 rounded-full bg-brand-teal/10 blur-[110px]" />
 
       <Container className="relative flex flex-col gap-12">
         <SectionHeading eyebrow={team.eyebrow} title={team.title} description={team.intro} />
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {team.members.map((member, i) => (
-            <Reveal key={member.name} delay={i * 0.08}>
-              <Card className="group flex flex-col items-center text-center gap-5 py-8 px-6">
-                {/* Avatar */}
-                <div className="relative h-28 w-28 shrink-0 rounded-full overflow-hidden ring-2 ring-brand-teal/40">
-                  {member.photo ? (
-                    <img
-                      src={member.photo}
-                      alt={member.name}
-                      className="h-full w-full object-cover object-top"
-                    />
-                  ) : (
-                    <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-accent-violet to-brand-teal font-display text-2xl font-bold text-navy-950">
-                      {initials(member.name)}
-                    </div>
-                  )}
-                </div>
+          {members.map((member, i) => {
+            const role = locale === "en" ? member.roleEn : member.roleEs;
+            const detail = locale === "en" ? member.detailEn : member.detailEs;
+            const extra = locale === "en" ? member.extraEn : member.extraEs;
 
-                {/* Identity */}
-                <div>
-                  <h3 className="font-display text-lg font-semibold text-fg leading-tight">
-                    {member.name}
-                  </h3>
-                  <p className="mt-1.5 text-sm font-semibold text-brand-teal-text tracking-wide">
-                    {member.role}
-                  </p>
-                </div>
-
-                {/* Details */}
-                <div className="flex flex-col gap-2 w-full text-left">
-                  <div className="flex items-start gap-2 text-sm text-muted/90">
-                    <User size={15} className="mt-0.5 shrink-0 text-faint" />
-                    <span>{member.detail}</span>
+            return (
+              <Reveal key={member.id} delay={i * 0.08}>
+                <Card className="group flex flex-col items-center text-center gap-5 py-8 px-6">
+                  {/* Avatar */}
+                  <div className="relative h-28 w-28 shrink-0 rounded-full overflow-hidden ring-2 ring-brand-teal/40">
+                    {member.photo ? (
+                      <img
+                        src={member.photo}
+                        alt={member.name}
+                        className="h-full w-full object-cover object-top"
+                      />
+                    ) : (
+                      <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-accent-violet to-brand-teal font-display text-2xl font-bold text-navy-950">
+                        {initials(member.name)}
+                      </div>
+                    )}
                   </div>
-                  {member.extra && (
+
+                  {/* Identity */}
+                  <div>
+                    <h3 className="font-display text-lg font-semibold text-fg leading-tight">
+                      {member.name}
+                    </h3>
+                    <p className="mt-1.5 text-sm font-semibold text-brand-teal-text tracking-wide">
+                      {role}
+                    </p>
+                  </div>
+
+                  {/* Details */}
+                  <div className="flex flex-col gap-2 w-full text-left">
                     <div className="flex items-start gap-2 text-sm text-muted/90">
-                      <ShieldCheck size={15} className="mt-0.5 shrink-0 text-brand-green" />
-                      <span>{member.extra}</span>
+                      <User size={15} className="mt-0.5 shrink-0 text-faint" />
+                      <span>{detail}</span>
                     </div>
-                  )}
-                </div>
-              </Card>
-            </Reveal>
-          ))}
+                    {extra && (
+                      <div className="flex items-start gap-2 text-sm text-muted/90">
+                        <ShieldCheck size={15} className="mt-0.5 shrink-0 text-brand-green" />
+                        <span>{extra}</span>
+                      </div>
+                    )}
+                  </div>
+                </Card>
+              </Reveal>
+            );
+          })}
         </div>
       </Container>
     </section>

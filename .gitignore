@@ -33,3 +33,7 @@ lerna-debug.log*
 
 # Estado local de sesión de Claude Code
 .claude
+
+# Datos e imágenes del panel de admin (persistencia local, no va al repo)
+backend/data
+backend/uploads

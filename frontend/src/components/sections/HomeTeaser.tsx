@@ -6,6 +6,7 @@ import Card from "@/components/ui/Card";
 import type { Accent } from "@/components/ui/Card";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
+import Divider from "@/components/ui/Divider";
 
 interface Props {
   teaser: HomeTeaserType;
@@ -23,7 +24,8 @@ const iconColors: Record<Accent, string> = {
 
 export default function HomeTeaser({ teaser, accent = "teal" }: Props) {
   return (
-    <section className="py-section sm:py-section-lg border-t border-line/5">
+    <section className="relative py-section sm:py-section-lg">
+      <Divider />
       <Container className="flex flex-col gap-10">
         <SectionHeading eyebrow={teaser.eyebrow} title={teaser.title} />
 

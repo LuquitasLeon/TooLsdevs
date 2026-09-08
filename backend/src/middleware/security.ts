@@ -34,6 +34,9 @@ export const corsPolicy: RequestHandler = cors({
     }
     callback(new Error(`Origen no autorizado: ${origin}`));
   },
-  methods: ["GET", "POST", "OPTIONS"],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  // El login del admin viaja en una cookie httpOnly: sin esto el navegador no
+  // la manda de vuelta en las peticiones siguientes.
+  credentials: true,
   maxAge: 86_400,
 });
