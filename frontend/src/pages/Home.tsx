@@ -2,6 +2,7 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
+import Companies from "@/components/sections/Companies";
 import HomeTeaser from "@/components/sections/HomeTeaser";
 import WhyUsSummary from "@/components/sections/WhyUsSummary";
 import Philosophy from "@/components/sections/Philosophy";
@@ -35,6 +36,7 @@ export default function Home() {
     <PageTransition>
       <Hero />
       <About />
+      <Companies />
 
       <section className="py-section sm:py-section-lg border-t border-white/5">
         <Container className="flex flex-col gap-12">

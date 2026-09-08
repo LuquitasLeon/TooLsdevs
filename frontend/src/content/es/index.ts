@@ -41,27 +41,11 @@ export const es: SiteContent = {
     eyebrow: "Nuestro equipo",
     title: "Técnicos programadores, graduados de la UTN FRT",
     intro: "Trabajamos de manera integral en todas las áreas de la empresa.",
-    members: [
-    {
-      name: "Santiago Nicolás Ferreyra Appas",
-      role: "Cofundador",
-      detail: "Técnico Programador (UTN FRT)",
-      photo: "/team/santiago.jpg",
-    },
-    {
-      name: "Ismael Lucas León",
-      role: "Cofundador",
-      detail: "Técnico Programador (UTN FRT)",
-      photo: "/team/ismael.jpg",
-    },
-    {
-      name: "Luciano Agustín Llanos",
-      role: "Cofundador",
-      detail: "Técnico Programador (UTN FRT)",
-      extra: "Especialista en Ciberseguridad — Diplomatura otorgada por la UTN",
-      photo: "/team/luciano.jpg",
-    },
-    ],
+  },
+
+  companies: {
+    eyebrow: "Confían en nosotros",
+    title: "Empresas que trabajan con ToolsDevs",
   },
 
   services: {

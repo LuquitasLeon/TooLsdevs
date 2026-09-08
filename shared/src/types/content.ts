@@ -58,16 +58,6 @@ export interface AboutContent {
   vision: Statement;
 }
 
-export interface TeamMember {
-  name: string;
-  role: string;
-  detail: string;
-  /** Formación o especialidad adicional, cuando corresponde. */
-  extra?: string;
-  /** Ruta a la foto del integrante, relativa a /public. */
-  photo?: string;
-}
-
 /** Las dos patas del negocio: lo que se construye y lo que se protege. */
 export type ServiceCategory = "desarrollo" | "seguridad";
 
@@ -291,7 +281,12 @@ export interface TeamContent {
   eyebrow: string;
   title: string;
   intro: string;
-  members: TeamMember[];
+}
+
+/** Sólo el encabezado: la lista de empresas es dinámica (viene de la API). */
+export interface CompaniesContent {
+  eyebrow: string;
+  title: string;
 }
 
 /**
@@ -307,6 +302,7 @@ export interface SiteContent {
   hero: HeroContent;
   about: AboutContent;
   team: TeamContent;
+  companies: CompaniesContent;
   services: ServicesContent;
   problems: ProblemsContent;
   process: ProcessContent;

@@ -48,27 +48,11 @@ export const en: SiteContent = {
     eyebrow: "Our team",
     title: "Software technicians, graduates of UTN FRT",
     intro: "We work across every area of the company.",
-    members: [
-    {
-      name: "Santiago Nicolás Ferreyra Appas",
-      role: "Co-founder",
-      detail: "Software Technician (UTN FRT)",
-      photo: "/team/santiago.jpg",
-    },
-    {
-      name: "Ismael Lucas León",
-      role: "Co-founder",
-      detail: "Software Technician (UTN FRT)",
-      photo: "/team/ismael.jpg",
-    },
-    {
-      name: "Luciano Agustín Llanos",
-      role: "Co-founder",
-      detail: "Software Technician (UTN FRT)",
-      extra: "Cybersecurity Specialist — postgraduate diploma awarded by UTN",
-      photo: "/team/luciano.jpg",
-    },
-    ],
+  },
+
+  companies: {
+    eyebrow: "Trusted by",
+    title: "Companies working with ToolsDevs",
   },
 
   services: {

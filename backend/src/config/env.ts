@@ -51,6 +51,13 @@ const envSchema = z.object({
    * proxy — con el valor mal puesto, o no limita a nadie o limita a todos juntos.
    */
   TRUST_PROXY_HOPS: z.coerce.number().int().min(0).default(0),
+
+  /** Credenciales de la única cuenta del panel de administración. */
+  ADMIN_EMAIL: z.email().optional(),
+  /** Hash bcrypt de la contraseña (nunca la contraseña en texto plano). */
+  ADMIN_PASSWORD_HASH: z.string().min(1).optional(),
+  /** Firma los JWT de sesión del admin. Sin ella el login queda deshabilitado. */
+  JWT_SECRET: z.string().min(16).optional(),
 });
 
 /**
@@ -77,3 +84,6 @@ export const isProduction = env.NODE_ENV === "production";
 
 /** El envío de mails sólo está disponible si las tres variables están puestas. */
 export const mailerConfigured = Boolean(env.RESEND_API_KEY && env.MAIL_FROM && env.MAIL_TO);
+
+/** El panel de admin sólo está disponible si están las tres variables puestas. */
+export const adminConfigured = Boolean(env.ADMIN_EMAIL && env.ADMIN_PASSWORD_HASH && env.JWT_SECRET);

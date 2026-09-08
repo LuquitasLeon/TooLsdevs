@@ -18,3 +18,12 @@ export const contactRateLimit = rateLimit({
     error: "Demasiadas consultas seguidas. Probá de nuevo en unos minutos.",
   },
 });
+
+/** Frena intentos de fuerza bruta contra el login del admin. */
+export const adminLoginRateLimit = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  limit: 10,
+  standardHeaders: "draft-7",
+  legacyHeaders: false,
+  message: { ok: false, error: "Demasiados intentos. Probá de nuevo en unos minutos." },
+});
