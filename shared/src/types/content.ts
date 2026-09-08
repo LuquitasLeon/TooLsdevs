@@ -154,8 +154,6 @@ export interface ProjectsContent {
   visitLabel: string;
   /** El producto propio, mostrado en grande al frente de la sección. */
   featured: FeaturedProduct;
-  /** Los sitios de clientes, en tarjetas y en el carrusel de logos. */
-  clients: ClientProject[];
 }
 
 export type StackCategory = "frontend" | "backend" | "datos" | "infraestructura" | "seguridad";
@@ -286,12 +284,6 @@ export interface TeamContent {
   intro: string;
 }
 
-/** Sólo el encabezado: la lista de empresas es dinámica (viene de la API). */
-export interface CompaniesContent {
-  eyebrow: string;
-  title: string;
-}
-
 /**
  * Todo el contenido del sitio en un idioma.
  *
@@ -305,7 +297,6 @@ export interface SiteContent {
   hero: HeroContent;
   about: AboutContent;
   team: TeamContent;
-  companies: CompaniesContent;
   services: ServicesContent;
   problems: ProblemsContent;
   process: ProcessContent;

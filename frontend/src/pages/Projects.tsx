@@ -7,12 +7,14 @@ import ContactCta from "@/components/sections/ContactCta";
 import ClientCard from "@/components/ui/ClientCard";
 import Reveal from "@/components/ui/Reveal";
 import { useContent } from "@/features/i18n/useI18n";
+import { useClients } from "@/features/clients/useClients";
 import { ClientProjectModel } from "@/lib/ClientProjectModel";
 import { usePageMeta } from "@/lib/usePageMeta";
 
 export default function Projects() {
   const { projects } = useContent();
-  const clients = ClientProjectModel.fromList(projects.clients);
+  const { clients: rawClients } = useClients();
+  const clients = ClientProjectModel.fromList(rawClients);
 
   usePageMeta({ title: `${projects.title} | ToolsDevs`, description: projects.intro });
 

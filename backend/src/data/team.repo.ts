@@ -14,7 +14,7 @@ const SEED: ReadonlyArray<Omit<TeamMemberRecord, "id" | "createdAt" | "updatedAt
     order: 0,
   },
   {
-    name: "Ismael Lucas León",
+    name: "Lucas Ismael León",
     roleEs: "Cofundador",
     roleEn: "Co-founder",
     detailEs: "Técnico Programador (UTN FRT)",

@@ -243,40 +243,6 @@ export const en: SiteContent = {
         },
       ],
     },
-    clients: [
-      {
-        name: "Consultorios Villa Carmela",
-        logo: "/logos/ConsultoriosVC.png",
-        category: "Health",
-        summary:
-          "Institutional site for a health center in Villa Carmela: medical specialties, professionals, consulting-room rental and direct WhatsApp contact.",
-        url: "https://www.consultoriovc.com/",
-      },
-      {
-        name: "Partido Demócrata Progresista",
-        logo: "/logos/PartidoDemocrataProgresista.png",
-        category: "Institutional / Political",
-        summary:
-          "Platform for the PDP's Tucumán district: presents the government plan across five pillars, with membership and volunteer sign-up sections.",
-        url: "https://partido-democrata-progresista.vercel.app/",
-      },
-      {
-        name: "EndPoint Security",
-        logo: "/logos/EndPoint.png",
-        category: "Cybersecurity",
-        summary:
-          "Corporate site for a cybersecurity company: prevention, protection and incident-response services, training and its own Cyber Challenge.",
-        url: "https://web-iota-two-64.vercel.app/",
-      },
-      {
-        name: "La Posta 381",
-        logo: "/logos/LaPosta381.jpeg",
-        category: "Media / News",
-        summary:
-          "A magazine-style portal to inform the people of Tucumán: news, articles and local current affairs with a fast reading experience. In development.",
-        comingSoon: true,
-      },
-    ],
   },
 
   stack: {

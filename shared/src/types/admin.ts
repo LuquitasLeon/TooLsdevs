@@ -17,14 +17,24 @@ export interface TeamMemberRecord {
   updatedAt: string;
 }
 
-/** Una empresa que aparece en el carrusel de logos. */
+/**
+ * Una empresa cliente: aparece en el carrusel de logos y como tarjeta en la
+ * página de Proyectos (`ClientsMarquee` / `ClientCard`, ya existentes).
+ */
 export interface CompanyRecord {
   id: string;
   name: string;
   /** Ruta al logo, relativa a la raíz del sitio. */
   logo: string;
-  link?: string;
-  /** Posición en el carrusel: menor primero. */
+  categoryEs: string;
+  categoryEn: string;
+  summaryEs: string;
+  summaryEn: string;
+  /** URL del sitio en vivo. Ausente cuando todavía no se publicó. */
+  url?: string;
+  /** Se muestra como "Próximamente" aunque no tenga URL, o si se marca a mano. */
+  comingSoon: boolean;
+  /** Posición en el carrusel y en la grilla: menor primero. */
   order: number;
   createdAt: string;
   updatedAt: string;

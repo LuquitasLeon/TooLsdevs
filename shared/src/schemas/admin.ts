@@ -18,10 +18,14 @@ export const teamMemberInputSchema = z.object({
 
 export type TeamMemberInput = z.infer<typeof teamMemberInputSchema>;
 
-/** Validación de los campos de texto de una empresa (el logo se valida aparte). */
+/** Validación de los campos de texto de una empresa cliente (el logo se valida aparte). */
 export const companyInputSchema = z.object({
   name: z.string().trim().min(1, { error: "Falta el nombre de la empresa." }).max(80),
-  link: z
+  categoryEs: z.string().trim().min(1, { error: "Falta el rubro en español." }).max(80),
+  categoryEn: z.string().trim().min(1, { error: "Falta el rubro en inglés." }).max(80),
+  summaryEs: z.string().trim().min(2, { error: "Falta el resumen en español." }).max(400),
+  summaryEn: z.string().trim().min(2, { error: "Falta el resumen en inglés." }).max(400),
+  url: z
     .string()
     .trim()
     .max(300)
@@ -29,6 +33,11 @@ export const companyInputSchema = z.object({
       error: "El link no parece una URL válida.",
     })
     .optional(),
+  // Llega de un checkbox: "on"/"true" cuando está marcado, ausente si no.
+  comingSoon: z.preprocess(
+    (value) => value === "on" || value === "true" || value === true,
+    z.boolean(),
+  ),
   order: z.coerce.number().int().min(0).max(9999).default(0),
 });
 
