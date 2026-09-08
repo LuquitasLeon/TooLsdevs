@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://toolsdevs.com/sitemap.xml
+Sitemap: https://www.toolsdevs.com.ar/sitemap.xml

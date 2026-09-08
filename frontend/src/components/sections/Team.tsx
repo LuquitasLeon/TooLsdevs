@@ -3,6 +3,7 @@ import Container from "@/components/layout/Container";
 import Card from "@/components/ui/Card";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
+import Divider from "@/components/ui/Divider";
 import { useContent, useI18n } from "@/features/i18n/useI18n";
 import { useTeamMembers } from "@/features/team/useTeamMembers";
 
@@ -21,7 +22,8 @@ export default function Team() {
   const { members } = useTeamMembers();
 
   return (
-    <section className="relative overflow-hidden py-section sm:py-section-lg border-t border-white/5">
+    <section className="relative overflow-hidden py-section sm:py-section-lg">
+      <Divider />
       <div className="pointer-events-none absolute -top-24 right-0 h-96 w-96 rounded-full bg-brand-teal/10 blur-[110px]" />
 
       <Container className="relative flex flex-col gap-12">

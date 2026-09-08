@@ -95,64 +95,67 @@ export interface ProcessContent {
   steps: ProcessStep[];
 }
 
-/** Categorías con las que se filtra el listado de proyectos. */
-export type ProjectCategory = "desarrollo" | "infraestructura" | "seguridad";
+/**
+ * Un cliente cuyo sitio construimos, mostrado en la vitrina de trabajos.
+ *
+ * A diferencia del modelo anterior —fichas internas con problema/solución— cada
+ * tarjeta ahora enlaza al sitio real del cliente. Cuando todavía no hay sitio
+ * publicado, `url` queda ausente y la tarjeta se muestra como "Próximamente".
+ */
+export interface ClientProject {
+  /** Nombre de la institución o empresa. */
+  name: string;
+  /** Ruta al logo, relativa a /public. */
+  logo: string;
+  /** Rubro o tipo de sitio (ej. "Salud", "Medios", "Ciberseguridad"). */
+  category: string;
+  /** Descripción corta de lo que hicimos. */
+  summary: string;
+  /** URL del sitio en vivo. Ausente cuando todavía no se publicó. */
+  url?: string;
+  /** Marca el proyecto como "Próximamente" cuando aún no hay link. */
+  comingSoon?: boolean;
+}
+
+/** Una diapositiva del producto estrella: captura + texto que la explica. */
+export interface ProductSlide {
+  /** Ruta a la captura, relativa a /public. */
+  image: string;
+  title: string;
+  description: string;
+}
+
+/**
+ * El producto propio destacado en la vitrina.
+ *
+ * Es lo que ToolsDevs vende como producto terminado, así que se muestra en
+ * grande con un carrusel lento de capturas para que se pueda leer cada vista.
+ */
+export interface FeaturedProduct {
+  eyebrow: string;
+  name: string;
+  tagline: string;
+  description: string;
+  /** Etiqueta que lo distingue como producto propio (ej. "Producto estrella"). */
+  badge: string;
+  slides: ProductSlide[];
+  cta: CallToAction;
+}
 
 export interface ProjectsContent {
   eyebrow: string;
   title: string;
   intro: string;
-  items: Project[];
-}
-
-export interface ProjectImage {
-  src: string;
-  /** Texto alternativo: obligatorio, es lo que hace la ficha accesible. */
-  alt: string;
-  /** Dimensiones explícitas para que la imagen no empuje el layout al cargar. */
-  width: number;
-  height: number;
-}
-
-export interface Project {
-  /** Identificador de la URL: /proyectos/:slug */
-  slug: string;
-  title: string;
-  /** Una línea para la tarjeta del listado. */
-  summary: string;
-  category: ProjectCategory;
-  /**
-   * Cómo se nombra al cliente. Por defecto anonimizado
-   * ("Empresa de logística — Tucumán"); el nombre real sólo si lo autorizó.
-   */
-  client: string;
-  /** Si aparece entre los destacados de la portada. */
-  featured: boolean;
-  year?: string;
-
-  /**
-   * Marca la ficha como contenido de ejemplo, todavía sin datos reales.
-   *
-   * Mientras esté en `true`, la ficha muestra un aviso visible en el sitio. Es
-   * a propósito: un caso de éxito inventado que se publica sin querer es una
-   * promesa falsa a un cliente. Al cargar los datos reales se borra este campo
-   * y el aviso desaparece solo.
-   */
-  draft?: boolean;
-
-  /*
-   * Lo que sigue es el detalle de la ficha. Es opcional porque depende de
-   * material que hay que pedirle al cliente —capturas, permisos, números
-   * reales— y no queremos inventarlo. La página de detalle muestra cada bloque
-   * sólo si está cargado, así un caso puede publicarse y completarse después.
-   */
-  problem?: string;
-  solution?: string;
-  /** Resultados concretos y medibles, que es lo que convence a quien lee. */
-  results?: string[];
-  /** Tecnologías usadas, referenciando los ids de StackItem. */
-  stack?: string[];
-  images?: ProjectImage[];
+  /** Volanta encima del carrusel de logos de clientes. */
+  clientsEyebrow: string;
+  /** Etiqueta "Próximamente" para proyectos todavía sin link. */
+  comingSoonLabel: string;
+  /** Texto del botón que abre el sitio del cliente. */
+  visitLabel: string;
+  /** El producto propio, mostrado en grande al frente de la sección. */
+  featured: FeaturedProduct;
+  /** Los sitios de clientes, en tarjetas y en el carrusel de logos. */
+  clients: ClientProject[];
 }
 
 export type StackCategory = "frontend" | "backend" | "datos" | "infraestructura" | "seguridad";
@@ -203,19 +206,8 @@ export interface UiContent {
   mainNav: string;
   contactCta: string;
   languageLabel: string;
-  backToProjects: string;
-  viewProject: string;
+  /** CTA al listado completo de proyectos, usado en la portada. */
   allProjects: string;
-  filterAll: string;
-  categories: Record<ProjectCategory, string>;
-  projectClient: string;
-  projectProblem: string;
-  projectSolution: string;
-  projectResults: string;
-  projectStack: string;
-  /** Aviso que acompaña a las fichas todavía sin datos reales. */
-  draftNotice: string;
-  draftBadge: string;
   notFoundTitle: string;
   notFoundText: string;
   notFoundCta: string;
@@ -223,6 +215,7 @@ export interface UiContent {
   contactText: string;
   contactEyebrow: string;
   loading: string;
+  backToTop: string;
   form: ContactFormContent;
   diagnosis: DiagnosisContent;
 }
@@ -267,11 +260,21 @@ export interface DiagnosisContent {
   title: string;
   intro: string;
   start: string;
-  steps: DiagnosisStep[];
+  /**
+   * Primer paso: elegir el rubro. Es el que define qué preguntas siguen, para
+   * que el diagnóstico se sienta hecho a la medida de cada negocio.
+   */
+  rubroStep: DiagnosisStep;
+  /** Preguntas propias de cada rubro, indexadas por el id de la opción de rubro. */
+  branches: Record<string, DiagnosisStep[]>;
+  /** Pasos finales compartidos por todos los rubros (objetivo y etapa). */
+  commonSteps: DiagnosisStep[];
   back: string;
   resultTitle: string;
-  /** Recomendación según el problema elegido, indexada por el id de la opción. */
+  /** Recomendación personalizada por rubro, indexada por el id de la opción de rubro. */
   recommendations: Record<string, string>;
+  /** Servicio concreto sugerido según la necesidad, indexado por el id de esa opción. */
+  services: Record<string, string>;
   toForm: string;
   restart: string;
   progress: string;

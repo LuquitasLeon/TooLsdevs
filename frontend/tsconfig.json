@@ -6,7 +6,6 @@
     "noEmit": true,
     "allowImportingTsExtensions": true,
     "types": ["vite/client"],
-    "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
       // Durante el chequeo de tipos apuntamos al fuente de `shared`: un cambio

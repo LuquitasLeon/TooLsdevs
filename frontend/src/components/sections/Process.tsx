@@ -1,6 +1,7 @@
 import Container from "@/components/layout/Container";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
+import Divider from "@/components/ui/Divider";
 import { useContent } from "@/features/i18n/useI18n";
 
 interface ProcessProps {
@@ -11,7 +12,8 @@ interface ProcessProps {
 export default function Process({ hideHeading = false }: ProcessProps) {
   const { process } = useContent();
   return (
-    <section id="proceso" className="py-section sm:py-section-lg border-t border-white/5">
+    <section id="proceso" className="relative py-section sm:py-section-lg">
+      <Divider />
       <Container className="flex flex-col gap-14">
         {!hideHeading && (
           <SectionHeading
