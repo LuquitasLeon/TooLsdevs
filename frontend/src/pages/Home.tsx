@@ -12,6 +12,7 @@ import Reveal from "@/components/ui/Reveal";
 import Divider from "@/components/ui/Divider";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { useContent } from "@/features/i18n/useI18n";
+import { useClients } from "@/features/clients/useClients";
 import { ClientProjectModel } from "@/lib/ClientProjectModel";
 import { routes } from "@/app/routes";
 import { usePageMeta } from "@/lib/usePageMeta";
@@ -25,8 +26,9 @@ import { usePageMeta } from "@/lib/usePageMeta";
  */
 export default function Home() {
   const { projects, homeTeasers, ui } = useContent();
+  const { clients } = useClients();
   // En la portada mostramos sólo tres, como adelanto; el resto vive en /proyectos.
-  const preview = ClientProjectModel.fromList(projects.clients).slice(0, 3);
+  const preview = ClientProjectModel.fromList(clients).slice(0, 3);
 
   usePageMeta({
     title: "ToolsDevs | Creamos herramientas",

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
-import type { FeaturedProduct as FeaturedProductType } from "@toolsdevs/shared";
+import type { FeaturedProduct as FeaturedProductType, ProductSlide } from "@toolsdevs/shared";
 import Container from "@/components/layout/Container";
 import Reveal from "@/components/ui/Reveal";
 import Button from "@/components/ui/Button";
@@ -11,6 +11,7 @@ import { cn } from "@/lib/cn";
 
 interface Props {
   product: FeaturedProductType;
+  slides: ProductSlide[];
 }
 
 /**
@@ -26,11 +27,11 @@ interface Props {
  * `AnimatePresence` a propósito, porque en modo "wait" se traba si los cambios
  * (auto-avance + clics) llegan más rápido de lo que dura la animación.
  */
-export default function FeaturedProduct({ product }: Props) {
+export default function FeaturedProduct({ product, slides }: Props) {
   const [paused, setPaused] = useState(false);
-  const total = product.slides.length;
+  const total = slides.length;
   const { index, goTo, next, prev } = useSlideshow(total, { paused });
-  const slide = product.slides[index];
+  const slide = slides[index];
   if (!slide) return null;
 
   const position = `${String(index + 1).padStart(2, "0")} / ${String(total).padStart(2, "0")}`;
@@ -124,7 +125,7 @@ export default function FeaturedProduct({ product }: Props) {
 
             {/* Puntos: una vista de un vistazo, y navegación directa. */}
             <div className="flex flex-wrap items-center justify-center gap-2">
-              {product.slides.map((s, i) => (
+              {slides.map((s, i) => (
                 <button
                   key={s.image}
                   type="button"

@@ -1,11 +1,12 @@
 import { Suspense, lazy, useLayoutEffect, useRef } from "react";
-import { BrowserRouter, Route, Routes } from "react-router";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ScrollProgress from "@/components/layout/ScrollProgress";
 import BackToTopButton from "@/components/layout/BackToTopButton";
 import { I18nProvider } from "@/features/i18n/I18nProvider";
 import { useContent, useI18n } from "@/features/i18n/useI18n";
+import { AdminAuthProvider } from "@/features/admin/AdminAuthProvider";
 import ScrollToTop from "./ScrollToTop";
 import { routes } from "./routes";
 
@@ -21,6 +22,13 @@ const Process = lazy(() => import("@/pages/Process"));
 const Contact = lazy(() => import("@/pages/Contact"));
 const NotFound = lazy(() => import("@/pages/NotFound"));
 
+const AdminLogin = lazy(() => import("@/pages/admin/Login"));
+const AdminLayout = lazy(() => import("@/pages/admin/AdminLayout"));
+const RequireAdmin = lazy(() => import("@/pages/admin/RequireAdmin"));
+const CompaniesAdmin = lazy(() => import("@/pages/admin/CompaniesAdmin"));
+const TeamAdmin = lazy(() => import("@/pages/admin/TeamAdmin"));
+const ProductSlidesAdmin = lazy(() => import("@/pages/admin/ProductSlidesAdmin"));
+
 /** Espacio reservado mientras llega el código de una página. */
 function PageFallback() {
   const { ui } = useContent();
@@ -31,7 +39,31 @@ function PageFallback() {
   );
 }
 
-function Layout() {
+/** Rutas del panel de administración: sin navbar/footer del sitio público. */
+function AdminRoutes() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-navy-950" />}>
+      <Routes>
+        <Route path={routes.adminLogin} element={<AdminLogin />} />
+        <Route
+          path={routes.admin}
+          element={
+            <RequireAdmin>
+              <AdminLayout />
+            </RequireAdmin>
+          }
+        >
+          <Route index element={<CompaniesAdmin />} />
+          <Route path="empresas" element={<CompaniesAdmin />} />
+          <Route path="fundadores" element={<TeamAdmin />} />
+          <Route path="producto" element={<ProductSlidesAdmin />} />
+        </Route>
+      </Routes>
+    </Suspense>
+  );
+}
+
+function SiteLayout() {
   const { ui } = useContent();
   const { locale } = useI18n();
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -80,13 +112,21 @@ function Layout() {
   );
 }
 
+function Layout() {
+  const location = useLocation();
+  const isAdmin = location.pathname.startsWith(routes.admin);
+  return isAdmin ? <AdminRoutes /> : <SiteLayout />;
+}
+
 export default function App() {
   return (
     <I18nProvider>
-      <BrowserRouter>
-        <ScrollToTop />
-        <Layout />
-      </BrowserRouter>
+      <AdminAuthProvider>
+        <BrowserRouter>
+          <ScrollToTop />
+          <Layout />
+        </BrowserRouter>
+      </AdminAuthProvider>
     </I18nProvider>
   );
 }

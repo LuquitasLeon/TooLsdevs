@@ -7,12 +7,16 @@ import ContactCta from "@/components/sections/ContactCta";
 import ClientCard from "@/components/ui/ClientCard";
 import Reveal from "@/components/ui/Reveal";
 import { useContent } from "@/features/i18n/useI18n";
+import { useClients } from "@/features/clients/useClients";
+import { useProductSlides } from "@/features/productSlides/useProductSlides";
 import { ClientProjectModel } from "@/lib/ClientProjectModel";
 import { usePageMeta } from "@/lib/usePageMeta";
 
 export default function Projects() {
   const { projects } = useContent();
-  const clients = ClientProjectModel.fromList(projects.clients);
+  const { clients: rawClients } = useClients();
+  const clients = ClientProjectModel.fromList(rawClients);
+  const { slides } = useProductSlides();
 
   usePageMeta({ title: `${projects.title} | ToolsDevs`, description: projects.intro });
 
@@ -21,7 +25,7 @@ export default function Projects() {
       <PageHeader eyebrow={projects.eyebrow} title={projects.title} description={projects.intro} />
 
       {/* El producto propio primero: es lo que queremos que resalte. */}
-      <FeaturedProduct product={projects.featured} />
+      <FeaturedProduct product={projects.featured} slides={slides} />
 
       {/* Los clientes: cinta de logos y después las tarjetas con el detalle. */}
       <ClientsMarquee models={clients} eyebrow={projects.clientsEyebrow} />

@@ -58,16 +58,6 @@ export interface AboutContent {
   vision: Statement;
 }
 
-export interface TeamMember {
-  name: string;
-  role: string;
-  detail: string;
-  /** Formación o especialidad adicional, cuando corresponde. */
-  extra?: string;
-  /** Ruta a la foto del integrante, relativa a /public. */
-  photo?: string;
-}
-
 /** Las dos patas del negocio: lo que se construye y lo que se protege. */
 export type ServiceCategory = "desarrollo" | "seguridad";
 
@@ -148,7 +138,6 @@ export interface FeaturedProduct {
   description: string;
   /** Etiqueta que lo distingue como producto propio (ej. "Producto estrella"). */
   badge: string;
-  slides: ProductSlide[];
   cta: CallToAction;
 }
 
@@ -164,8 +153,6 @@ export interface ProjectsContent {
   visitLabel: string;
   /** El producto propio, mostrado en grande al frente de la sección. */
   featured: FeaturedProduct;
-  /** Los sitios de clientes, en tarjetas y en el carrusel de logos. */
-  clients: ClientProject[];
 }
 
 export type StackCategory = "frontend" | "backend" | "datos" | "infraestructura" | "seguridad";
@@ -294,7 +281,6 @@ export interface TeamContent {
   eyebrow: string;
   title: string;
   intro: string;
-  members: TeamMember[];
 }
 
 /**

@@ -10,4 +10,9 @@ export const routes = {
   projects: "/proyectos",
   process: "/como-trabajamos",
   contact: "/contacto",
+  adminLogin: "/admin/login",
+  admin: "/admin",
+  adminCompanies: "/admin/empresas",
+  adminTeam: "/admin/fundadores",
+  adminProductSlides: "/admin/producto",
 } as const;
