@@ -58,6 +58,17 @@ const envSchema = z.object({
   ADMIN_PASSWORD_HASH: z.string().min(1).optional(),
   /** Firma los JWT de sesión del admin. Sin ella el login queda deshabilitado. */
   JWT_SECRET: z.string().min(16).optional(),
+
+  /**
+   * Persistencia del admin (empresas, equipo, producto) vía la API de GitHub,
+   * en una rama propia del repo. Sin `GITHUB_TOKEN` el servidor cae a guardar
+   * los JSON en disco local (cómodo para desarrollar sin configurar nada) —
+   * imprescindible en Vercel, donde el filesystem es de solo lectura.
+   */
+  GITHUB_TOKEN: z.string().min(1).optional(),
+  GITHUB_OWNER: z.string().min(1).default("LuquitasLeon"),
+  GITHUB_REPO: z.string().min(1).default("TooLsdevs"),
+  GITHUB_DATA_BRANCH: z.string().min(1).default("cms-data"),
 });
 
 /**
@@ -87,3 +98,6 @@ export const mailerConfigured = Boolean(env.RESEND_API_KEY && env.MAIL_FROM && e
 
 /** El panel de admin sólo está disponible si están las tres variables puestas. */
 export const adminConfigured = Boolean(env.ADMIN_EMAIL && env.ADMIN_PASSWORD_HASH && env.JWT_SECRET);
+
+/** Con token, los datos del admin viven en GitHub; sin él, en disco local. */
+export const githubStorageConfigured = Boolean(env.GITHUB_TOKEN);
