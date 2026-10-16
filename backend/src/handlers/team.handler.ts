@@ -7,7 +7,7 @@ import {
   listTeamMembers,
   updateTeamMember,
 } from "../data/team.repo.js";
-import { deleteUploadedFile, uploadedFilePublicPath } from "../services/uploads.js";
+import { deleteUploadedFile, storeUploadedImage } from "../services/uploads.js";
 
 export async function handleListTeam(_req: Request, res: Response): Promise<void> {
   const members = await listTeamMembers();
@@ -25,7 +25,7 @@ export async function handleCreateTeamMember(req: Request, res: Response): Promi
     return;
   }
 
-  const photo = req.file ? uploadedFilePublicPath(req.file.filename) : undefined;
+  const photo = req.file ? await storeUploadedImage(req.file) : undefined;
   const member = await createTeamMember({ ...parsed.data, photo });
   res.status(201).json({ ok: true, member });
 }
@@ -47,7 +47,7 @@ export async function handleUpdateTeamMember(req: Request, res: Response): Promi
     return;
   }
 
-  const photo = req.file ? uploadedFilePublicPath(req.file.filename) : existing.photo;
+  const photo = req.file ? await storeUploadedImage(req.file) : existing.photo;
   const updated = await updateTeamMember(req.params["id"] as string, { ...parsed.data, photo });
 
   // Si se subió una foto nueva y la anterior era un archivo del admin (no un

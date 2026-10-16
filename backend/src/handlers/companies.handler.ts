@@ -7,7 +7,7 @@ import {
   listCompanies,
   updateCompany,
 } from "../data/companies.repo.js";
-import { deleteUploadedFile, uploadedFilePublicPath } from "../services/uploads.js";
+import { deleteUploadedFile, storeUploadedImage } from "../services/uploads.js";
 
 export async function handleListCompanies(_req: Request, res: Response): Promise<void> {
   const companies = await listCompanies();
@@ -30,7 +30,7 @@ export async function handleCreateCompany(req: Request, res: Response): Promise<
     return;
   }
 
-  const logo = uploadedFilePublicPath(req.file.filename);
+  const logo = await storeUploadedImage(req.file);
   const company = await createCompany({ ...parsed.data, logo });
   res.status(201).json({ ok: true, company });
 }
@@ -52,7 +52,7 @@ export async function handleUpdateCompany(req: Request, res: Response): Promise<
     return;
   }
 
-  const logo = req.file ? uploadedFilePublicPath(req.file.filename) : existing.logo;
+  const logo = req.file ? await storeUploadedImage(req.file) : existing.logo;
   const updated = await updateCompany(req.params["id"] as string, { ...parsed.data, logo });
 
   if (req.file && existing.logo !== logo) {

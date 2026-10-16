@@ -7,7 +7,7 @@ import {
   listProductSlides,
   updateProductSlide,
 } from "../data/productSlides.repo.js";
-import { deleteUploadedFile, uploadedFilePublicPath } from "../services/uploads.js";
+import { deleteUploadedFile, storeUploadedImage } from "../services/uploads.js";
 
 export async function handleListProductSlides(_req: Request, res: Response): Promise<void> {
   const slides = await listProductSlides();
@@ -30,7 +30,7 @@ export async function handleCreateProductSlide(req: Request, res: Response): Pro
     return;
   }
 
-  const image = uploadedFilePublicPath(req.file.filename);
+  const image = await storeUploadedImage(req.file);
   const slide = await createProductSlide({ ...parsed.data, image });
   res.status(201).json({ ok: true, slide });
 }
@@ -52,7 +52,7 @@ export async function handleUpdateProductSlide(req: Request, res: Response): Pro
     return;
   }
 
-  const image = req.file ? uploadedFilePublicPath(req.file.filename) : existing.image;
+  const image = req.file ? await storeUploadedImage(req.file) : existing.image;
   const updated = await updateProductSlide(req.params["id"] as string, { ...parsed.data, image });
 
   if (req.file && existing.image !== image) {

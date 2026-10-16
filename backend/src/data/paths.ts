@@ -9,6 +9,19 @@ export const backendRoot = join(here, "..", "..");
 export const dataDir = join(backendRoot, "data");
 export const uploadsDir = join(backendRoot, "uploads");
 
-export const companiesFile = join(dataDir, "companies.json");
-export const teamFile = join(dataDir, "team.json");
-export const productSlidesFile = join(dataDir, "productSlides.json");
+/** Carpeta de `data/uploads/` dentro de la rama de datos en GitHub. */
+export const uploadsGithubDir = "data/uploads";
+
+/** Dónde vive una colección: en disco local (dev) y en la rama de datos (prod). */
+export interface CollectionPath {
+  local: string;
+  github: string;
+}
+
+function collection(filename: string): CollectionPath {
+  return { local: join(dataDir, filename), github: `data/${filename}` };
+}
+
+export const companiesFile = collection("companies.json");
+export const teamFile = collection("team.json");
+export const productSlidesFile = collection("productSlides.json");
