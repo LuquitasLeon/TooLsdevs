@@ -71,7 +71,7 @@ export default function Team() {
                     </div>
                     {extra && (
                       <div className="flex items-start gap-2 text-sm text-muted/90">
-                        <ShieldCheck size={15} className="mt-0.5 shrink-0 text-brand-green" />
+                        <ShieldCheck size={15} className="mt-0.5 shrink-0 text-brand-green-text" />
                         <span>{extra}</span>
                       </div>
                     )}

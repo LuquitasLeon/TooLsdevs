@@ -46,7 +46,7 @@ function MenuLinks({
 }
 
 const menuPanelClass =
-  "fixed inset-x-0 top-16 sm:top-20 z-40 md:hidden max-h-[calc(100vh-4rem)] sm:max-h-[calc(100vh-5rem)] overflow-y-auto border-t border-line/10 bg-page";
+  "fixed inset-x-0 top-16 sm:top-20 z-40 md:hidden max-h-[calc(100vh-4rem)] sm:max-h-[calc(100vh-5rem)] overflow-y-auto border-t border-line/10 bg-header";
 
 /** Menú mobile con transición CSS nativa en vez de Framer Motion — para la
  * rama de iOS. Ver `useIsIOS`. */
@@ -68,19 +68,11 @@ function MobileMenuIOS({ onNavigate }: { onNavigate: () => void }) {
 
 export default function Navbar() {
   const { nav, ui } = useContent();
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const toggleRef = useRef<HTMLButtonElement>(null);
   const isIOS = useIsIOS();
   const { pathname } = useLocation();
   const isHome = pathname === routes.home;
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   // Cerrar el menú con Escape: quien navega con teclado espera poder salir sin
   // tener que tabular hasta el botón. Y al cerrarlo, el foco vuelve al botón —
@@ -98,24 +90,23 @@ export default function Navbar() {
 
   const linkClass = ({ isActive }: { isActive: boolean }) =>
     cn(
-      "text-sm font-medium transition-colors",
+      "text-base font-medium transition-colors",
       isActive ? "text-fg" : "text-muted hover:text-fg",
     );
 
   return (
     <>
       <header className="fixed inset-x-0 top-0 z-50">
-        {/* Sin blur a propósito: un fondo con backdrop-filter fijo en la parte
-            de arriba y animado durante el scroll es un combo que Safari/WebKit
-            (el motor real de "Chrome" en iOS) renderiza mal — deja ver el
-            contenido de atrás a los tirones en vez de un blur estable.
-            Totalmente opaco (no /95): así no queda ni un resto de transparencia
-            por el que se cuele el texto que pasa por detrás. */}
+        {/* Sólida siempre, no sólo al scrollear: más predecible, y evita que
+            el texto de los links pierda contraste al pasar sobre el hero.
+            Sin blur a propósito: un fondo con backdrop-filter es algo que
+            Safari/WebKit (el motor real de "Chrome" en iOS) renderiza mal
+            cuando está fijo arriba — deja ver el contenido de atrás a los
+            tirones. Totalmente opaco (no /95): así no queda ni un resto de
+            transparencia por el que se cuele el texto que pasa por detrás. */}
         <div
           aria-hidden="true"
-          className={`absolute inset-0 bg-page border-b border-line/10 ${
-            scrolled ? "opacity-100" : "opacity-0"
-          }`}
+          className="absolute inset-0 bg-header border-b border-line/15 shadow-sm shadow-black/5"
         />
 
         <Container className="relative flex h-16 sm:h-20 items-center justify-between gap-4">

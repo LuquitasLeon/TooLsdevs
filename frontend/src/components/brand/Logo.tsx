@@ -23,6 +23,12 @@ export default function Logo({
       <LogoMark
         className={cn("shrink-0", className)}
         animate={false}
+        // Acá el logo va chico, junto al nombre escrito: necesita el verde/teal
+        // "seguro para texto" (mismo que usa el gradiente del wordmark), no el
+        // extra brillante de LogoMark — ese pierde casi todo el contraste sobre
+        // fondo claro.
+        colorFrom="var(--color-brand-green-text)"
+        colorTo="var(--color-brand-teal-text)"
         {...(withWordmark ? {} : { title: "ToolsDevs" })}
       />
       {withWordmark && (

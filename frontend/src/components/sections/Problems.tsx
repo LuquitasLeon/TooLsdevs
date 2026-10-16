@@ -20,7 +20,7 @@ export default function Problems() {
           {problems.items.map((item, i) => (
             <Reveal key={item} delay={(i % 4) * 0.06}>
               <Card padding="compact" className="flex items-start gap-3">
-                <AlertCircle size={18} className="mt-0.5 shrink-0 text-brand-teal" />
+                <AlertCircle size={18} className="mt-0.5 shrink-0 text-brand-teal-text" />
                 <span className="text-sm sm:text-base text-muted/90">{item}</span>
               </Card>
             </Reveal>
@@ -29,7 +29,7 @@ export default function Problems() {
 
         <Reveal delay={0.1}>
           <Card accent="green" padding="roomy" className="flex items-start gap-4">
-            <Lightbulb size={22} className="mt-0.5 shrink-0 text-brand-green" />
+            <Lightbulb size={22} className="mt-0.5 shrink-0 text-brand-green-text" />
             <p className="text-sm sm:text-base leading-relaxed text-muted font-medium">
               {problems.callout}
             </p>

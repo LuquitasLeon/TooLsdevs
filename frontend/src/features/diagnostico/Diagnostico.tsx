@@ -108,7 +108,7 @@ export default function Diagnostico({ onComplete }: { onComplete: (prefill: Cont
                   <ArrowRight
                     size={16}
                     aria-hidden="true"
-                    className="shrink-0 text-faint transition-all group-hover:translate-x-0.5 group-hover:text-brand-teal"
+                    className="shrink-0 text-faint transition-all group-hover:translate-x-0.5 group-hover:text-brand-teal-text"
                   />
                 </button>
               ))}

@@ -54,15 +54,17 @@ export default function ClientsMarquee({ models, eyebrow }: Props) {
     <section className="relative py-14 sm:py-20">
       <Divider />
       <Container>
-        <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-brand-teal/90">
+        <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-brand-teal-text/90">
           {eyebrow}
         </p>
       </Container>
 
       <div className="marquee relative mt-10 overflow-hidden">
-        {/* Difuminado en los bordes para que los logos entren y salgan suave. */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 sm:w-28 bg-gradient-to-r from-navy-950 to-transparent" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 sm:w-28 bg-gradient-to-l from-navy-950 to-transparent" />
+        {/* Difuminado en los bordes para que los logos entren y salgan suave.
+            `from-page`, no un color fijo: tiene que fundirse con el fondo de
+            la página en los dos temas, no sólo en oscuro. */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 sm:w-28 bg-gradient-to-r from-page to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 sm:w-28 bg-gradient-to-l from-page to-transparent" />
 
         <div
           className="marquee-track flex w-max items-center gap-10"

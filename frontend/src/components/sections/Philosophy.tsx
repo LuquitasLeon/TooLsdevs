@@ -17,7 +17,12 @@ export default function Philosophy() {
 
       <Container className="relative flex flex-col items-center gap-8 text-center">
         <Reveal>
-          <LogoMark className="h-16 w-16 sm:h-20 sm:w-20" animate={false} />
+          <LogoMark
+            className="h-16 w-16 sm:h-20 sm:w-20"
+            animate={false}
+            colorFrom="var(--color-brand-green-text)"
+            colorTo="var(--color-brand-teal-text)"
+          />
         </Reveal>
 
         <Reveal delay={0.1} className="max-w-2xl flex flex-col gap-4">

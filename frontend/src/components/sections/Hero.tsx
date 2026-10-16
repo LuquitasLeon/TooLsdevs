@@ -49,10 +49,10 @@ export default function Hero() {
                 {...riseClass(
                   mounted,
                   0,
-                  "inline-flex items-center gap-2 rounded-full border border-line/10 bg-line/5 px-4 py-1.5 text-xs sm:text-sm font-medium text-muted",
+                  "inline-flex items-center gap-2 rounded-lg border border-line/15 bg-line/8 px-4 py-1.5 text-xs sm:text-sm font-medium text-muted",
                 )}
               >
-                <ShieldCheck size={16} className="text-brand-teal" aria-hidden="true" />
+                <ShieldCheck size={16} className="text-brand-teal-text" aria-hidden="true" />
                 {hero.eyebrow}
               </span>
 
@@ -145,9 +145,9 @@ export default function Hero() {
           <div className="flex flex-col items-start gap-6 text-left">
             <motion.span
               {...rise(0)}
-              className="inline-flex items-center gap-2 rounded-full border border-line/10 bg-line/5 px-4 py-1.5 text-xs sm:text-sm font-medium text-muted"
+              className="inline-flex items-center gap-2 rounded-lg border border-line/15 bg-line/8 px-4 py-1.5 text-xs sm:text-sm font-medium text-muted"
             >
-              <ShieldCheck size={16} className="text-brand-teal" aria-hidden="true" />
+              <ShieldCheck size={16} className="text-brand-teal-text" aria-hidden="true" />
               {hero.eyebrow}
             </motion.span>
 

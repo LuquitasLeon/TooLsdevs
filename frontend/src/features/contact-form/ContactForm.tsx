@@ -81,7 +81,7 @@ export default function ContactForm({ prefill }: { prefill?: ContactPrefill }) {
           className="flex flex-col items-center gap-4 py-6 text-center"
           role="status"
         >
-          <CheckCircle2 size={44} className="text-brand-green" aria-hidden="true" />
+          <CheckCircle2 size={44} className="text-brand-green-text" aria-hidden="true" />
           <h3 className="font-display text-xl font-semibold text-fg">{form.successTitle}</h3>
           <p className="max-w-sm text-muted/90">{form.successText}</p>
         </motion.div>

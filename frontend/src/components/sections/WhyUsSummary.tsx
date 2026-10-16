@@ -25,7 +25,7 @@ export default function WhyUsSummary() {
           {whyUs.reasons.slice(0, 3).map((reason, i) => (
             <Reveal key={reason} delay={i * 0.07}>
               <Card padding="compact" accent="green" className="flex items-start gap-3 text-left h-full">
-                <CheckCircle2 size={20} className="mt-0.5 shrink-0 text-brand-green" />
+                <CheckCircle2 size={20} className="mt-0.5 shrink-0 text-brand-green-text" />
                 <span className="text-sm sm:text-base text-muted">{reason}</span>
               </Card>
             </Reveal>

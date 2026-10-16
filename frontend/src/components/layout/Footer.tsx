@@ -11,6 +11,9 @@ import { routes } from "@/app/routes";
 export default function Footer() {
   const { nav, ui } = useContent();
 
+  // Base sólida (`bg-surface`, la misma que las tarjetas) en vez de un tinte
+  // al 10%: con el ícono flotando casi directo sobre la página, un fondo tan
+  // tenue lo deja "escondido" — acá el color queda en el borde y el ícono.
   const socialLinks = [
     {
       label: "Email",
@@ -18,7 +21,7 @@ export default function Footer() {
       Icon: Mail,
       external: false,
       colorClass:
-        "bg-brand-teal/10 text-brand-teal border-brand-teal/12 hover:bg-brand-teal/20 hover:border-brand-teal/25",
+        "bg-surface text-brand-teal-text border-brand-teal/30 hover:bg-surface-hover hover:border-brand-teal/50",
     },
     {
       label: "WhatsApp",
@@ -26,7 +29,7 @@ export default function Footer() {
       Icon: MessageCircle,
       external: true,
       colorClass:
-        "bg-brand-green/10 text-brand-green border-brand-green/12 hover:bg-brand-green/20 hover:border-brand-green/25",
+        "bg-surface text-brand-green-text border-brand-green/30 hover:bg-surface-hover hover:border-brand-green/50",
     },
     {
       label: "Instagram",
@@ -34,7 +37,7 @@ export default function Footer() {
       Icon: InstagramIcon,
       external: true,
       colorClass:
-        "bg-violet-400/10 text-violet-300 border-violet-400/12 hover:bg-violet-400/20 hover:border-violet-400/25",
+        "bg-surface text-accent-violet-text border-accent-violet/30 hover:bg-surface-hover hover:border-accent-violet/50",
     },
   ];
 

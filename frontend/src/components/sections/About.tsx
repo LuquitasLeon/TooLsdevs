@@ -23,7 +23,7 @@ export default function About() {
         <div className="grid gap-6 sm:grid-cols-2">
           <Reveal delay={0.15}>
             <Card accent="teal">
-              <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand-teal/10 text-brand-teal">
+              <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand-teal/10 text-brand-teal-text">
                 <Target size={20} />
               </div>
               <h3 className="font-display text-lg font-semibold text-fg">{about.mission.title}</h3>
@@ -34,7 +34,7 @@ export default function About() {
           </Reveal>
           <Reveal delay={0.2}>
             <Card accent="green">
-              <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand-green/10 text-brand-green">
+              <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand-green/10 text-brand-green-text">
                 <Compass size={20} />
               </div>
               <h3 className="font-display text-lg font-semibold text-fg">{about.vision.title}</h3>

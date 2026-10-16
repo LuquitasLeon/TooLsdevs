@@ -41,6 +41,11 @@
   --color-faint: #6b7385;
   --color-line: #0b0d12;
 
+  /* Fondo de la navbar: separada de la página, pero no tanto como una tarjeta
+     (`surface`) — esa es para elementos que "flotan"; la navbar tiene que
+     leerse como parte del mismo diseño, no como un panel pegado encima. */
+  --color-header: #f4f6f9;
+
   /* Versión "segura para texto" de cada acento: el teal/verde/etc. brillante
      no tiene contraste suficiente como texto sobre fondo claro. En oscuro
      valen lo mismo que el acento de siempre (cero cambio ahí). */
@@ -81,6 +86,11 @@
   --color-faint: #94a3b8;
   --color-line: #ffffff;
 
+  /* Un escalón sobre `--color-navy-900` (el fondo de página en oscuro), no el
+     salto grande a `--color-surface` — de la misma escala navy, para que se
+     note separada sin desentonar con el resto. */
+  --color-header: var(--color-navy-800);
+
   --color-brand-teal-text: #06b6d4;
   --color-brand-green-text: #22c55e;
   --color-accent-sky-text: #0ea5e9;
@@ -94,6 +104,27 @@ html {
   font-size: 106.25%;
   /* Deja aire bajo la barra fija al saltar a un ancla. */
   scroll-padding-top: 6rem;
+  /* Firefox: scrollbar-color sigue los mismos tokens semánticos, así que
+     cambia sola con el tema. Para Chrome/Safari/Edge, ver ::-webkit-scrollbar. */
+  scrollbar-color: var(--color-faint) var(--color-page);
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-page);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-faint);
+  border-radius: 999px;
+  border: 3px solid var(--color-page);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-muted);
 }
 
 body {

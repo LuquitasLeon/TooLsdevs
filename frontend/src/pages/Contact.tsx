@@ -62,7 +62,7 @@ export default function Contact() {
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             <Reveal>
               <Card className="flex flex-col gap-4">
-                <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-brand-green/10 text-brand-green">
+                <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-brand-green/10 text-brand-green-text">
                   <MessageCircle size={22} aria-hidden="true" />
                 </div>
                 <h2 className="font-display text-lg font-semibold text-fg">WhatsApp</h2>
@@ -85,7 +85,7 @@ export default function Contact() {
 
             <Reveal delay={0.06}>
               <Card className="flex flex-col gap-4">
-                <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-brand-teal/10 text-brand-teal">
+                <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-brand-teal/10 text-brand-teal-text">
                   <Mail size={22} aria-hidden="true" />
                 </div>
                 <h2 className="font-display text-lg font-semibold text-fg">Email</h2>

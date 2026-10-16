@@ -15,11 +15,11 @@ interface Props {
 
 const iconColors: Record<Accent, string> = {
   none: "text-faint",
-  teal: "text-brand-teal",
-  green: "text-brand-green",
-  sky: "text-accent-sky",
-  violet: "text-accent-violet",
-  amber: "text-accent-amber",
+  teal: "text-brand-teal-text",
+  green: "text-brand-green-text",
+  sky: "text-accent-sky-text",
+  violet: "text-accent-violet-text",
+  amber: "text-accent-amber-text",
 };
 
 export default function HomeTeaser({ teaser, accent = "teal" }: Props) {

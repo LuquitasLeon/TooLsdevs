@@ -9,8 +9,8 @@ import { useContent } from "@/features/i18n/useI18n";
 const icons = [Code2, ShieldHalf];
 const cardAccents = ["teal", "amber"] as const;
 const badgeColors = [
-  "bg-brand-teal/15 text-brand-teal",
-  "bg-accent-amber/15 text-accent-amber",
+  "bg-brand-teal/15 text-brand-teal-text",
+  "bg-accent-amber/15 text-accent-amber-text",
 ] as const;
 
 interface ServicesProps {
@@ -50,7 +50,7 @@ export default function Services({ hideHeading = false }: ServicesProps) {
                   <ul className="mt-5 flex flex-col gap-3">
                     {group.items.map((item) => (
                       <li key={item} className="flex items-start gap-2.5 text-sm sm:text-base text-muted/90">
-                        <Check size={18} className="mt-0.5 shrink-0 text-brand-green" />
+                        <Check size={18} className="mt-0.5 shrink-0 text-brand-green-text" />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -63,7 +63,7 @@ export default function Services({ hideHeading = false }: ServicesProps) {
 
         <Reveal delay={0.15}>
           <Card accent="teal" padding="roomy" className="flex items-start gap-4">
-            <Sparkles size={22} className="mt-0.5 shrink-0 text-brand-teal" />
+            <Sparkles size={22} className="mt-0.5 shrink-0 text-brand-teal-text" />
             <p className="text-sm sm:text-base leading-relaxed text-muted">{services.callout}</p>
           </Card>
         </Reveal>
