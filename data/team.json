@@ -1,0 +1,40 @@
+[
+  {
+    "name": "Santiago Nicolás Ferreyra Appas",
+    "roleEs": "Cofundador",
+    "roleEn": "Co-founder",
+    "detailEs": "Técnico Programador (UTN FRT)",
+    "detailEn": "Software Technician (UTN FRT)",
+    "photo": "/team/santiago.jpg",
+    "order": 0,
+    "id": "951f5e74-4ad3-4c60-a6e4-e845b5b579fb",
+    "createdAt": "2026-09-09T00:10:07.968Z",
+    "updatedAt": "2026-09-09T00:10:07.968Z"
+  },
+  {
+    "name": "Lucas Ismael León",
+    "roleEs": "Cofundador",
+    "roleEn": "Co-founder",
+    "detailEs": "Técnico Programador (UTN FRT)",
+    "detailEn": "Software Technician (UTN FRT)",
+    "photo": "/team/ismael.jpg",
+    "order": 1,
+    "id": "52a3dfc4-8345-45cc-91ff-d4d69e23123d",
+    "createdAt": "2026-09-09T00:10:07.968Z",
+    "updatedAt": "2026-09-09T00:10:07.968Z"
+  },
+  {
+    "name": "Luciano Agustín Llanos",
+    "roleEs": "Cofundador",
+    "roleEn": "Co-founder",
+    "detailEs": "Técnico Programador (UTN FRT)",
+    "detailEn": "Software Technician (UTN FRT)",
+    "extraEs": "Especialista en Ciberseguridad — Diplomatura otorgada por la UTN",
+    "extraEn": "Cybersecurity Specialist — postgraduate diploma awarded by UTN",
+    "photo": "/team/luciano.jpg",
+    "order": 2,
+    "id": "1b690e42-2f18-4f00-9d8c-fa9638a4f20b",
+    "createdAt": "2026-09-09T00:10:07.968Z",
+    "updatedAt": "2026-09-09T00:10:07.968Z"
+  }
+]
